@@ -6,7 +6,7 @@ const props = defineProps<{
   project: ProjectItem
 }>()
 
-const visibleTags = computed(() => props.project.tags.slice(0, 3))
+const visibleTags = computed(() => props.project.tags.slice(0, 2))
 </script>
 
 <template>
@@ -18,12 +18,12 @@ const visibleTags = computed(() => props.project.tags.slice(0, 3))
       <p class="project-subtitle">{{ project.subtitle }}</p>
 
       <div class="project-detail">
+        <p class="project-value">{{ project.value }}</p>
         <div class="project-tags" aria-label="项目标签">
           <span v-for="tag in visibleTags" :key="tag" class="project-tag">
             {{ tag }}
           </span>
         </div>
-        <p class="project-value">{{ project.value }}</p>
       </div>
     </div>
 

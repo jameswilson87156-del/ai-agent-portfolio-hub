@@ -32,7 +32,7 @@
       </a>
       <a class="hero-button" href="#github">
         查看 GitHub
-        <span class="button-icon" aria-hidden="true">⌁</span>
+        <span class="button-icon" aria-hidden="true">↗</span>
       </a>
       <a class="hero-button hero-button--resume" href="#resume">
         <span class="button-icon" aria-hidden="true">↓</span>
