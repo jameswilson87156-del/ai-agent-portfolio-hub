@@ -20,6 +20,15 @@ dist-ssr
 playwright-report
 test-results
 
+# Local design motion references
+docs/design/motion-references/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.m4v
+
 # Editors and OS
 .vscode/*
 !.vscode/extensions.json

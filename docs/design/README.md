@@ -16,3 +16,7 @@ Current real browser screenshots:
 
 - `docs/images/portfolio-home.png`
 - `docs/images/large/portfolio-home.png`
+
+## Motion References
+
+`docs/design/motion-references/` is reserved for local motion references such as terrain videos. These files are reference material only, are ignored by Git, and must not be used as page assets.

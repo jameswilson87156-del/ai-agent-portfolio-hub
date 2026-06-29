@@ -34,11 +34,9 @@ export const navItems: NavItem[] = [
 ]
 
 export const techTags: TechTag[] = [
-  { label: 'Spring Boot', tone: 'orange', x: 32, y: 25, line: 82 },
-  { label: 'RAG', tone: 'green', x: 45, y: 18, line: 108 },
-  { label: 'MCP-style', tone: 'orange', x: 66, y: 43, line: 70 },
-  { label: 'Trace Evidence', tone: 'green', x: 38, y: 72, line: 42 },
-  { label: 'JSON-RPC', tone: 'green', x: 82, y: 67, line: 34 },
+  { label: 'RAG', tone: 'green', x: 37, y: 18, line: 92 },
+  { label: 'MCP-style', tone: 'orange', x: 63, y: 39, line: 64 },
+  { label: 'Trace Evidence', tone: 'green', x: 47, y: 74, line: 42 },
 ]
 
 export const timelineSteps: TimelineStep[] = [
@@ -55,21 +53,21 @@ export const projects: ProjectItem[] = [
     index: '01',
     title: 'DevFlow Copilot',
     subtitle: 'AI Coding / Agentic Workflow Console',
-    tags: ['AI Coding', 'Prompt Studio', 'Trace', 'Knowledge Base', 'Human Review'],
+    tags: ['AI Coding', 'Prompt Studio', 'Trace'],
     tone: 'orange',
   },
   {
     index: '02',
     title: 'Enterprise Ticket RAG Copilot',
     subtitle: '企业工单 RAG 智能助手',
-    tags: ['RAG', 'Ticket Copilot', 'Knowledge Reference', 'Provider fallback', 'Trace Evidence'],
+    tags: ['RAG', 'Knowledge Reference', 'Human Review'],
     tone: 'green',
   },
   {
     index: '03',
     title: 'MCP Tool Gateway',
     subtitle: '企业 Agent 工具网关',
-    tags: ['MCP-style', 'Tool Registry', 'JSON-RPC', 'RBAC demo', 'Audit Log', 'H2 Persistence'],
+    tags: ['MCP-style', 'JSON-RPC', 'Audit Log'],
     tone: 'orange',
   },
 ]

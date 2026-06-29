@@ -17,6 +17,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented the P1B static high-fidelity cinematic homepage.
 - Implemented the P1C cinematic motion and interaction layer.
 - Implemented the P1D homepage visual rescue pass after manual review found the P1C screen too dense, visually obstructed, and not spacious enough for a premium portfolio homepage.
+- Implemented the P1E Hero visual rebuild after manual review found the P1D title spacing unsafe, the mountain terrain too weak, and the project entries still too dashboard-like.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added real browser screenshot generation with Playwright.
 
@@ -31,6 +32,15 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - `ProjectShowcase.vue`
 - `ProjectCard.vue`
 - `useParallax.ts`
+
+## P1E Hero Rebuild
+
+- Split `AI Agent` and `工程师作品集` into independent title blocks with stable line-height and spacing so the English descender can never overlap the Chinese title.
+- Rebuilt the right-side visual emphasis around CSS/SVG mountain terrain, orange/green energy paths, depth gradients, and restrained particle points.
+- Reduced floating tags to the three evidence labels that support the hero: RAG, MCP-style, and Trace Evidence.
+- Reframed JSON-RPC as a small floating evidence card and Trace Timeline as a lower horizontal evidence rail.
+- Reworked project entries into editorial case-study strips with numbering, a single positioning line, three core tags, and directional arrows.
+- Kept the implementation in Vue, TypeScript, and native CSS. No canvas, GSAP, Three.js, animation library, or UI framework is used.
 
 ## Motion Implementation
 
@@ -48,6 +58,10 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Lowered background particle, terrain, and orange/green light opacity to improve Chinese text readability.
 - Increased spacing between hero copy, engineering panels, and project entries.
 
+## Motion References
+
+`docs/design/motion-references/` is ignored by Git. Any local video placed there is a motion reference only and must not be used as a page asset or committed.
+
 ## Reduced Motion
 
 `@media (prefers-reduced-motion: reduce)` disables parallax, background motion, Timeline flow, scan light, floating tags, and animated reveals. Static hover feedback remains available.
@@ -61,4 +75,4 @@ These are real browser screenshots generated from the Vue app. The reference ima
 
 ## Next Step
 
-P2 should build the Projects overview page while preserving the cinematic portfolio direction. Do not freely reinterpret the project as a normal dashboard, blog template, or admin system.
+P2 should wait until the rebuilt homepage visual direction is accepted, then build the Projects overview page while preserving the cinematic portfolio direction. Do not freely reinterpret the project as a normal dashboard, blog template, or admin system.

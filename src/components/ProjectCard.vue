@@ -6,16 +6,12 @@ const props = defineProps<{
   project: ProjectItem
 }>()
 
-const visibleTags = computed(() => props.project.tags.slice(0, 5))
+const visibleTags = computed(() => props.project.tags.slice(0, 3))
 </script>
 
 <template>
   <article :class="['project-card', `project-card--${project.tone}`]">
-    <div class="project-card__top">
-      <span class="project-index">{{ project.index }}</span>
-      <span class="project-thumb" aria-hidden="true" />
-      <span class="project-arrow" aria-hidden="true">→</span>
-    </div>
+    <span class="project-index">{{ project.index }}</span>
 
     <div class="project-card__body">
       <h2 class="project-title">{{ project.title }}</h2>
@@ -27,5 +23,7 @@ const visibleTags = computed(() => props.project.tags.slice(0, 5))
         </span>
       </div>
     </div>
+
+    <span class="project-arrow" aria-hidden="true">→</span>
   </article>
 </template>

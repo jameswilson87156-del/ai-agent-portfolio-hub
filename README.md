@@ -8,7 +8,7 @@ This project is the homepage for a personal portfolio aimed at Java backend inte
 
 ## Current Stage
 
-P1D complete: cinematic homepage visual hierarchy and spacing refined after manual review.
+P1E complete: the cinematic landing hero has been rebuilt after manual review found the P1D screen too component-like and the title spacing unsafe.
 
 ## Tech Stack
 
@@ -33,13 +33,17 @@ This file is an AI-generated visual reference. It is not a running webpage scree
 
 These screenshots are generated from the implemented Vue app with `npm run screenshots`.
 
-## Visual Refinement
+## Visual Rebuild
 
-P1D reduced floating UI density, softened the particle terrain and light streams, moved project entries into larger case-study cards, and improved whitespace so the homepage reads more like a premium personal portfolio.
+P1E rebuilds the Hero visual system around a large separated `AI Agent` title, a clear Chinese title block, a stronger CSS/SVG cinematic mountain terrain, lighter JSON-RPC and Trace evidence elements, and editorial case-study project entries.
+
+The current homepage is intended to read as a premium AI Agent engineer portfolio landing page, not a dashboard, blog template, or admin console.
 
 ## Motion Boundary
 
 The particle terrain flow, Trace Timeline light point, panel hover states, and parallax are front-end visual expressions only. They do not represent real runtime status, real API calls, or production system state.
+
+Motion references under `docs/design/motion-references/` are local design references only and are not page assets.
 
 ## Current Boundaries
 
