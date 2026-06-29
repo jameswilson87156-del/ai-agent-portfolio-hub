@@ -34,9 +34,8 @@ export const navItems: NavItem[] = [
 ]
 
 export const techTags: TechTag[] = [
-  { label: 'RAG', tone: 'green', x: 37, y: 18, line: 92 },
-  { label: 'MCP-style', tone: 'orange', x: 63, y: 39, line: 64 },
-  { label: 'Trace Evidence', tone: 'green', x: 47, y: 74, line: 42 },
+  { label: 'RAG', tone: 'green', x: 33, y: 23, line: 78 },
+  { label: 'MCP-style', tone: 'orange', x: 62, y: 43, line: 54 },
 ]
 
 export const timelineSteps: TimelineStep[] = [
