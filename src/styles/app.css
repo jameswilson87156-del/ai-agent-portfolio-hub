@@ -153,9 +153,10 @@
     "PingFang SC", "Microsoft YaHei UI", "Noto Sans CJK SC",
     "Source Han Sans SC", var(--font-body);
   font-size: clamp(3.7rem, 5.08vw, 6.1rem);
-  font-weight: 500;
+  font-weight: 450;
   line-height: 0.98;
   letter-spacing: -0.045em;
+  text-shadow: 0 22px 64px rgba(0, 0, 0, 0.78);
 }
 
 .identity-line {
@@ -255,13 +256,13 @@
 
 .hero-button:hover,
 .hero-button:focus-visible {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
   color: #fffaf2;
   background: rgba(14, 14, 13, 0.76);
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.06),
-    0 12px 28px rgba(0, 0, 0, 0.3);
+    0 8px 20px rgba(0, 0, 0, 0.26);
   outline: none;
 }
 
@@ -279,11 +280,11 @@
 
 .hero-button--primary:hover,
 .hero-button--primary:focus-visible {
-  border-color: rgba(255, 140, 37, 0.94);
-  background: rgba(255, 121, 0, 0.095);
+  border-color: rgba(255, 140, 37, 0.88);
+  background: rgba(255, 121, 0, 0.085);
   box-shadow:
     inset 0 1px rgba(255, 223, 191, 0.08),
-    0 13px 34px rgba(255, 121, 0, 0.09);
+    0 9px 24px rgba(255, 121, 0, 0.075);
 }
 
 .hero-button--primary::before {
@@ -296,26 +297,29 @@
 }
 
 .button-icon {
+  position: relative;
+  top: -1px;
   display: inline-flex;
   width: 18px;
   height: 18px;
+  flex: 0 0 18px;
   align-items: center;
   justify-content: center;
   color: currentColor;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1;
   transition: transform 180ms ease;
 }
 
 .hero-button:hover .button-icon,
 .hero-button:focus-visible .button-icon {
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 .hero-button--resume:hover .button-icon,
 .hero-button--resume:focus-visible .button-icon {
-  transform: translateY(2px);
+  transform: translateY(1px);
 }
 
 .evidence-stage {
@@ -448,11 +452,11 @@
   right: 0;
   bottom: clamp(108px, 18vh, 168px);
   width: min(580px, 88%);
-  border: 1px solid rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 5px;
   background:
     linear-gradient(90deg, rgba(89, 228, 122, 0.022), transparent 72%),
-    rgba(4, 4, 4, 0.58);
+    rgba(3, 3, 3, 0.68);
   backdrop-filter: blur(3px);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.24);
   opacity: 0.88;
@@ -470,8 +474,8 @@
 }
 
 .trace-panel:hover {
-  border-color: rgba(89, 228, 122, 0.16);
-  background: rgba(6, 6, 6, 0.68);
+  border-color: rgba(89, 228, 122, 0.11);
+  background: rgba(4, 4, 4, 0.74);
   opacity: 0.96;
   transform: translate3d(
       calc(var(--parallax-x) * -2px),
@@ -503,7 +507,7 @@
   height: 6px;
   border-radius: 999px;
   background: var(--color-green);
-  box-shadow: 0 0 10px rgba(89, 228, 122, 0.58);
+  box-shadow: 0 0 8px rgba(89, 228, 122, 0.34);
   animation: statusPulse 6s ease-in-out infinite;
   content: "";
 }
@@ -542,7 +546,7 @@
   background-position: 100% 0, 100% 0;
   background-repeat: no-repeat;
   background-size: 200% 100%, 200% 100%;
-  filter: drop-shadow(0 0 7px rgba(89, 228, 122, 0.28));
+  filter: drop-shadow(0 0 6px rgba(89, 228, 122, 0.16));
   opacity: 0;
   animation: traceRunner 14s cubic-bezier(0.55, 0, 0.28, 1) infinite;
   pointer-events: none;
@@ -562,18 +566,18 @@
   place-items: center;
   width: 22px;
   height: 22px;
-  border: 1px solid rgba(89, 228, 122, 0.34);
+  border: 1px solid rgba(89, 228, 122, 0.24);
   border-radius: 999px;
   color: rgba(245, 240, 231, 0.9);
   background: #090a09;
-  box-shadow: 0 0 12px rgba(89, 228, 122, 0.1);
+  box-shadow: 0 0 9px rgba(89, 228, 122, 0.055);
   font-size: 0.68rem;
   animation: traceNodePulse 9s ease-in-out infinite;
   animation-delay: calc(var(--step-index) * 460ms);
 }
 
 .trace-step:last-child .trace-icon {
-  border-color: rgba(255, 121, 0, 0.54);
+  border-color: rgba(255, 121, 0, 0.38);
   color: var(--color-ember);
 }
 
@@ -598,7 +602,7 @@
   grid-template-columns: 1.1fr 1.25fr 1fr;
   gap: clamp(26px, 2.8vw, 52px);
   align-items: start;
-  transform: translateY(-18px);
+  transform: translateY(-30px);
   animation: contentReveal 720ms 220ms ease-out both;
 }
 
@@ -689,9 +693,9 @@
 .project-value {
   margin: 0;
   max-width: 38rem;
-  color: rgba(245, 240, 231, 0.74);
-  font-size: 0.76rem;
-  line-height: 1.55;
+  color: rgba(245, 240, 231, 0.82);
+  font-size: 0.825rem;
+  line-height: 1.62;
   transition:
     color 180ms ease;
 }
@@ -976,13 +980,13 @@
 @keyframes traceNodePulse {
   0%,
   100% {
-    box-shadow: 0 0 12px rgba(89, 228, 122, 0.08);
+    box-shadow: 0 0 9px rgba(89, 228, 122, 0.045);
   }
 
   50% {
     box-shadow:
-      0 0 14px rgba(89, 228, 122, 0.2),
-      0 0 22px rgba(89, 228, 122, 0.07);
+      0 0 11px rgba(89, 228, 122, 0.12),
+      0 0 18px rgba(89, 228, 122, 0.04);
   }
 }
 
