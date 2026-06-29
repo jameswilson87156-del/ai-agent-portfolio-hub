@@ -220,7 +220,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 11px;
   width: 188px;
   min-width: 188px;
   height: 54px;
@@ -297,8 +297,6 @@
 }
 
 .button-icon {
-  position: relative;
-  top: -1px;
   display: inline-flex;
   width: 18px;
   height: 18px;
@@ -306,20 +304,9 @@
   align-items: center;
   justify-content: center;
   color: currentColor;
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  line-height: 1;
-  transition: transform 180ms ease;
-}
-
-.hero-button:hover .button-icon,
-.hero-button:focus-visible .button-icon {
-  transform: translateX(2px);
-}
-
-.hero-button--resume:hover .button-icon,
-.hero-button--resume:focus-visible .button-icon {
-  transform: translateY(1px);
+  font-family: "Segoe UI Symbol", var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 18px;
 }
 
 .evidence-stage {
@@ -452,7 +439,7 @@
   right: 0;
   bottom: clamp(108px, 18vh, 168px);
   width: min(580px, 88%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.035);
   border-radius: 5px;
   background:
     linear-gradient(90deg, rgba(89, 228, 122, 0.022), transparent 72%),
@@ -474,7 +461,7 @@
 }
 
 .trace-panel:hover {
-  border-color: rgba(89, 228, 122, 0.11);
+  border-color: rgba(89, 228, 122, 0.085);
   background: rgba(4, 4, 4, 0.74);
   opacity: 0.96;
   transform: translate3d(
@@ -507,7 +494,7 @@
   height: 6px;
   border-radius: 999px;
   background: var(--color-green);
-  box-shadow: 0 0 8px rgba(89, 228, 122, 0.34);
+  box-shadow: 0 0 7px rgba(89, 228, 122, 0.24);
   animation: statusPulse 6s ease-in-out infinite;
   content: "";
 }
@@ -526,9 +513,9 @@
   left: 34px;
   right: 34px;
   height: 1px;
-  background: linear-gradient(90deg, rgba(89, 228, 122, 0.76), rgba(89, 228, 122, 0.34), rgba(255, 121, 0, 0.58));
+  background: linear-gradient(90deg, rgba(89, 228, 122, 0.62), rgba(89, 228, 122, 0.26), rgba(255, 121, 0, 0.46));
   background-size: 150% 100%;
-  box-shadow: 0 0 7px rgba(89, 228, 122, 0.1);
+  box-shadow: 0 0 6px rgba(89, 228, 122, 0.06);
   animation: traceLineFlow 15s linear infinite;
   content: "";
 }
@@ -541,12 +528,12 @@
   right: 34px;
   height: 8px;
   background:
-    radial-gradient(circle, rgba(255, 248, 236, 0.66) 0 2px, rgba(89, 228, 122, 0.54) 3px, transparent 7px),
-    radial-gradient(circle, rgba(255, 121, 0, 0.18), transparent 12px);
+    radial-gradient(circle, rgba(255, 248, 236, 0.52) 0 2px, rgba(89, 228, 122, 0.38) 3px, transparent 7px),
+    radial-gradient(circle, rgba(255, 121, 0, 0.12), transparent 12px);
   background-position: 100% 0, 100% 0;
   background-repeat: no-repeat;
   background-size: 200% 100%, 200% 100%;
-  filter: drop-shadow(0 0 6px rgba(89, 228, 122, 0.16));
+  filter: drop-shadow(0 0 5px rgba(89, 228, 122, 0.1));
   opacity: 0;
   animation: traceRunner 14s cubic-bezier(0.55, 0, 0.28, 1) infinite;
   pointer-events: none;
@@ -566,18 +553,18 @@
   place-items: center;
   width: 22px;
   height: 22px;
-  border: 1px solid rgba(89, 228, 122, 0.24);
+  border: 1px solid rgba(89, 228, 122, 0.18);
   border-radius: 999px;
   color: rgba(245, 240, 231, 0.9);
   background: #090a09;
-  box-shadow: 0 0 9px rgba(89, 228, 122, 0.055);
+  box-shadow: 0 0 8px rgba(89, 228, 122, 0.03);
   font-size: 0.68rem;
   animation: traceNodePulse 9s ease-in-out infinite;
   animation-delay: calc(var(--step-index) * 460ms);
 }
 
 .trace-step:last-child .trace-icon {
-  border-color: rgba(255, 121, 0, 0.38);
+  border-color: rgba(255, 121, 0, 0.3);
   color: var(--color-ember);
 }
 
@@ -602,7 +589,7 @@
   grid-template-columns: 1.1fr 1.25fr 1fr;
   gap: clamp(26px, 2.8vw, 52px);
   align-items: start;
-  transform: translateY(-30px);
+  transform: translateY(-40px);
   animation: contentReveal 720ms 220ms ease-out both;
 }
 
@@ -693,9 +680,9 @@
 .project-value {
   margin: 0;
   max-width: 38rem;
-  color: rgba(245, 240, 231, 0.82);
-  font-size: 0.825rem;
-  line-height: 1.62;
+  color: rgba(245, 240, 231, 0.85);
+  font-size: 0.85rem;
+  line-height: 1.66;
   transition:
     color 180ms ease;
 }
@@ -980,13 +967,13 @@
 @keyframes traceNodePulse {
   0%,
   100% {
-    box-shadow: 0 0 9px rgba(89, 228, 122, 0.045);
+    box-shadow: 0 0 8px rgba(89, 228, 122, 0.025);
   }
 
   50% {
     box-shadow:
-      0 0 11px rgba(89, 228, 122, 0.12),
-      0 0 18px rgba(89, 228, 122, 0.04);
+      0 0 9px rgba(89, 228, 122, 0.08),
+      0 0 15px rgba(89, 228, 122, 0.025);
   }
 }
 
