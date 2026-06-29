@@ -76,6 +76,7 @@ try {
 
     await page.goto(url, { waitUntil: 'networkidle' })
     await page.evaluate(() => document.fonts.ready)
+    await page.waitForTimeout(900)
     await page.screenshot({ path: viewport.path, fullPage: false })
     await page.close()
   }

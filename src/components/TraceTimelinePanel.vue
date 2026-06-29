@@ -14,7 +14,14 @@ defineProps<{
     </div>
 
     <div class="trace-steps">
-      <div v-for="step in steps" :key="step.label" class="trace-step">
+      <span class="trace-runner" aria-hidden="true" />
+
+      <div
+        v-for="(step, index) in steps"
+        :key="step.label"
+        class="trace-step"
+        :style="{ '--step-index': index }"
+      >
         <span class="trace-icon" aria-hidden="true">{{ step.icon }}</span>
         <span class="trace-label">{{ step.label }}</span>
         <span class="trace-time">{{ step.time }}</span>

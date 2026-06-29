@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import CinematicBackground from './components/CinematicBackground.vue'
 import FloatingTechTags from './components/FloatingTechTags.vue'
 import HeroSection from './components/HeroSection.vue'
@@ -6,6 +7,7 @@ import JsonRpcWindow from './components/JsonRpcWindow.vue'
 import ProjectShowcase from './components/ProjectShowcase.vue'
 import TopNav from './components/TopNav.vue'
 import TraceTimelinePanel from './components/TraceTimelinePanel.vue'
+import { useParallax } from './composables/useParallax'
 import {
   jsonRpcPayload,
   navItems,
@@ -13,10 +15,14 @@ import {
   techTags,
   timelineSteps,
 } from './data/portfolio'
+
+const homeRef = ref<HTMLElement | null>(null)
+
+useParallax(homeRef)
 </script>
 
 <template>
-  <div class="portfolio-home">
+  <div ref="homeRef" class="portfolio-home">
     <CinematicBackground />
     <TopNav :items="navItems" />
 

@@ -3,6 +3,8 @@
   min-height: 100vh;
   overflow: hidden;
   color: var(--color-text);
+  --parallax-x: 0;
+  --parallax-y: 0;
   background:
     radial-gradient(circle at 81% 28%, rgba(62, 229, 124, 0.12), transparent 28rem),
     radial-gradient(circle at 63% 73%, rgba(255, 111, 0, 0.16), transparent 30rem),
@@ -31,6 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  animation: contentReveal 680ms ease-out both;
 }
 
 .brand-mark {
@@ -103,6 +106,7 @@
   align-self: center;
   max-width: 730px;
   padding: clamp(20px, 3vh, 38px) 0 0;
+  animation: contentReveal 720ms 80ms ease-out both;
 }
 
 .hero-kicker {
@@ -153,7 +157,7 @@
 .identity-line span:not(:last-child)::after {
   margin-left: 12px;
   color: rgba(255, 248, 236, 0.44);
-  content: "·";
+  content: "\00b7";
 }
 
 .direction-line {
@@ -268,9 +272,11 @@
 }
 
 .json-window {
+  position: relative;
   justify-self: end;
   width: min(430px, 52vw);
   min-height: 286px;
+  overflow: hidden;
   border: 1px solid var(--color-line-strong);
   border-radius: 8px;
   background:
@@ -278,6 +284,43 @@
     rgba(9, 9, 9, 0.8);
   box-shadow: var(--shadow-panel);
   backdrop-filter: blur(18px);
+  transform: translate3d(
+    calc(var(--parallax-x) * -8px),
+    calc(var(--parallax-y) * -6px),
+    0
+  );
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+  animation: contentReveal 720ms 120ms ease-out both;
+  will-change: transform;
+}
+
+.json-window::after {
+  position: absolute;
+  inset: 44px 0 auto;
+  height: 72px;
+  background: linear-gradient(180deg, transparent, rgba(255, 121, 0, 0.09), transparent);
+  opacity: 0;
+  transform: translateY(-80%);
+  animation: codeScan 8.5s 1.2s ease-in-out infinite;
+  content: "";
+  pointer-events: none;
+}
+
+.json-window:hover,
+.json-window:focus-within {
+  border-color: rgba(255, 121, 0, 0.4);
+  box-shadow:
+    var(--shadow-panel),
+    0 0 46px rgba(255, 121, 0, 0.1);
+  transform: translate3d(
+      calc(var(--parallax-x) * -8px),
+      calc(var(--parallax-y) * -6px - 5px),
+      0
+    )
+    scale(1.012);
 }
 
 .window-bar {
@@ -350,6 +393,30 @@
     var(--shadow-panel),
     0 0 42px rgba(89, 228, 122, 0.08);
   backdrop-filter: blur(16px);
+  transform: translate3d(
+    calc(var(--parallax-x) * -5px),
+    calc(var(--parallax-y) * -4px),
+    0
+  );
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+  animation: contentReveal 720ms 180ms ease-out both;
+  will-change: transform;
+}
+
+.trace-panel:hover {
+  border-color: rgba(89, 228, 122, 0.32);
+  box-shadow:
+    var(--shadow-panel),
+    0 0 48px rgba(89, 228, 122, 0.12);
+  transform: translate3d(
+      calc(var(--parallax-x) * -5px),
+      calc(var(--parallax-y) * -4px - 3px),
+      0
+    )
+    scale(1.006);
 }
 
 .trace-panel__header {
@@ -375,6 +442,7 @@
   border-radius: 999px;
   background: var(--color-green);
   box-shadow: 0 0 16px var(--color-green);
+  animation: statusPulse 3.8s ease-in-out infinite;
   content: "";
 }
 
@@ -393,8 +461,29 @@
   right: 48px;
   height: 2px;
   background: linear-gradient(90deg, var(--color-green), rgba(89, 228, 122, 0.62), var(--color-ember));
+  background-size: 160% 100%;
   box-shadow: 0 0 16px rgba(89, 228, 122, 0.2);
+  animation: traceLineFlow 9s linear infinite;
   content: "";
+}
+
+.trace-runner {
+  position: absolute;
+  z-index: 2;
+  top: 36px;
+  left: 48px;
+  right: 48px;
+  height: 12px;
+  background:
+    radial-gradient(circle, rgba(255, 248, 236, 0.95) 0 2px, rgba(89, 228, 122, 0.85) 3px, transparent 7px),
+    radial-gradient(circle, rgba(255, 121, 0, 0.42), transparent 13px);
+  background-position: 100% 0, 100% 0;
+  background-repeat: no-repeat;
+  background-size: 200% 100%, 200% 100%;
+  filter: drop-shadow(0 0 10px rgba(89, 228, 122, 0.55));
+  opacity: 0;
+  animation: traceRunner 8.8s cubic-bezier(0.55, 0, 0.28, 1) infinite;
+  pointer-events: none;
 }
 
 .trace-step {
@@ -417,6 +506,8 @@
   background: #0c0c0b;
   box-shadow: 0 0 20px rgba(89, 228, 122, 0.18);
   font-size: 1rem;
+  animation: traceNodePulse 6.4s ease-in-out infinite;
+  animation-delay: calc(var(--step-index) * 360ms);
 }
 
 .trace-step:last-child .trace-icon {
@@ -442,6 +533,7 @@
   width: min(880px, 100%);
   display: grid;
   gap: 12px;
+  animation: contentReveal 720ms 220ms ease-out both;
 }
 
 .project-card {
@@ -462,8 +554,10 @@
     0 18px 44px rgba(0, 0, 0, 0.32);
   transition:
     border-color 180ms ease,
+    background 180ms ease,
     transform 180ms ease,
     box-shadow 180ms ease;
+  will-change: transform;
 }
 
 .project-card:hover {
@@ -483,6 +577,30 @@
 
 .project-card--green:hover {
   border-color: rgba(89, 228, 122, 0.68);
+}
+
+.project-card:hover .project-arrow,
+.project-card:focus-within .project-arrow {
+  transform: translateX(8px);
+}
+
+.project-card:hover .project-tag,
+.project-card:focus-within .project-tag {
+  border-color: rgba(255, 121, 0, 0.24);
+  color: rgba(255, 248, 236, 0.88);
+  background: rgba(255, 121, 0, 0.065);
+}
+
+.project-card--green:hover .project-tag,
+.project-card--green:focus-within .project-tag {
+  border-color: rgba(89, 228, 122, 0.24);
+  background: rgba(89, 228, 122, 0.055);
+}
+
+.project-card:hover .project-thumb,
+.project-card:focus-within .project-thumb {
+  transform: scale(1.045);
+  filter: brightness(1.18);
 }
 
 .project-index {
@@ -508,6 +626,9 @@
     radial-gradient(circle at 38% 35%, rgba(89, 228, 122, 0.4) 0 2px, transparent 3px),
     repeating-linear-gradient(158deg, rgba(255, 121, 0, 0.22) 0 1px, transparent 1px 8px),
     #080806;
+  transition:
+    filter 180ms ease,
+    transform 180ms ease;
 }
 
 .project-card--green .project-thumb {
@@ -574,11 +695,16 @@
   background: rgba(255, 255, 255, 0.035);
   font-size: 0.72rem;
   white-space: nowrap;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background 180ms ease;
 }
 
 .project-arrow {
   color: var(--color-ember);
   font-size: 1.55rem;
+  transition: transform 180ms ease;
 }
 
 .floating-tags {
@@ -592,6 +718,8 @@
   position: absolute;
   left: var(--x);
   top: var(--y);
+  --tag-shift-x: calc(var(--parallax-x) * 12px);
+  --tag-shift-y: calc(var(--parallax-y) * 8px);
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -603,8 +731,11 @@
   background: rgba(10, 10, 10, 0.78);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(12px);
-  transform: translate(-50%, -50%);
+  transform: translate3d(calc(-50% + var(--tag-shift-x)), calc(-50% + var(--tag-shift-y)), 0);
   white-space: nowrap;
+  animation: tagFloat 8.5s ease-in-out infinite;
+  animation-delay: var(--tag-delay);
+  will-change: transform;
 }
 
 .tech-tag::before {
@@ -663,6 +794,7 @@
   background-size: 80px 80px;
   mask-image: linear-gradient(90deg, transparent, black 35%, black 82%, transparent);
   opacity: 0.34;
+  transform: translate3d(calc(var(--parallax-x) * -3px), calc(var(--parallax-y) * -2px), 0);
   content: "";
 }
 
@@ -674,6 +806,13 @@
   bottom: -3%;
   color: rgba(255, 121, 0, 0.68);
   filter: drop-shadow(0 0 14px rgba(255, 121, 0, 0.22));
+  transform: translate3d(
+    calc(var(--parallax-x) * -14px),
+    calc(var(--parallax-y) * -9px),
+    0
+  );
+  animation: terrainBreath 18s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .terrain-field svg {
@@ -686,16 +825,21 @@
   stroke: currentColor;
   stroke-width: 1.1;
   stroke-linecap: round;
+  stroke-dasharray: 440 36;
+  stroke-dashoffset: 0;
   opacity: 0.24;
+  animation: terrainTrace 34s linear infinite;
 }
 
 .terrain-lines path:nth-child(3n) {
   color: rgba(89, 228, 122, 0.62);
   opacity: 0.2;
+  animation-duration: 39s;
 }
 
 .terrain-lines path:nth-child(4n) {
   opacity: 0.42;
+  animation-duration: 29s;
 }
 
 .light-river {
@@ -712,6 +856,26 @@
   filter: blur(0.2px) drop-shadow(0 0 28px rgba(255, 121, 0, 0.44));
   clip-path: polygon(0 96%, 12% 76%, 27% 67%, 38% 51%, 53% 49%, 65% 36%, 77% 27%, 100% 8%, 100% 47%, 82% 54%, 66% 67%, 50% 75%, 32% 84%, 14% 100%);
   opacity: 0.72;
+  transform: translate3d(
+    calc(var(--parallax-x) * -18px),
+    calc(var(--parallax-y) * -11px),
+    0
+  );
+  animation: lightRiverDrift 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.light-river::before {
+  position: absolute;
+  inset: -12% -8%;
+  background:
+    linear-gradient(112deg, transparent 0 24%, rgba(255, 121, 0, 0.5) 34%, rgba(89, 228, 122, 0.28) 52%, transparent 70%),
+    radial-gradient(circle at 34% 62%, rgba(255, 248, 236, 0.56) 0 2px, transparent 5px);
+  background-size: 180% 100%, 100% 100%;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  animation: lightStream 10s linear infinite;
+  content: "";
 }
 
 .particle {
@@ -724,6 +888,176 @@
   background: var(--pc);
   box-shadow: 0 0 16px var(--pc);
   opacity: var(--po);
+  animation: particleDrift var(--particle-duration) ease-in-out infinite alternate;
+  animation-delay: var(--particle-delay);
+  will-change: transform;
+}
+
+@keyframes contentReveal {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes codeScan {
+  0%,
+  56%,
+  100% {
+    opacity: 0;
+    transform: translateY(-80%);
+  }
+
+  66% {
+    opacity: 0.55;
+  }
+
+  82% {
+    opacity: 0;
+    transform: translateY(230%);
+  }
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.22);
+  }
+}
+
+@keyframes traceLineFlow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 160% 0;
+  }
+}
+
+@keyframes traceRunner {
+  0% {
+    opacity: 0;
+    background-position: 100% 0, 100% 0;
+  }
+
+  10%,
+  82% {
+    opacity: 1;
+  }
+
+  92%,
+  100% {
+    opacity: 0;
+    background-position: 0 0, 0 0;
+  }
+}
+
+@keyframes traceNodePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 18px rgba(89, 228, 122, 0.16);
+  }
+
+  50% {
+    box-shadow:
+      0 0 18px rgba(89, 228, 122, 0.34),
+      0 0 34px rgba(89, 228, 122, 0.14);
+  }
+}
+
+@keyframes tagFloat {
+  0%,
+  100% {
+    transform: translate3d(calc(-50% + var(--tag-shift-x)), calc(-50% + var(--tag-shift-y)), 0);
+  }
+
+  50% {
+    transform: translate3d(
+      calc(-50% + var(--tag-shift-x)),
+      calc(-50% + var(--tag-shift-y) - 6px),
+      0
+    );
+  }
+}
+
+@keyframes terrainBreath {
+  from {
+    opacity: 0.86;
+    transform: translate3d(
+        calc(var(--parallax-x) * -14px),
+        calc(var(--parallax-y) * -9px),
+        0
+      )
+      scale(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(
+        calc(var(--parallax-x) * -14px + 8px),
+        calc(var(--parallax-y) * -9px - 5px),
+        0
+      )
+      scale(1.012);
+  }
+}
+
+@keyframes terrainTrace {
+  to {
+    stroke-dashoffset: -476;
+  }
+}
+
+@keyframes lightRiverDrift {
+  from {
+    filter: blur(0.2px) drop-shadow(0 0 24px rgba(255, 121, 0, 0.36));
+    transform: translate3d(
+      calc(var(--parallax-x) * -18px),
+      calc(var(--parallax-y) * -11px),
+      0
+    );
+  }
+
+  to {
+    filter: blur(0.2px) drop-shadow(0 0 34px rgba(89, 228, 122, 0.22));
+    transform: translate3d(
+      calc(var(--parallax-x) * -18px + 12px),
+      calc(var(--parallax-y) * -11px - 6px),
+      0
+    );
+  }
+}
+
+@keyframes lightStream {
+  from {
+    background-position: 120% 0, 0 0;
+  }
+
+  to {
+    background-position: -80% 0, 0 0;
+  }
+}
+
+@keyframes particleDrift {
+  from {
+    transform: translate3d(calc(var(--parallax-x) * 4px - 2px), calc(var(--parallax-y) * 3px + 2px), 0);
+  }
+
+  to {
+    transform: translate3d(calc(var(--parallax-x) * 4px + 3px), calc(var(--parallax-y) * 3px - 5px), 0);
+  }
 }
 
 @media (max-width: 1180px) {
@@ -975,6 +1309,10 @@
     display: none;
   }
 
+  .trace-runner {
+    display: none;
+  }
+
   .project-card {
     grid-template-columns: 38px 1fr 24px;
     gap: 12px;
@@ -988,5 +1326,44 @@
 
   .project-subtitle {
     font-size: 0.82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .portfolio-home {
+    --parallax-x: 0 !important;
+    --parallax-y: 0 !important;
+  }
+
+  .terrain-field,
+  .light-river,
+  .particle,
+  .tech-tag,
+  .json-window,
+  .trace-panel {
+    transform: none !important;
+  }
+
+  .trace-runner,
+  .json-window::after,
+  .light-river::before {
+    display: none !important;
+  }
+
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: none;
   }
 }

@@ -8,7 +8,7 @@ This project is the homepage for a personal portfolio aimed at Java backend inte
 
 ## Current Stage
 
-P1B complete: static high-fidelity cinematic homepage implemented.
+P1C complete: cinematic homepage motion and interaction enhancements added.
 
 ## Tech Stack
 
@@ -32,6 +32,10 @@ This file is an AI-generated visual reference. It is not a running webpage scree
 - Large desktop: `docs/images/large/portfolio-home.png`
 
 These screenshots are generated from the implemented Vue app with `npm run screenshots`.
+
+## Motion Boundary
+
+The particle terrain flow, Trace Timeline light point, panel hover states, and parallax are front-end visual expressions only. They do not represent real runtime status, real API calls, or production system state.
 
 ## Current Boundaries
 
