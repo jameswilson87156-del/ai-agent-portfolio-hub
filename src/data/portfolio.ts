@@ -21,6 +21,7 @@ export type ProjectItem = {
   index: string
   title: string
   subtitle: string
+  value: string
   tags: string[]
   tone: 'orange' | 'green'
 }
@@ -52,6 +53,7 @@ export const projects: ProjectItem[] = [
     index: '01',
     title: 'DevFlow Copilot',
     subtitle: 'AI Coding / Agentic Workflow Console',
+    value: '让 Prompt、执行轨迹与人工审核进入同一开发流。',
     tags: ['AI Coding', 'Prompt Studio', 'Trace'],
     tone: 'orange',
   },
@@ -59,6 +61,7 @@ export const projects: ProjectItem[] = [
     index: '02',
     title: 'Enterprise Ticket RAG Copilot',
     subtitle: '企业工单 RAG 智能助手',
+    value: '让每一次工单检索都有来源、可复核、可回退。',
     tags: ['RAG', 'Knowledge Reference', 'Human Review'],
     tone: 'green',
   },
@@ -66,6 +69,7 @@ export const projects: ProjectItem[] = [
     index: '03',
     title: 'MCP Tool Gateway',
     subtitle: '企业 Agent 工具网关',
+    value: '统一工具注册、调用边界与审计证据。',
     tags: ['MCP-style', 'JSON-RPC', 'Audit Log'],
     tone: 'orange',
   },

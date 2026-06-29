@@ -3,7 +3,7 @@
     <p class="hero-kicker">AI Agent Engineer Portfolio Hub</p>
 
     <h1 class="hero-title" id="page-title">
-      <span class="title-en">AI Agent</span>
+      <span class="title-en"><span>AI</span><span>Agent</span></span>
       <span class="title-cn">工程师作品集</span>
     </h1>
 
