@@ -1,0 +1,20 @@
+:root {
+  --color-black: #030303;
+  --color-black-soft: #080807;
+  --color-panel: rgba(10, 10, 9, 0.86);
+  --color-panel-strong: rgba(14, 14, 13, 0.94);
+  --color-line: rgba(255, 255, 255, 0.14);
+  --color-line-strong: rgba(255, 255, 255, 0.22);
+  --color-text: #f5f0e7;
+  --color-text-soft: rgba(245, 240, 231, 0.74);
+  --color-muted: rgba(245, 240, 231, 0.52);
+  --color-ember: #ff7900;
+  --color-ember-soft: rgba(255, 121, 0, 0.42);
+  --color-green: #59e47a;
+  --color-green-soft: rgba(89, 228, 122, 0.34);
+  --color-gold: #d9b06d;
+  --shadow-panel: 0 22px 80px rgba(0, 0, 0, 0.48);
+  --shadow-ember: 0 0 38px rgba(255, 121, 0, 0.22);
+  --shadow-green: 0 0 34px rgba(89, 228, 122, 0.2);
+  --content-max: 1720px;
+}

@@ -14,21 +14,35 @@ The reference image is an AI-generated visual reference only. It is not a real b
 
 - Confirmed the reference image exists.
 - Initialized a Vue 3 + Vite + TypeScript frontend scaffold.
-- Added base source directories: `src/components/`, `src/data/`, and `src/styles/`.
-- Added design, screenshot, and large image documentation directories.
-- Added README, TODO, and design boundary documentation.
+- Implemented the P1B static high-fidelity cinematic homepage.
+- Added centralized portfolio data in `src/data/portfolio.ts`.
+- Added real browser screenshot generation with Playwright.
+
+## Implemented Components
+
+- `TopNav.vue`
+- `HeroSection.vue`
+- `CinematicBackground.vue`
+- `FloatingTechTags.vue`
+- `JsonRpcWindow.vue`
+- `TraceTimelinePanel.vue`
+- `ProjectShowcase.vue`
+- `ProjectCard.vue`
+
+## Screenshot Paths
+
+- `docs/images/portfolio-home.png`
+- `docs/images/large/portfolio-home.png`
+
+These are real browser screenshots generated from the Vue app. The reference image remains only a design reference.
 
 ## Next Step
 
-P1B should strictly implement the homepage from the reference image:
+P1C should add motion while preserving the P1B layout:
 
-- black cinematic background
-- editorial Chinese hero typography
-- organic particle mountain / terrain visual
-- restrained orange and green light accents
-- floating technical tags
-- JSON-RPC code window
-- Trace Timeline panel
-- three project entry cards
+- particle mountain flow
+- mouse parallax for the terrain and floating tags
+- Trace Timeline reveal or subtle state motion
+- reduced-motion handling
 
 Do not freely reinterpret the page as a normal dashboard, blog template, or admin system.

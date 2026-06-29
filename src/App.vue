@@ -1,16 +1,37 @@
+<script setup lang="ts">
+import CinematicBackground from './components/CinematicBackground.vue'
+import FloatingTechTags from './components/FloatingTechTags.vue'
+import HeroSection from './components/HeroSection.vue'
+import JsonRpcWindow from './components/JsonRpcWindow.vue'
+import ProjectShowcase from './components/ProjectShowcase.vue'
+import TopNav from './components/TopNav.vue'
+import TraceTimelinePanel from './components/TraceTimelinePanel.vue'
+import {
+  jsonRpcPayload,
+  navItems,
+  projects,
+  techTags,
+  timelineSteps,
+} from './data/portfolio'
+</script>
+
 <template>
-  <main class="app-shell" aria-labelledby="page-title">
-    <section class="intro-panel">
-      <p class="eyebrow">P0 / P1A Initialization</p>
-      <h1 id="page-title">AI Agent Engineer Portfolio Hub</h1>
-      <p class="summary">
-        Vue 3 + Vite + TypeScript project scaffold for Wang Zhenlong's AI Agent
-        engineer portfolio homepage.
-      </p>
-      <p class="boundary">
-        The cinematic homepage visual is currently a design reference only. A
-        high-fidelity browser implementation will start in P1B.
-      </p>
-    </section>
-  </main>
+  <div class="portfolio-home">
+    <CinematicBackground />
+    <TopNav :items="navItems" />
+
+    <main class="home-main" aria-labelledby="page-title">
+      <HeroSection />
+
+      <section class="evidence-stage" aria-label="AI Agent 工程证据链展示">
+        <FloatingTechTags :tags="techTags" />
+
+        <div class="stage-stack">
+          <JsonRpcWindow :payload="jsonRpcPayload" />
+          <TraceTimelinePanel :steps="timelineSteps" />
+          <ProjectShowcase :projects="projects" />
+        </div>
+      </section>
+    </main>
+  </div>
 </template>

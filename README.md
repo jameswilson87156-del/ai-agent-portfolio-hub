@@ -8,7 +8,7 @@ This project is the homepage for a personal portfolio aimed at Java backend inte
 
 ## Current Stage
 
-P0 / P1A initialization.
+P1B complete: static high-fidelity cinematic homepage implemented.
 
 ## Tech Stack
 
@@ -16,7 +16,7 @@ P0 / P1A initialization.
 - Vite
 - TypeScript
 - Native CSS
-- Playwright screenshots in later verification stages
+- Playwright screenshots
 
 ## Design Reference
 
@@ -24,8 +24,18 @@ Reference image:
 
 `docs/design/references/cinematic-ai-agent-homepage-reference.png`
 
-This file is an AI-generated visual reference. It is not a running webpage screenshot.
+This file is an AI-generated visual reference. It is not a running webpage screenshot and must not be presented as the finished homepage.
 
-## Screenshots
+## Real Browser Screenshots
 
-There are currently no real browser screenshots for this project.
+- Desktop: `docs/images/portfolio-home.png`
+- Large desktop: `docs/images/large/portfolio-home.png`
+
+These screenshots are generated from the implemented Vue app with `npm run screenshots`.
+
+## Current Boundaries
+
+- No backend.
+- No real API integration.
+- No login.
+- No production traffic, customer, or deployment claims.
