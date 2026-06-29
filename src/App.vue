@@ -35,9 +35,10 @@ useParallax(homeRef)
         <div class="stage-stack">
           <JsonRpcWindow :payload="jsonRpcPayload" />
           <TraceTimelinePanel :steps="timelineSteps" />
-          <ProjectShowcase :projects="projects" />
         </div>
       </section>
+
+      <ProjectShowcase :projects="projects" />
     </main>
   </div>
 </template>

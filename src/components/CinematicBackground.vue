@@ -24,9 +24,9 @@ const particles = Array.from({ length: 110 }, (_, index) => {
     y: `${Math.min(94, Math.max(18, y))}%`,
     size: `${size}px`,
     color: isGreen ? 'rgba(89, 228, 122, 0.82)' : 'rgba(255, 121, 0, 0.78)',
-    opacity: `${0.22 + ((index * 13) % 50) / 100}`,
+    opacity: `${0.08 + ((index * 13) % 34) / 100}`,
     delay: `${-((index * 17) % 90) / 10}s`,
-    duration: `${16 + (index % 8) * 2}s`,
+    duration: `${24 + (index % 8) * 3}s`,
   }
 })
 </script>

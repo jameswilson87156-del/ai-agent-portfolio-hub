@@ -16,6 +16,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Initialized a Vue 3 + Vite + TypeScript frontend scaffold.
 - Implemented the P1B static high-fidelity cinematic homepage.
 - Implemented the P1C cinematic motion and interaction layer.
+- Implemented the P1D homepage visual rescue pass after manual review found the P1C screen too dense, visually obstructed, and not spacious enough for a premium portfolio homepage.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added real browser screenshot generation with Playwright.
 
@@ -37,6 +38,15 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - TypeScript is used only for lightweight mouse parallax in `src/composables/useParallax.ts`.
 - No canvas, GSAP, Three.js, particle library, or UI framework is used.
 - Motion is visual expression only and does not represent real API status or production runtime state.
+- P1D keeps the P1C motion system but lowers intensity, speed, opacity, and parallax distance.
+
+## P1D Visual Refinement
+
+- Reduced floating tech tags from ten to five: Spring Boot, RAG, MCP-style, Trace Evidence, and JSON-RPC.
+- Moved project entries out of the right-side stack into three larger bottom case-study cards.
+- Kept only JSON-RPC and Trace Timeline as right-side engineering evidence panels.
+- Lowered background particle, terrain, and orange/green light opacity to improve Chinese text readability.
+- Increased spacing between hero copy, engineering panels, and project entries.
 
 ## Reduced Motion
 

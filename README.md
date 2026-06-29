@@ -8,7 +8,7 @@ This project is the homepage for a personal portfolio aimed at Java backend inte
 
 ## Current Stage
 
-P1C complete: cinematic homepage motion and interaction enhancements added.
+P1D complete: cinematic homepage visual hierarchy and spacing refined after manual review.
 
 ## Tech Stack
 
@@ -32,6 +32,10 @@ This file is an AI-generated visual reference. It is not a running webpage scree
 - Large desktop: `docs/images/large/portfolio-home.png`
 
 These screenshots are generated from the implemented Vue app with `npm run screenshots`.
+
+## Visual Refinement
+
+P1D reduced floating UI density, softened the particle terrain and light streams, moved project entries into larger case-study cards, and improved whitespace so the homepage reads more like a premium personal portfolio.
 
 ## Motion Boundary
 

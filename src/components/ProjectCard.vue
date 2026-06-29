@@ -1,27 +1,31 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { ProjectItem } from '../data/portfolio'
 
-defineProps<{
+const props = defineProps<{
   project: ProjectItem
 }>()
+
+const visibleTags = computed(() => props.project.tags.slice(0, 5))
 </script>
 
 <template>
   <article :class="['project-card', `project-card--${project.tone}`]">
-    <span class="project-index">{{ project.index }}</span>
-    <span class="project-thumb" aria-hidden="true" />
+    <div class="project-card__top">
+      <span class="project-index">{{ project.index }}</span>
+      <span class="project-thumb" aria-hidden="true" />
+      <span class="project-arrow" aria-hidden="true">→</span>
+    </div>
 
-    <div>
+    <div class="project-card__body">
       <h2 class="project-title">{{ project.title }}</h2>
       <p class="project-subtitle">{{ project.subtitle }}</p>
-    </div>
 
-    <div class="project-tags" aria-label="项目标签">
-      <span v-for="tag in project.tags" :key="tag" class="project-tag">
-        {{ tag }}
-      </span>
+      <div class="project-tags" aria-label="项目标签">
+        <span v-for="tag in visibleTags" :key="tag" class="project-tag">
+          {{ tag }}
+        </span>
+      </div>
     </div>
-
-    <span class="project-arrow" aria-hidden="true">→</span>
   </article>
 </template>

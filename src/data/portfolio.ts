@@ -34,16 +34,11 @@ export const navItems: NavItem[] = [
 ]
 
 export const techTags: TechTag[] = [
-  { label: 'Spring Boot', tone: 'orange', x: 29, y: 18, line: 98 },
-  { label: 'RAG', tone: 'green', x: 49, y: 15, line: 130 },
-  { label: 'MCP-style', tone: 'orange', x: 66, y: 34, line: 104 },
-  { label: 'Trace Evidence', tone: 'green', x: 51, y: 53, line: 58 },
-  { label: 'Vue 3', tone: 'green', x: 11, y: 80, line: 56 },
-  { label: 'TypeScript', tone: 'orange', x: 2, y: 98, line: 50 },
-  { label: 'JSON-RPC', tone: 'green', x: 95, y: 63, line: 38 },
-  { label: 'RBAC demo', tone: 'orange', x: 95, y: 74, line: 34 },
-  { label: 'Audit Log', tone: 'green', x: 95, y: 84, line: 36 },
-  { label: 'Human Review', tone: 'orange', x: 88, y: 70, line: 44 },
+  { label: 'Spring Boot', tone: 'orange', x: 32, y: 25, line: 82 },
+  { label: 'RAG', tone: 'green', x: 45, y: 18, line: 108 },
+  { label: 'MCP-style', tone: 'orange', x: 66, y: 43, line: 70 },
+  { label: 'Trace Evidence', tone: 'green', x: 38, y: 72, line: 42 },
+  { label: 'JSON-RPC', tone: 'green', x: 82, y: 67, line: 34 },
 ]
 
 export const timelineSteps: TimelineStep[] = [
