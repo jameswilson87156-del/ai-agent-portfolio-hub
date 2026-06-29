@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import type { NavItem } from '../data/portfolio'
 
 defineProps<{
@@ -8,18 +9,18 @@ defineProps<{
 
 <template>
   <header class="top-nav" aria-label="主导航">
-    <a class="brand-mark" href="#" aria-label="AI Agent Engineer Portfolio Hub">
+    <RouterLink class="brand-mark" to="/" aria-label="AI Agent Engineer Portfolio Hub 首页">
       <span />
       <span />
       <span />
-    </a>
+    </RouterLink>
 
     <nav class="nav-links" aria-label="页面导航">
-      <a v-for="item in items" :key="item.label" :href="item.href">
+      <RouterLink v-for="item in items" :key="item.label" :to="item.href">
         {{ item.label }}
-      </a>
+      </RouterLink>
     </nav>
 
-    <a class="contact-link" href="#contact">联系我</a>
+    <RouterLink class="contact-link" to="/#contact">联系我</RouterLink>
   </header>
 </template>

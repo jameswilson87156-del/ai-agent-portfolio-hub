@@ -18,8 +18,17 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented the P1C cinematic motion and interaction layer.
 - Implemented the P1D homepage visual rescue pass after manual review found the P1C screen too dense, visually obstructed, and not spacious enough for a premium portfolio homepage.
 - Implemented the P1E Hero visual rebuild after manual review found the P1D title spacing unsafe, the mountain terrain too weak, and the project entries still too dashboard-like.
+- Implemented P2 Projects overview after the cinematic homepage direction passed manual review.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
+- Added centralized Projects case-study data in `src/data/projects.ts`.
 - Added real browser screenshot generation with Playwright.
+
+## Current Routes
+
+- `/` — approved cinematic AI Agent Engineer portfolio homepage.
+- `/projects` — Projects case-study index.
+
+Vue Router is installed and configured in `src/router/index.ts`. Project detail routes are intentionally not implemented in P2.
 
 ## Implemented Components
 
@@ -32,6 +41,21 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - `ProjectShowcase.vue`
 - `ProjectCard.vue`
 - `useParallax.ts`
+- `projects/ProjectCaseCard.vue`
+- `projects/CapabilityMatrix.vue`
+- `projects/EvidenceWall.vue`
+- `projects/ProjectBoundaryNote.vue`
+
+## P2 Projects Overview
+
+- `ProjectsView.vue` provides a lighter cinematic editorial page without repeating the homepage mountain Hero.
+- Three large case-study previews describe the problem, core Agent chain, technology stack, engineering evidence, honest boundary, and resume value.
+- DevFlow Copilot is positioned around AI Coding workflow and generation traceability.
+- Enterprise Ticket RAG Copilot is positioned around explainable RAG, knowledge references, Provider fallback, and Human Review.
+- MCP Tool Gateway is positioned around Java backend Tool access, policy checks, JSON-RPC, Audit Log, CI, Docker, and OpenAPI.
+- Capability Matrix maps twelve engineering dimensions to one or more project codes.
+- Evidence Wall lists verifiable portfolio materials without inventing KPI or production metrics.
+- Project Boundaries explicitly reject claims of real enterprise customers, production traffic, complete MCP compatibility, or production authentication.
 
 ## P1E Hero Rebuild
 
@@ -70,9 +94,11 @@ The reference image is an AI-generated visual reference only. It is not a real b
 
 - `docs/images/portfolio-home.png`
 - `docs/images/large/portfolio-home.png`
+- `docs/images/projects-overview.png`
+- `docs/images/large/projects-overview.png`
 
 These are real browser screenshots generated from the Vue app. The reference image remains only a design reference.
 
 ## Next Step
 
-P2 should wait until the rebuilt homepage visual direction is accepted, then build the Projects overview page while preserving the cinematic portfolio direction. Do not freely reinterpret the project as a normal dashboard, blog template, or admin system.
+P3 should add three focused project detail pages using the current case-study data and routing foundation. Keep each detail page distinct, reuse the Projects evidence vocabulary, and do not turn the portfolio into a dashboard or claim production capability that is not implemented.

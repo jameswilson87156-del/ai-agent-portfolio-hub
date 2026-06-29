@@ -9,16 +9,32 @@ const root = path.resolve(__dirname, '..')
 const imageDir = path.join(root, 'docs', 'images')
 const largeImageDir = path.join(imageDir, 'large')
 
-const viewports = [
+const captures = [
   {
+    route: '/',
     path: path.join(imageDir, 'portfolio-home.png'),
     width: 1440,
     height: 900,
   },
   {
+    route: '/',
     path: path.join(largeImageDir, 'portfolio-home.png'),
     width: 1920,
     height: 1080,
+  },
+  {
+    route: '/projects',
+    path: path.join(imageDir, 'projects-overview.png'),
+    width: 1440,
+    height: 900,
+    fullPage: true,
+  },
+  {
+    route: '/projects',
+    path: path.join(largeImageDir, 'projects-overview.png'),
+    width: 1920,
+    height: 1080,
+    fullPage: true,
   },
 ]
 
@@ -65,23 +81,25 @@ try {
   const url = server.resolvedUrls?.local[0] ?? 'http://127.0.0.1:4177/'
   browser = await launchBrowser()
 
-  for (const viewport of viewports) {
+  for (const capture of captures) {
     const page = await browser.newPage({
       viewport: {
-        width: viewport.width,
-        height: viewport.height,
+        width: capture.width,
+        height: capture.height,
       },
       deviceScaleFactor: 1,
     })
 
-    await page.goto(url, { waitUntil: 'networkidle' })
+    const captureUrl = new URL(capture.route, url).toString()
+
+    await page.goto(captureUrl, { waitUntil: 'networkidle' })
     await page.evaluate(() => document.fonts.ready)
     await page.waitForTimeout(900)
-    await page.screenshot({ path: viewport.path, fullPage: false })
+    await page.screenshot({ path: capture.path, fullPage: capture.fullPage ?? false })
     await page.close()
   }
 
-  console.log(`Captured ${viewports.length} screenshots from ${url}`)
+  console.log(`Captured ${captures.length} screenshots from ${url}`)
 } finally {
   await browser?.close()
   await server.close()

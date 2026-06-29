@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+</script>
+
 <template>
   <section class="hero-copy" id="capabilities">
     <p class="hero-kicker">AI Agent Engineer Portfolio Hub</p>
@@ -26,10 +30,10 @@
     </p>
 
     <div class="hero-actions" id="resume">
-      <a class="hero-button hero-button--primary" href="#projects">
+      <RouterLink class="hero-button hero-button--primary" to="/projects">
         查看核心项目
         <span class="button-icon" aria-hidden="true">→</span>
-      </a>
+      </RouterLink>
       <a class="hero-button" href="#github">
         查看 GitHub
         <span class="button-icon" aria-hidden="true">↗</span>
