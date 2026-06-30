@@ -23,7 +23,14 @@ defineProps<{
         :class="['screenshot-item', { 'screenshot-item--featured': item.featured }]"
       >
         <div class="screenshot-item__frame">
-          <img :src="item.src" :alt="item.alt" loading="eager" decoding="async" />
+          <div class="screenshot-item__chrome" aria-hidden="true">
+            <span class="screenshot-item__lights"><i /><i /><i /></span>
+            <span>LOCAL BROWSER EVIDENCE / {{ item.title }}</span>
+            <small>READ-ONLY COPY</small>
+          </div>
+          <div class="screenshot-item__viewport">
+            <img :src="item.src" :alt="item.alt" loading="eager" decoding="async" />
+          </div>
         </div>
         <figcaption>
           <span>{{ item.index }}</span>

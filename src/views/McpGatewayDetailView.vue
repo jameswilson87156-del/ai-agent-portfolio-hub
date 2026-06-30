@@ -6,6 +6,7 @@ import BoundaryPanel from '../components/projects/BoundaryPanel.vue'
 import DetailHero from '../components/projects/DetailHero.vue'
 import EngineeringEvidenceGrid from '../components/projects/EngineeringEvidenceGrid.vue'
 import InterviewNotes from '../components/projects/InterviewNotes.vue'
+import ProjectSummaryRail from '../components/projects/ProjectSummaryRail.vue'
 import ScreenshotGallery from '../components/projects/ScreenshotGallery.vue'
 import { navItems } from '../data/portfolio'
 import { mcpGatewayDetail } from '../data/projectDetails'
@@ -24,6 +25,7 @@ import { mcpGatewayDetail } from '../data/projectDetails'
         :tags="mcpGatewayDetail.tags"
         :github-url="mcpGatewayDetail.githubUrl"
       />
+      <ProjectSummaryRail :items="mcpGatewayDetail.summary" />
 
       <section class="detail-section problem-section" aria-labelledby="problem-title">
         <header class="detail-section-heading">
@@ -75,9 +77,9 @@ import { mcpGatewayDetail } from '../data/projectDetails'
       </section>
 
       <ScreenshotGallery :items="mcpGatewayDetail.screenshots" />
-      <EngineeringEvidenceGrid :items="mcpGatewayDetail.engineeringEvidence" />
-      <BoundaryPanel :items="mcpGatewayDetail.boundaries" />
-      <InterviewNotes :notes="mcpGatewayDetail.interviewNotes" />
+      <EngineeringEvidenceGrid :groups="mcpGatewayDetail.engineeringEvidenceGroups" />
+      <BoundaryPanel :sections="mcpGatewayDetail.trustPanel" />
+      <InterviewNotes :items="mcpGatewayDetail.interviewQuestions" />
 
       <footer class="detail-footer">
         <p>Wang Zhenlong · MCP Tool Gateway · Portfolio case study</p>

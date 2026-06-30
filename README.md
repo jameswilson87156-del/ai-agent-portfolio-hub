@@ -8,7 +8,7 @@ This project contains a cinematic homepage and a Projects case-study index for a
 
 ## Current Stage
 
-P3A complete: the approved homepage and Projects index are preserved, and `/projects/mcp-gateway` now provides a focused MCP Tool Gateway engineering case study.
+P3A-Polish complete: the approved homepage and Projects index are preserved, while `/projects/mcp-gateway` now offers a faster-scanning MCP Tool Gateway case study with stronger engineering-evidence grouping.
 
 ## Tech Stack
 
@@ -75,6 +75,8 @@ The gallery uses real browser screenshot copies from the local `D:\workhome\mcp-
 - `audit-log.png`
 
 The screenshots are copied into `public/images/projects/mcp/`. They are runtime evidence from the local demo project, not design references, customer systems, or production environment captures.
+
+P3A-Polish adds a four-part Project Summary Rail, enlarges the Agent Governance Flow, standardizes all five screenshots inside restrained browser evidence frames, groups backend evidence into four engineering domains, and replaces the boundary list with a three-part Trust Panel. Interview notes are now concise Q&A cards for faster review by Java backend and AI Agent interviewers.
 
 ## Motion Boundary
 

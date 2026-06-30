@@ -10,17 +10,17 @@ defineProps<{
   <section class="detail-section architecture-section" aria-labelledby="architecture-title">
     <header class="detail-section-heading">
       <div>
-        <p class="detail-kicker">02 / SYSTEM MAP</p>
-        <h2 id="architecture-title">System Architecture</h2>
+        <p class="detail-kicker">02 / SYSTEM ARCHITECTURE</p>
+        <h2 id="architecture-title">Agent Governance Flow</h2>
       </div>
-      <p>从 Agent 意图进入，到策略、调用、Trace、Audit 与 Review，核心价值在链路而不是单个模块。</p>
+      <p>一条从 Agent Request 到 Human Review 的治理轨道，清楚表达入口、策略、执行与证据如何衔接。</p>
     </header>
 
-    <div class="architecture-canvas" role="img" aria-label="MCP Tool Gateway 分层架构链路">
-      <div class="architecture-legend" aria-hidden="true">
-        <span>ENTRY &amp; CONTEXT</span>
+    <div class="architecture-canvas" role="img" aria-label="MCP Tool Gateway Agent Governance Flow">
+      <div class="architecture-canvas__header" aria-hidden="true">
+        <span>AGENT ENTRY</span>
         <span>GOVERNANCE CORE</span>
-        <span>EVIDENCE &amp; REVIEW</span>
+        <span>EVIDENCE CHAIN</span>
       </div>
       <ol class="architecture-track">
         <li

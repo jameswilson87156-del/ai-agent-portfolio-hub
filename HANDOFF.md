@@ -21,6 +21,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented P2 Projects overview after the cinematic homepage direction passed manual review.
 - Implemented P2A Projects readability and engineering-evidence refinement without changing the approved homepage.
 - Implemented P3A MCP Tool Gateway detail page as the first focused project case study.
+- Implemented P3A-Polish to improve MCP detail scanability and engineering-evidence communication.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added centralized Projects case-study data in `src/data/projects.ts`.
 - Added real browser screenshot generation with Playwright.
@@ -54,6 +55,7 @@ Vue Router is installed and configured in `src/router/index.ts`. DevFlow Copilot
 - `projects/EngineeringEvidenceGrid.vue`
 - `projects/BoundaryPanel.vue`
 - `projects/InterviewNotes.vue`
+- `projects/ProjectSummaryRail.vue`
 
 ## P2 Projects Overview
 
@@ -85,10 +87,13 @@ The source projects were inspected read-only and were not modified. These previe
 ## P3A MCP Tool Gateway Detail
 
 - Route: `/projects/mcp-gateway`.
-- Structure: Detail Hero, Why this project exists, System Architecture, Core Agent Flow, Real Browser Evidence, Backend & Engineering Evidence, Project Boundaries, and interview notes.
-- The architecture and flow sections explain Tool Registry, Prompt / Resource, PolicyService, HTTP-only JSON-RPC adapter, Tool Call, Trace, Audit, and Human Review as one governance chain.
+- Structure: Detail Hero, Project Summary Rail, Why this project exists, Agent Governance Flow, Core Agent Flow, Real Browser Evidence, grouped Backend & Engineering Evidence, Trust Panel, and interview Q&A.
+- The Project Summary Rail exposes Role, Core, Evidence, and Boundary in the first viewport.
+- The eight-node Agent Governance Flow explains Agent Request, Tool Registry, Policy Check, HTTP-only JSON-RPC adapter, Tool Call, Trace Evidence, Audit Log, and Human Review as one readable chain.
 - Backend evidence covers the source project's recorded 60 tests, GitHub Actions CI, Docker Compose, OpenAPI, H2, JdbcTemplate repositories, JSON-RPC adapter, RBAC PolicyService, Audit Log, and Trace repository boundary.
-- Boundaries explicitly state MCP-style rather than full MCP compatibility, demo RBAC and `X-Demo-Role`, local H2 persistence, sandbox Tool execution, and the absence of real customers, production traffic, or commercial data.
+- Backend evidence is grouped into Testing & CI, API & Deployment, Persistence & Repository, and Agent Governance.
+- The Trust Panel separates What it is, What it is not, and Demo-only assumptions. It explicitly states MCP-style rather than full MCP compatibility, demo RBAC and `X-Demo-Role`, local H2 persistence, sandbox Tool execution, and the absence of real customers, production traffic, or commercial data.
+- Interview notes use five Q&A cards covering CRUD differentiation, JSON-RPC intent, high-risk review, H2/JdbcTemplate choices, and the capability demonstrated by the project.
 
 ### MCP Detail Screenshot Sources
 

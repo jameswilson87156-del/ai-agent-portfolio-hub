@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { InterviewQA } from '../../data/projectDetails'
+
 defineProps<{
-  notes: string[]
+  items: InterviewQA[]
 }>()
 </script>
 
@@ -14,11 +16,12 @@ defineProps<{
       <p>用真实实现和明确边界讲清楚设计判断，不把 demo 包装成生产系统。</p>
     </header>
 
-    <ol class="interview-notes">
-      <li v-for="(note, index) in notes" :key="note">
-        <span>{{ String(index + 1).padStart(2, '0') }}</span>
-        <p>{{ note }}</p>
-      </li>
-    </ol>
+    <div class="interview-qa-grid">
+      <article v-for="item in items" :key="item.index" class="interview-qa-card">
+        <span>{{ item.index }}</span>
+        <h3><b>Q</b>{{ item.question }}</h3>
+        <p><b>A</b>{{ item.answer }}</p>
+      </article>
+    </div>
   </section>
 </template>
