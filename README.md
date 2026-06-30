@@ -8,7 +8,7 @@ This project contains a cinematic homepage and a Projects case-study index for a
 
 ## Current Stage
 
-P3B complete: the approved homepage, Projects index, and MCP detail structure are preserved, while `/projects/devflow` now adds the DevFlow Copilot case-study detail page.
+P3B-CopyFix complete: `/projects/devflow` now positions DevFlow Copilot as a real runnable portfolio engineering project, while preserving the boundary that it is not a production AI IDE or commercial online system.
 
 ## Tech Stack
 
@@ -78,7 +78,7 @@ The gallery uses real browser screenshot copies from the local `D:\workhome\ai-c
 
 The screenshots are copied into `public/images/projects/devflow/`. They are runtime evidence from the local DevFlow project, not design references, customer systems, or production environment captures.
 
-The page keeps the DevFlow boundary clear: this is a portfolio demo, not a production AI IDE. The default `local-rule` Provider is local rule/template generation rather than real LLM inference; OpenAI-compatible Provider support is a code-level adapter that requires environment configuration and separate verification. Knowledge Base is lightweight keyword/simple-similarity retrieval, not production vector RAG.
+The page keeps the DevFlow boundary clear: this is a runnable portfolio engineering project, not a production AI IDE or commercial online system. The default `local-rule` Provider is local rule/template generation rather than real LLM inference; OpenAI-compatible Provider support is a code-level adapter that requires environment configuration and separate verification. Knowledge Base is lightweight keyword/simple-similarity retrieval, not production vector RAG.
 
 ## MCP Tool Gateway Detail
 
@@ -109,5 +109,5 @@ Motion references under `docs/design/motion-references/` are local design refere
 - No login.
 - No production traffic, customer, or deployment claims.
 - DevFlow Copilot and MCP Tool Gateway detail pages are implemented; Enterprise Ticket RAG Copilot remains deferred.
-- DevFlow is labeled as a portfolio AI Coding workflow demo, not a production AI IDE.
+- DevFlow is labeled as a real runnable portfolio AI Coding workflow project, not a production AI IDE.
 - MCP-style and RBAC demo capabilities are labeled as demonstrations, not complete production implementations.

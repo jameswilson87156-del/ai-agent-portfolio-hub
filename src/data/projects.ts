@@ -72,7 +72,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
       'Trace + Human Review',
     ],
     boundary:
-      '作品集 demo，不夸大为生产级 AI IDE，不虚构真实线上用户。',
+      '真实可运行的作品集工程项目，不包装成生产级 AI IDE，不虚构真实线上用户。',
     resumeValue:
       '体现 AI Coding 工作流拆解、Provider 抽象、可追踪生成记录与前后端产品表达能力。',
     preview: {

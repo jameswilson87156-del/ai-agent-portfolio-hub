@@ -23,6 +23,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented P3A MCP Tool Gateway detail page as the first focused project case study.
 - Implemented P3A-Polish to improve MCP detail scanability and engineering-evidence communication.
 - Implemented P3B DevFlow Copilot detail page as the AI Coding workflow case study.
+- Implemented P3B-CopyFix to clarify DevFlow as a real runnable portfolio engineering project rather than a static page or fake project.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added centralized Projects case-study data in `src/data/projects.ts`.
 - Added real browser screenshot generation with Playwright.
@@ -94,10 +95,11 @@ The source projects were inspected read-only and were not modified. These previe
 - The seven-node Agentic Coding Workflow explains Prompt Template, Provider Call, Generation Trace, Knowledge Reference, Save Record, Human Review, and Confirmed History.
 - Core Product Modules cover Dashboard, Workbench, Prompt Templates, Generation History, Knowledge Base, Human Review, and Trace / Activity.
 - Engineering evidence covers Vue 3 + TypeScript frontend, Spring Boot backend, Prompt Studio workflow, Human Review state machine, Generation Trace, Knowledge reference, Agent Run Trace, 20 backend tests, build verification, and real screenshot evidence.
-- The Trust Panel states this is a portfolio AI Coding workflow console demo, not a production AI IDE. It does not claim real users, traffic, customers, commercial data, automatic code modification, automatic Git commits, or stable production LLM integration.
+- The Trust Panel states what is real: real frontend pages, real project structure, real browser screenshots, runnable workflow, build / screenshots acceptance, and README / documentation evidence.
+- The Trust Panel also states what it is not: not a production AI IDE, not real online users, not enterprise customers, not commercial data, not stable production LLM service, and not a production RAG / Agent platform.
 - Provider boundary: `local-rule` is local rule/template generation, not real LLM inference. OpenAI-compatible Provider support is a code-level adapter requiring environment configuration and separate verification.
 - Knowledge Base boundary: keyword/simple-similarity retrieval, not production vector RAG.
-- Human Review boundary: demo workflow for explainability and replay, not production approval infrastructure.
+- Human Review boundary: workflow state design for explainability and replay, not production approval infrastructure.
 
 ### DevFlow Detail Screenshot Sources
 

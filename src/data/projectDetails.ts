@@ -64,7 +64,7 @@ export const devFlowDetail = {
   title: 'DevFlow Copilot',
   subtitle: 'AI Coding / Agentic Workflow Console',
   positioning:
-    '一个面向 AI Coding 工作流的控制台 demo，把 Prompt 编排、Provider 调用、生成记录、Knowledge Reference、Trace 与 Human Review 串成可展示、可解释、可复盘的 Agentic Coding Workflow。',
+    '一个真实可运行的 AI Coding 工作流作品集工程项目，用于展示 Prompt 编排、Provider 调用、Generation Trace、Knowledge Reference、Human Review 与生成记录如何串成可复盘的 Agentic Coding Workflow。',
   tags: [
     'Vue 3',
     'TypeScript',
@@ -95,12 +95,12 @@ export const devFlowDetail = {
     },
     {
       label: 'Boundary',
-      value: 'Portfolio demo, not production AI IDE',
+      value: 'Portfolio engineering project, not production AI IDE',
       tone: 'green',
     },
   ] satisfies ProjectSummaryItem[],
   problem:
-    'AI Coding 不应该只是一个输入框加生成结果。真正可解释的 AI Coding 工作流需要记录 Prompt、Provider、生成过程、上下文引用、人工确认和历史状态。DevFlow Copilot 用一个控制台 demo 展示从 Prompt 到生成结果再到 Human Review 的闭环。',
+    'AI Coding 不应该只是输入 Prompt 和展示结果。DevFlow Copilot 的重点是把 Prompt、Provider、Trace、Knowledge Reference、Save Record、Human Review 和 Confirmed History 组织成可追踪的工程链路，让一次生成从输入到复盘都有清楚的记录。',
   problemSignals: [
     {
       label: 'PROMPT',
@@ -331,13 +331,13 @@ export const devFlowDetail = {
   ] satisfies EngineeringEvidenceGroup[],
   trustPanel: [
     {
-      title: 'What it is',
+      title: 'What is real',
       description: '当前真实定位',
       tone: 'positive',
       items: [
-        '一个面向作品集展示的 AI Coding workflow console demo。',
-        '一条可运行、可截图、可讲解的 Prompt / Provider / Trace / Knowledge / Review 闭环。',
-        '用于证明前端产品表达、Java 后端分层和 AI 工程化边界意识。',
+        '真实前端页面、真实项目结构和可运行的 AI Coding workflow。',
+        '真实浏览器截图、build / screenshots 验收和 README / 文档证据。',
+        '一个 portfolio-grade engineering project，用于证明前端产品表达、Java 后端分层和 AI 工程化边界意识。',
       ],
     },
     {
@@ -351,13 +351,13 @@ export const devFlowDetail = {
       ],
     },
     {
-      title: 'Demo-only assumptions',
-      description: '本地演示假设',
+      title: 'Scope assumptions',
+      description: '项目边界与假设',
       tone: 'neutral',
       items: [
         '默认 local-rule Provider 是本地规则/模板生成，不是真实 LLM 推理。',
         'Knowledge Base 是关键词/简单相似度检索，不是生产级向量数据库。',
-        'Human Review 是 demo workflow，用于展示可解释和可复盘意识。',
+        'Human Review 是作品集工程中的 workflow 状态设计，用于展示可解释和可复盘意识。',
         '截图来自真实本地浏览器页面副本，不是设计参考图。',
       ],
     },
@@ -383,15 +383,15 @@ export const devFlowDetail = {
     },
     {
       index: 'Q04',
-      question: 'local-rule Provider 是真实 AI 吗？',
+      question: '这个项目是真实项目还是 demo？',
       answer:
-        '不是。它是无 Key 演示和故障降级 Provider，用来稳定走完生成链路；OpenAI-compatible 是代码层适配，真实调用需要环境变量配置。',
+        '它是真实可运行的个人作品集工程项目，有前端页面、后端接口、状态流转、真实浏览器截图和构建验收。但我不会把它包装成生产级 AI IDE，也不会虚构真实用户、企业客户或线上流量。',
     },
     {
       index: 'Q05',
       question: '项目边界是什么？',
       answer:
-        '它是作品集 demo，不是生产级 AI IDE，也不虚构真实线上用户、企业数据或商业部署。',
+        '它是 runnable portfolio project，不是生产级商业系统；local-rule fallback 不等于稳定真实 LLM 服务，也不声称生产级 RAG 或 Agent 平台能力。',
     },
   ] satisfies InterviewQA[],
 }
