@@ -52,6 +52,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
     index: '01',
     code: 'DF',
     slug: 'devflow',
+    detailPath: '/projects/devflow',
     title: 'DevFlow Copilot',
     position: 'AI Coding / Agentic Workflow Console',
     problem:

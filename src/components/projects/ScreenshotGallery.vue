@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { ScreenshotEvidence } from '../../data/projectDetails'
 
-defineProps<{
+withDefaults(defineProps<{
   items: ScreenshotEvidence[]
-}>()
+  intro?: string
+}>(), {
+  intro: '以下均为本地 MCP Tool Gateway 可运行页面的浏览器截图副本，不是设计参考图或生产环境截图。',
+})
 </script>
 
 <template>
@@ -13,7 +16,7 @@ defineProps<{
         <p class="detail-kicker">04 / RUNTIME PROOF</p>
         <h2 id="evidence-title">Real Browser Evidence</h2>
       </div>
-      <p>以下均为本地 MCP Tool Gateway 可运行页面的浏览器截图副本，不是设计参考图或生产环境截图。</p>
+      <p>{{ intro }}</p>
     </header>
 
     <div class="screenshot-gallery">

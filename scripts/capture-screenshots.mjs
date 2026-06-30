@@ -37,6 +37,20 @@ const captures = [
     fullPage: true,
   },
   {
+    route: '/projects/devflow',
+    path: path.join(imageDir, 'devflow-detail.png'),
+    width: 1440,
+    height: 900,
+    fullPage: true,
+  },
+  {
+    route: '/projects/devflow',
+    path: path.join(largeImageDir, 'devflow-detail.png'),
+    width: 1920,
+    height: 1080,
+    fullPage: true,
+  },
+  {
     route: '/projects/mcp-gateway',
     path: path.join(imageDir, 'mcp-gateway-detail.png'),
     width: 1440,

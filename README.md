@@ -8,7 +8,7 @@ This project contains a cinematic homepage and a Projects case-study index for a
 
 ## Current Stage
 
-P3A-Polish complete: the approved homepage and Projects index are preserved, while `/projects/mcp-gateway` now offers a faster-scanning MCP Tool Gateway case study with stronger engineering-evidence grouping.
+P3B complete: the approved homepage, Projects index, and MCP detail structure are preserved, while `/projects/devflow` now adds the DevFlow Copilot case-study detail page.
 
 ## Tech Stack
 
@@ -33,10 +33,12 @@ This file is an AI-generated visual reference. It is not a running webpage scree
 - Large desktop: `docs/images/large/portfolio-home.png`
 - Projects desktop: `docs/images/projects-overview.png`
 - Projects large desktop: `docs/images/large/projects-overview.png`
+- DevFlow detail desktop: `docs/images/devflow-detail.png`
+- DevFlow detail large desktop: `docs/images/large/devflow-detail.png`
 - MCP detail desktop: `docs/images/mcp-gateway-detail.png`
 - MCP detail large desktop: `docs/images/large/mcp-gateway-detail.png`
 
-These screenshots are generated from the implemented Vue app with `npm run screenshots`. They are real browser captures of `/`, `/projects`, and `/projects/mcp-gateway`.
+These screenshots are generated from the implemented Vue app with `npm run screenshots`. They are real browser captures of `/`, `/projects`, `/projects/devflow`, and `/projects/mcp-gateway`.
 
 ## Visual Rebuild
 
@@ -52,7 +54,7 @@ The `/projects` route presents three large editorial case-study previews instead
 - **Enterprise Ticket RAG Copilot** — explainable ticket retrieval, RAG, Provider fallback, Trace Evidence, and Human Review.
 - **MCP Tool Gateway** — Java backend Tool gateway, policy checks, JSON-RPC adapter, Audit Log, RBAC demo, CI, Docker, and OpenAPI evidence.
 
-The page also includes a Capability Matrix, an Evidence Wall, and explicit Project Boundaries. Detail routes are intentionally deferred to P3 and are shown as `Coming soon` rather than implemented placeholders.
+The page also includes a Capability Matrix, an Evidence Wall, and explicit Project Boundaries. DevFlow Copilot and MCP Tool Gateway link to implemented detail routes; Enterprise Ticket RAG Copilot remains deferred and is shown as `Coming soon`.
 
 P2A raises body-text contrast and size, maps capabilities to readable project-name chips, and groups the Evidence Wall into Documentation, Runtime Evidence, Backend Evidence, and AI Governance. Each case study includes a copied real browser screenshot from the corresponding local project's `docs/images` directory:
 
@@ -61,6 +63,22 @@ P2A raises body-text contrast and size, maps capabilities to readable project-na
 - `public/images/projects/mcp-gateway-preview.png` from `D:\workhome\mcp-tool-gateway\docs\images\large\mcp-tool-workbench.png`
 
 These files are screenshot copies of locally runnable project pages. The AI-generated design reference remains separate and is never presented as runtime evidence.
+
+## DevFlow Copilot Detail
+
+P3B adds `/projects/devflow` as the DevFlow Copilot detail route. The page presents the project problem, Agentic Coding Workflow architecture, Core Product Modules, five real browser evidence screenshots, engineering evidence, explicit project boundaries, and interview notes.
+
+The gallery uses real browser screenshot copies from the local `D:\workhome\ai-coding-workbench\docs\images` directory:
+
+- `dashboard-agentic.png`
+- `workbench-running.png`
+- `generation-history.png`
+- `prompt-templates.png`
+- `human-review-trace-detail.png`
+
+The screenshots are copied into `public/images/projects/devflow/`. They are runtime evidence from the local DevFlow project, not design references, customer systems, or production environment captures.
+
+The page keeps the DevFlow boundary clear: this is a portfolio demo, not a production AI IDE. The default `local-rule` Provider is local rule/template generation rather than real LLM inference; OpenAI-compatible Provider support is a code-level adapter that requires environment configuration and separate verification. Knowledge Base is lightweight keyword/simple-similarity retrieval, not production vector RAG.
 
 ## MCP Tool Gateway Detail
 
@@ -90,5 +108,6 @@ Motion references under `docs/design/motion-references/` are local design refere
 - No real API integration.
 - No login.
 - No production traffic, customer, or deployment claims.
-- Only the MCP Tool Gateway detail page is implemented; the other two project details remain deferred.
+- DevFlow Copilot and MCP Tool Gateway detail pages are implemented; Enterprise Ticket RAG Copilot remains deferred.
+- DevFlow is labeled as a portfolio AI Coding workflow demo, not a production AI IDE.
 - MCP-style and RBAC demo capabilities are labeled as demonstrations, not complete production implementations.

@@ -22,6 +22,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented P2A Projects readability and engineering-evidence refinement without changing the approved homepage.
 - Implemented P3A MCP Tool Gateway detail page as the first focused project case study.
 - Implemented P3A-Polish to improve MCP detail scanability and engineering-evidence communication.
+- Implemented P3B DevFlow Copilot detail page as the AI Coding workflow case study.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added centralized Projects case-study data in `src/data/projects.ts`.
 - Added real browser screenshot generation with Playwright.
@@ -30,9 +31,10 @@ The reference image is an AI-generated visual reference only. It is not a real b
 
 - `/` — approved cinematic AI Agent Engineer portfolio homepage.
 - `/projects` — Projects case-study index.
+- `/projects/devflow` — DevFlow Copilot AI Coding workflow case study.
 - `/projects/mcp-gateway` — MCP Tool Gateway engineering case study.
 
-Vue Router is installed and configured in `src/router/index.ts`. DevFlow Copilot and Enterprise Ticket RAG Copilot detail routes remain intentionally deferred.
+Vue Router is installed and configured in `src/router/index.ts`. Enterprise Ticket RAG Copilot remains intentionally deferred.
 
 ## Implemented Components
 
@@ -83,6 +85,31 @@ Vue Router is installed and configured in `src/router/index.ts`. DevFlow Copilot
 - `public/images/projects/mcp-gateway-preview.png` is copied from `D:\workhome\mcp-tool-gateway\docs\images\large\mcp-tool-workbench.png`.
 
 The source projects were inspected read-only and were not modified. These previews are real browser screenshot copies, not design references or fabricated production evidence.
+
+## P3B DevFlow Copilot Detail
+
+- Route: `/projects/devflow`.
+- Structure: Detail Hero, Project Summary Rail, Why this project exists, Agentic Coding Workflow, Core Product Modules, Real Browser Evidence, Engineering Evidence, Trust Panel, and interview Q&A.
+- The Project Summary Rail exposes Role, Core, Evidence, and Boundary in the first viewport.
+- The seven-node Agentic Coding Workflow explains Prompt Template, Provider Call, Generation Trace, Knowledge Reference, Save Record, Human Review, and Confirmed History.
+- Core Product Modules cover Dashboard, Workbench, Prompt Templates, Generation History, Knowledge Base, Human Review, and Trace / Activity.
+- Engineering evidence covers Vue 3 + TypeScript frontend, Spring Boot backend, Prompt Studio workflow, Human Review state machine, Generation Trace, Knowledge reference, Agent Run Trace, 20 backend tests, build verification, and real screenshot evidence.
+- The Trust Panel states this is a portfolio AI Coding workflow console demo, not a production AI IDE. It does not claim real users, traffic, customers, commercial data, automatic code modification, automatic Git commits, or stable production LLM integration.
+- Provider boundary: `local-rule` is local rule/template generation, not real LLM inference. OpenAI-compatible Provider support is a code-level adapter requiring environment configuration and separate verification.
+- Knowledge Base boundary: keyword/simple-similarity retrieval, not production vector RAG.
+- Human Review boundary: demo workflow for explainability and replay, not production approval infrastructure.
+
+### DevFlow Detail Screenshot Sources
+
+All five files are copied read-only from `D:\workhome\ai-coding-workbench\docs\images` into `public/images/projects/devflow/`:
+
+- `dashboard-agentic.png`
+- `workbench-running.png`
+- `generation-history.png`
+- `prompt-templates.png`
+- `human-review-trace-detail.png`
+
+The original DevFlow project must remain unchanged. These are real local browser screenshot copies, not design-reference material.
 
 ## P3A MCP Tool Gateway Detail
 
@@ -146,6 +173,8 @@ The original MCP Tool Gateway project must remain unchanged. These are real loca
 - `docs/images/large/portfolio-home.png`
 - `docs/images/projects-overview.png`
 - `docs/images/large/projects-overview.png`
+- `docs/images/devflow-detail.png`
+- `docs/images/large/devflow-detail.png`
 - `docs/images/mcp-gateway-detail.png`
 - `docs/images/large/mcp-gateway-detail.png`
 
@@ -153,4 +182,4 @@ These are real browser screenshots generated from the Vue app. The reference ima
 
 ## Next Step
 
-P3B should add the DevFlow Copilot detail page using the same evidence discipline while giving its AI Coding workflow a distinct editorial treatment. P3C should then cover Enterprise Ticket RAG Copilot. Do not turn either page into a dashboard or claim production capability that is not implemented.
+P3C should add the Enterprise Ticket RAG Copilot detail page using the same evidence discipline. Do not turn it into a generic dashboard or claim production capability that is not implemented.

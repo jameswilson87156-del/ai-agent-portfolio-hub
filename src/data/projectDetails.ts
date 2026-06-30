@@ -17,6 +17,12 @@ export type FlowStep = {
   detail: string
 }
 
+export type CoreModuleItem = {
+  index: string
+  title: string
+  detail: string
+}
+
 export type ScreenshotEvidence = {
   index: string
   title: string
@@ -52,6 +58,342 @@ export type InterviewQA = {
   index: string
   question: string
   answer: string
+}
+
+export const devFlowDetail = {
+  title: 'DevFlow Copilot',
+  subtitle: 'AI Coding / Agentic Workflow Console',
+  positioning:
+    '一个面向 AI Coding 工作流的控制台 demo，把 Prompt 编排、Provider 调用、生成记录、Knowledge Reference、Trace 与 Human Review 串成可展示、可解释、可复盘的 Agentic Coding Workflow。',
+  tags: [
+    'Vue 3',
+    'TypeScript',
+    'Spring Boot',
+    'Java',
+    'Prompt Studio',
+    'Generation Trace',
+    'Knowledge Base',
+    'Human Review',
+    'Playwright',
+  ],
+  githubUrl: 'https://github.com/jameswilson87156-del/devflow-copilot',
+  summary: [
+    {
+      label: 'Role',
+      value: 'AI Coding Workflow / Frontend Product Engineering',
+      tone: 'orange',
+    },
+    {
+      label: 'Core',
+      value: 'Prompt + Provider + Trace + Human Review',
+      tone: 'green',
+    },
+    {
+      label: 'Evidence',
+      value: 'Real screenshots / build passed / Playwright screenshots / README',
+      tone: 'orange',
+    },
+    {
+      label: 'Boundary',
+      value: 'Portfolio demo, not production AI IDE',
+      tone: 'green',
+    },
+  ] satisfies ProjectSummaryItem[],
+  problem:
+    'AI Coding 不应该只是一个输入框加生成结果。真正可解释的 AI Coding 工作流需要记录 Prompt、Provider、生成过程、上下文引用、人工确认和历史状态。DevFlow Copilot 用一个控制台 demo 展示从 Prompt 到生成结果再到 Human Review 的闭环。',
+  problemSignals: [
+    {
+      label: 'PROMPT',
+      value: '模板、变量、项目上下文和编码约束需要被版本化与复盘。',
+    },
+    {
+      label: 'TRACE',
+      value: 'Provider、模型、耗时、失败原因和 Knowledge 引用需要进入生成记录。',
+    },
+    {
+      label: 'REVIEW',
+      value: '生成 Artifact 必须先保存、再确认，避免把输出直接包装成自动执行能力。',
+    },
+  ],
+  architecture: [
+    {
+      index: '01',
+      title: 'Prompt Template',
+      detail: '选择模板、变量、项目上下文和 coding rules，形成可复用的生成入口。',
+      layer: 'entry',
+    },
+    {
+      index: '02',
+      title: 'Provider Call',
+      detail: '通过 Provider Router 进入 local-rule 或 OpenAI-compatible 代码路径。',
+      layer: 'entry',
+    },
+    {
+      index: '03',
+      title: 'Generation Trace',
+      detail: '记录模板版本、渲染摘要、provider、model、status、latency 和 error。',
+      layer: 'governance',
+    },
+    {
+      index: '04',
+      title: 'Knowledge Reference',
+      detail: '检索轻量 Knowledge Base chunks，并把引用返回到生成结果中。',
+      layer: 'governance',
+    },
+    {
+      index: '05',
+      title: 'Save Record',
+      detail: '把 Artifact、状态、token usage 估算或真实 usage 与失败原因持久化。',
+      layer: 'governance',
+    },
+    {
+      index: '06',
+      title: 'Human Review',
+      detail: '通过 READY_FOR_REVIEW -> SAVED -> CONFIRMED 约束人工确认边界。',
+      layer: 'evidence',
+    },
+    {
+      index: '07',
+      title: 'Confirmed History',
+      detail: '在历史记录和 Trace 页面中回放一次可解释的 AI Coding workflow。',
+      layer: 'evidence',
+    },
+  ] satisfies ArchitectureNode[],
+  modules: [
+    {
+      index: 'M01',
+      title: 'Dashboard',
+      detail: '汇总工作流状态、待确认队列、最近 Trace 和 Prompt 模板健康度。',
+    },
+    {
+      index: 'M02',
+      title: 'Workbench',
+      detail: '围绕项目上下文生成需求拆解、代码计划、README、Commit Message 和修复 Prompt。',
+    },
+    {
+      index: 'M03',
+      title: 'Prompt Templates',
+      detail: '维护模板变量、启用状态、版本记录和渲染预览。',
+    },
+    {
+      index: 'M04',
+      title: 'Generation History',
+      detail: '保存 provider、model、latency、status、错误摘要和生成 Artifact。',
+    },
+    {
+      index: 'M05',
+      title: 'Knowledge Base',
+      detail: '提供文档、chunk、关键词/简单相似度检索和引用返回。',
+    },
+    {
+      index: 'M06',
+      title: 'Human Review',
+      detail: '把生成结果放入保存、确认和复盘状态机，而不是自动执行。',
+    },
+    {
+      index: 'M07',
+      title: 'Trace / Activity',
+      detail: '展示 Generation Trace、Agent Run Trace、Tool Call 和活动时间线。',
+    },
+  ] satisfies CoreModuleItem[],
+  screenshots: [
+    {
+      index: 'S01',
+      title: 'Agentic Dashboard',
+      description: 'DevFlow 控制台首页，展示 AI Coding 工作流、Trace、模板和待确认状态。',
+      src: '/images/projects/devflow/dashboard-agentic.png',
+      alt: 'DevFlow Copilot Agentic Dashboard 真实浏览器截图',
+      source: 'D:\\workhome\\ai-coding-workbench\\docs\\images\\dashboard-agentic.png',
+      featured: true,
+    },
+    {
+      index: 'S02',
+      title: 'Workbench Running',
+      description: 'AI 工作台把项目上下文、生成类型、模板和输出 Artifact 放在同一流程里。',
+      src: '/images/projects/devflow/workbench-running.png',
+      alt: 'DevFlow Copilot Workbench Running 真实浏览器截图',
+      source: 'D:\\workhome\\ai-coding-workbench\\docs\\images\\workbench-running.png',
+    },
+    {
+      index: 'S03',
+      title: 'Generation History',
+      description: '生成历史记录 provider、model、latency、status 与 review 状态，便于复盘。',
+      src: '/images/projects/devflow/generation-history.png',
+      alt: 'DevFlow Copilot Generation History 真实浏览器截图',
+      source: 'D:\\workhome\\ai-coding-workbench\\docs\\images\\generation-history.png',
+    },
+    {
+      index: 'S04',
+      title: 'Prompt Templates',
+      description: 'Prompt 模板页面展示变量、启用状态和模板版本意识。',
+      src: '/images/projects/devflow/prompt-templates.png',
+      alt: 'DevFlow Copilot Prompt Templates 真实浏览器截图',
+      source: 'D:\\workhome\\ai-coding-workbench\\docs\\images\\prompt-templates.png',
+    },
+    {
+      index: 'S05',
+      title: 'Human Review Trace',
+      description: 'Human Review 与 Trace 详情放在一起，说明生成结果如何被保存和确认。',
+      src: '/images/projects/devflow/human-review-trace-detail.png',
+      alt: 'DevFlow Copilot Human Review Trace 真实浏览器截图',
+      source: 'D:\\workhome\\ai-coding-workbench\\docs\\images\\human-review-trace-detail.png',
+    },
+  ] satisfies ScreenshotEvidence[],
+  engineeringEvidenceGroups: [
+    {
+      index: 'G01',
+      title: 'Frontend Product Surface',
+      description: '用 Vue 3 + TypeScript 把 AI Coding workflow 表达成可浏览、可演示的控制台。',
+      items: [
+        {
+          index: 'E01',
+          title: 'Vue 3 + TypeScript frontend',
+          detail: '前端以 Vite、Vue 3、TypeScript 和 Element Plus 组织工作台、模板、历史、知识库和 review 页面。',
+          scope: 'Frontend',
+        },
+        {
+          index: 'E02',
+          title: 'Prompt Studio workflow',
+          detail: '模板变量、启用状态、版本记录和渲染预览让 Prompt 不再只是散落文本。',
+          scope: 'Prompt UI',
+        },
+      ],
+    },
+    {
+      index: 'G02',
+      title: 'Spring Boot Workflow Core',
+      description: '后端承载生成记录、状态流转、Provider 抽象和数据持久化边界。',
+      items: [
+        {
+          index: 'E03',
+          title: 'Spring Boot backend',
+          detail: 'README 记录后端使用 Java 17、Spring Boot 3、Controller / Service / Mapper 分层和统一响应。',
+          scope: 'Java backend',
+        },
+        {
+          index: 'E04',
+          title: 'Human review state machine',
+          detail: '生成结果经过 READY_FOR_REVIEW -> SAVED -> CONFIRMED，非法状态流转返回 HTTP 409。',
+          scope: 'Workflow state',
+        },
+      ],
+    },
+    {
+      index: 'G03',
+      title: 'Trace & Knowledge',
+      description: '把生成过程、上下文引用和 Agent Run 步骤变成可解释记录。',
+      items: [
+        {
+          index: 'E05',
+          title: 'Generation Trace',
+          detail: '记录 promptVersion、inputVariables、renderedPrompt 摘要、provider、model、status、latencyMs 和 errorMessage。',
+          scope: 'Trace record',
+        },
+        {
+          index: 'E06',
+          title: 'Knowledge reference',
+          detail: 'Knowledge Base 采用关键词/简单相似度检索，返回文档 chunk 引用，不冒充生产级向量 RAG。',
+          scope: 'Light RAG',
+        },
+        {
+          index: 'E07',
+          title: 'Agent Run Trace',
+          detail: '记录一次任务运行、拆解步骤、Prompt 渲染、Knowledge 检索、Provider 调用和 Human Review 状态。',
+          scope: 'Agent trace',
+        },
+      ],
+    },
+    {
+      index: 'G04',
+      title: 'Verification & Documentation',
+      description: '用可读文档、测试记录和真实截图说明完成度，同时保留未完成边界。',
+      items: [
+        {
+          index: 'E08',
+          title: '20 backend tests',
+          detail: 'README 记录 20 个 Spring Boot 测试覆盖模板渲染、Provider 降级、状态机、Trace、Knowledge 检索和 RAG 引用。',
+          scope: 'Testing',
+        },
+        {
+          index: 'E09',
+          title: 'Build verification',
+          detail: 'README 记录前端 npm run build passed，当前 portfolio 本页也会通过本仓库构建验证。',
+          scope: 'Build',
+        },
+        {
+          index: 'E10',
+          title: 'Real screenshots',
+          detail: '页面引用的截图均从本地 DevFlow docs/images 复制，不使用设计参考图冒充运行证据。',
+          scope: 'Playwright',
+        },
+      ],
+    },
+  ] satisfies EngineeringEvidenceGroup[],
+  trustPanel: [
+    {
+      title: 'What it is',
+      description: '当前真实定位',
+      tone: 'positive',
+      items: [
+        '一个面向作品集展示的 AI Coding workflow console demo。',
+        '一条可运行、可截图、可讲解的 Prompt / Provider / Trace / Knowledge / Review 闭环。',
+        '用于证明前端产品表达、Java 后端分层和 AI 工程化边界意识。',
+      ],
+    },
+    {
+      title: 'What it is not',
+      description: '明确不声称的能力',
+      tone: 'negative',
+      items: [
+        '不是生产级 AI IDE，也不会自动修改代码、自动提交 Git 或自动部署。',
+        '不虚构真实线上用户、企业客户、业务流量或商业数据。',
+        '不声称已稳定接入真实大模型；真实 Provider 需要环境变量和单独验证。',
+      ],
+    },
+    {
+      title: 'Demo-only assumptions',
+      description: '本地演示假设',
+      tone: 'neutral',
+      items: [
+        '默认 local-rule Provider 是本地规则/模板生成，不是真实 LLM 推理。',
+        'Knowledge Base 是关键词/简单相似度检索，不是生产级向量数据库。',
+        'Human Review 是 demo workflow，用于展示可解释和可复盘意识。',
+        '截图来自真实本地浏览器页面副本，不是设计参考图。',
+      ],
+    },
+  ] satisfies TrustPanelSection[],
+  interviewQuestions: [
+    {
+      index: 'Q01',
+      question: '这个项目和普通 AI 生成页面有什么区别？',
+      answer:
+        '我不是只做一个 Prompt 输入框，而是把 Prompt、Provider、Trace、Knowledge Reference 和 Human Review 串成可复盘的 AI Coding 工作流。',
+    },
+    {
+      index: 'Q02',
+      question: '这个项目主要体现什么能力？',
+      answer:
+        '它体现前端产品表达、AI 工作流拆解、状态流转设计、工程证据整理，以及用 Java 后端承载基础业务接口的能力。',
+    },
+    {
+      index: 'Q03',
+      question: '为什么要做 Human Review？',
+      answer:
+        'AI Coding 结果不能只看生成，还需要保存、确认、复盘和人工审核，这样更接近可解释的工程流程。',
+    },
+    {
+      index: 'Q04',
+      question: 'local-rule Provider 是真实 AI 吗？',
+      answer:
+        '不是。它是无 Key 演示和故障降级 Provider，用来稳定走完生成链路；OpenAI-compatible 是代码层适配，真实调用需要环境变量配置。',
+    },
+    {
+      index: 'Q05',
+      question: '项目边界是什么？',
+      answer:
+        '它是作品集 demo，不是生产级 AI IDE，也不虚构真实线上用户、企业数据或商业部署。',
+    },
+  ] satisfies InterviewQA[],
 }
 
 export const mcpGatewayDetail = {

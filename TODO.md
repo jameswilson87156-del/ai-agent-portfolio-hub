@@ -8,6 +8,6 @@
 - P2A: Complete Projects readability refinement, real project screenshot previews, grouped engineering evidence, and clearer capability mapping.
 - P3A: Complete the MCP Tool Gateway detail page with architecture, runtime screenshots, backend evidence, boundaries, and interview notes.
 - P3A-Polish: Complete MCP detail scanability, Project Summary Rail, Agent Governance Flow, grouped backend evidence, Trust Panel, and interview Q&A.
-- P3B: Build the DevFlow Copilot detail page.
+- P3B: Complete the DevFlow Copilot detail page with workflow architecture, real screenshots, engineering evidence, boundaries, and interview notes.
 - P3C: Build the Enterprise Ticket RAG Copilot detail page.
 - P4: Deploy and finalize the portfolio package.

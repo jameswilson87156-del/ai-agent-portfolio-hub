@@ -15,6 +15,11 @@ const router = createRouter({
       component: () => import('../views/ProjectsView.vue'),
     },
     {
+      path: '/projects/devflow',
+      name: 'devflow-detail',
+      component: () => import('../views/DevFlowDetailView.vue'),
+    },
+    {
       path: '/projects/mcp-gateway',
       name: 'mcp-gateway-detail',
       component: () => import('../views/McpGatewayDetailView.vue'),

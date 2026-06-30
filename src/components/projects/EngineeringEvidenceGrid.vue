@@ -1,19 +1,26 @@
 <script setup lang="ts">
 import type { EngineeringEvidenceGroup } from '../../data/projectDetails'
 
-defineProps<{
+withDefaults(defineProps<{
   groups: EngineeringEvidenceGroup[]
-}>()
+  kicker?: string
+  title?: string
+  description?: string
+}>(), {
+  kicker: '05 / DELIVERY EVIDENCE',
+  title: 'Backend & Engineering Evidence',
+  description: '证据来自源项目代码、文档与最近验收记录；其中 demo 能力均保持明确标注。',
+})
 </script>
 
 <template>
   <section class="detail-section engineering-section" aria-labelledby="engineering-title">
     <header class="detail-section-heading">
       <div>
-        <p class="detail-kicker">05 / DELIVERY EVIDENCE</p>
-        <h2 id="engineering-title">Backend &amp; Engineering Evidence</h2>
+        <p class="detail-kicker">{{ kicker }}</p>
+        <h2 id="engineering-title">{{ title }}</h2>
       </div>
-      <p>证据来自源项目代码、文档与最近验收记录；其中 demo 能力均保持明确标注。</p>
+      <p>{{ description }}</p>
     </header>
 
     <div class="engineering-groups">
