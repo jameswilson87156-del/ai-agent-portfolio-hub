@@ -87,6 +87,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
     index: '02',
     code: 'RAG',
     slug: 'ticket-rag',
+    detailPath: '/projects/ticket-rag',
     title: 'Enterprise Ticket RAG Copilot',
     position: '企业工单 RAG 智能助手',
     problem:
@@ -113,7 +114,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
       'Human Review',
     ],
     boundary:
-      'RAG / Provider 为作品集演示路径，不虚构真实企业客户或线上生产数据。',
+      '真实可运行的作品集工程项目，不包装成生产级企业 RAG 系统，不虚构真实工单数据。',
     resumeValue:
       '体现 RAG 应用流程、知识引用、Provider 回退和人工复核等企业 AI 场景理解。',
     preview: {

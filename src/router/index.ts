@@ -20,6 +20,11 @@ const router = createRouter({
       component: () => import('../views/DevFlowDetailView.vue'),
     },
     {
+      path: '/projects/ticket-rag',
+      name: 'ticket-rag-detail',
+      component: () => import('../views/TicketRagDetailView.vue'),
+    },
+    {
       path: '/projects/mcp-gateway',
       name: 'mcp-gateway-detail',
       component: () => import('../views/McpGatewayDetailView.vue'),

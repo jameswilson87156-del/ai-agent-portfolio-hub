@@ -24,6 +24,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented P3A-Polish to improve MCP detail scanability and engineering-evidence communication.
 - Implemented P3B DevFlow Copilot detail page as the AI Coding workflow case study.
 - Implemented P3B-CopyFix to clarify DevFlow as a real runnable portfolio engineering project rather than a static page or fake project.
+- Implemented P3C Enterprise Ticket RAG Copilot detail page as the enterprise RAG Copilot workflow case study.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added centralized Projects case-study data in `src/data/projects.ts`.
 - Added real browser screenshot generation with Playwright.
@@ -33,9 +34,10 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - `/` — approved cinematic AI Agent Engineer portfolio homepage.
 - `/projects` — Projects case-study index.
 - `/projects/devflow` — DevFlow Copilot AI Coding workflow case study.
+- `/projects/ticket-rag` — Enterprise Ticket RAG Copilot workflow case study.
 - `/projects/mcp-gateway` — MCP Tool Gateway engineering case study.
 
-Vue Router is installed and configured in `src/router/index.ts`. Enterprise Ticket RAG Copilot remains intentionally deferred.
+Vue Router is installed and configured in `src/router/index.ts`. All three P3 detail routes are now implemented.
 
 ## Implemented Components
 
@@ -113,6 +115,32 @@ All five files are copied read-only from `D:\workhome\ai-coding-workbench\docs\i
 
 The original DevFlow project must remain unchanged. These are real local browser screenshot copies, not design-reference material.
 
+## P3C Enterprise Ticket RAG Copilot Detail
+
+- Route: `/projects/ticket-rag`.
+- Structure: Detail Hero, Project Summary Rail, Why this project exists, Ticket RAG Copilot Workflow, Core Product Modules, Real Browser Evidence, Engineering Evidence, Trust Panel, and interview Q&A.
+- The Project Summary Rail exposes Role, Core, Evidence, and Boundary in the first viewport.
+- The eight-node Ticket RAG Copilot Workflow explains Ticket Intake, Knowledge Retrieval, RAG Context, Provider / fallback, AI Analysis, Trace Evidence, Human Review, and Final Response.
+- Core Product Modules cover Ticket Workbench, Knowledge Base, RAG Evidence, Provider fallback, Trace Evidence, Human Review, Showcase Screenshots, and README Evidence.
+- Engineering evidence covers Vue 3 + TypeScript frontend, five Showcase pages, Spring Boot backend, ticket workflow, Knowledge Base / RAG context, Provider fallback, Trace Evidence, 24 backend tests, build verification, and README portfolio documentation.
+- The Trust Panel states what is real: runnable portfolio engineering project, real frontend Showcase pages, real browser screenshots, README documentation, build / screenshots acceptance, backend interfaces, ticket state flow, Trace Evidence, Provider fallback, and Human Review evidence.
+- The Trust Panel also states what it is not: not a production enterprise RAG system, not automatic customer service, not real customer data, not real enterprise clients, not online traffic, not commercial metrics, and not a stable production LLM service.
+- Provider boundary: OpenAI-compatible Provider code exists, but source README records no successful stable real-model response verification. The portfolio page must not claim OpenAI / DeepSeek / real Provider stable connection success.
+- RAG boundary: current RAG means keyword knowledge references and evidence display, not embedding, Vector DB, or complete production RAG Pipeline.
+- Human Review boundary: workflow state design for explainability and auditability, not production approval infrastructure.
+
+### Ticket RAG Detail Screenshot Sources
+
+All five files are copied read-only from `D:\workhome\enterprise-ai-ticket-copilot\docs\images` into `public/images/projects/ticket-rag/`:
+
+- `dashboard.png`
+- `ticket-detail.png`
+- `knowledge-base.png`
+- `trace-evidence.png`
+- `human-review.png`
+
+The original Enterprise Ticket RAG Copilot project must remain unchanged. These are real local browser screenshot copies, not design-reference material.
+
 ## P3A MCP Tool Gateway Detail
 
 - Route: `/projects/mcp-gateway`.
@@ -177,6 +205,8 @@ The original MCP Tool Gateway project must remain unchanged. These are real loca
 - `docs/images/large/projects-overview.png`
 - `docs/images/devflow-detail.png`
 - `docs/images/large/devflow-detail.png`
+- `docs/images/ticket-rag-detail.png`
+- `docs/images/large/ticket-rag-detail.png`
 - `docs/images/mcp-gateway-detail.png`
 - `docs/images/large/mcp-gateway-detail.png`
 
@@ -184,4 +214,4 @@ These are real browser screenshots generated from the Vue app. The reference ima
 
 ## Next Step
 
-P3C should add the Enterprise Ticket RAG Copilot detail page using the same evidence discipline. Do not turn it into a generic dashboard or claim production capability that is not implemented.
+P4 should prepare whole-site navigation, screenshots, README, deployment readiness, and portfolio finalization. Do not add new backend services, real API integrations, login, CMS, or production claims unless a separate task explicitly asks for them and evidence supports it.

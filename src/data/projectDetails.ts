@@ -396,6 +396,354 @@ export const devFlowDetail = {
   ] satisfies InterviewQA[],
 }
 
+export const ticketRagDetail = {
+  title: 'Enterprise Ticket RAG Copilot',
+  subtitle: '企业工单 RAG 智能助手',
+  positioning:
+    '一个真实可运行的企业工单 RAG Copilot 作品集工程项目，围绕工单检索、知识引用、Provider fallback、Trace Evidence 与 Human Review，展示企业 AI 助手如何把回答过程变得可解释、可追踪、可审核。',
+  tags: [
+    'Vue 3',
+    'TypeScript',
+    'Spring Boot',
+    'Java',
+    'RAG',
+    'Knowledge Base',
+    'Provider fallback',
+    'Trace Evidence',
+    'Human Review',
+    'Playwright',
+  ],
+  githubUrl: 'https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot',
+  summary: [
+    {
+      label: 'Role',
+      value: 'AI Application / Enterprise Copilot Workflow',
+      tone: 'green',
+    },
+    {
+      label: 'Core',
+      value: 'Ticket + RAG + Trace Evidence + Human Review',
+      tone: 'orange',
+    },
+    {
+      label: 'Evidence',
+      value: 'Real screenshots / README / build screenshots / Showcase pages',
+      tone: 'green',
+    },
+    {
+      label: 'Boundary',
+      value: 'Runnable portfolio project, not production enterprise RAG',
+      tone: 'orange',
+    },
+  ] satisfies ProjectSummaryItem[],
+  problem:
+    '企业工单场景中，AI 回答不能只是生成一段文本。面试官和业务方更关心答案引用了哪些知识、Provider 是否 fallback、Trace 是否可追踪、是否经过人工审核、风险和边界是否清晰。Enterprise Ticket RAG Copilot 用一个可运行的作品集工程项目展示企业 AI Copilot 的可解释链路。',
+  problemSignals: [
+    {
+      label: 'TICKET',
+      value: '工单上下文、系统名、错误日志和优先级需要进入同一条处理链路。',
+    },
+    {
+      label: 'RAG',
+      value: '知识引用要说明来源、命中关键词、相关度和片段，而不是只给出结论。',
+    },
+    {
+      label: 'REVIEW',
+      value: 'Provider fallback、Trace Evidence 和 Human Review 共同保留可审核运行边界。',
+    },
+  ],
+  architecture: [
+    {
+      index: '01',
+      title: 'Ticket Intake',
+      detail: '接收工单标题、描述、系统、错误日志与当前处理状态。',
+      layer: 'entry',
+    },
+    {
+      index: '02',
+      title: 'Knowledge Retrieval',
+      detail: '通过关键词和分类匹配知识条目，保留命中原因和来源路径。',
+      layer: 'entry',
+    },
+    {
+      index: '03',
+      title: 'RAG Context',
+      detail: '把知识标题、片段、相关度和引用关系组织成回复上下文。',
+      layer: 'governance',
+    },
+    {
+      index: '04',
+      title: 'Provider / fallback',
+      detail: '记录 OpenAI-compatible 路径或 local-rule fallback 的 provider、model 与原因。',
+      layer: 'governance',
+    },
+    {
+      index: '05',
+      title: 'AI Analysis',
+      detail: '生成分类、风险提示、排查步骤和待人工确认的回复草稿。',
+      layer: 'governance',
+    },
+    {
+      index: '06',
+      title: 'Trace Evidence',
+      detail: '聚合 generation record、状态历史、知识引用和 JSON 摘要。',
+      layer: 'evidence',
+    },
+    {
+      index: '07',
+      title: 'Human Review',
+      detail: '通过 Approve、Request Changes、Reject 保留人工决策权。',
+      layer: 'evidence',
+    },
+    {
+      index: '08',
+      title: 'Final Response',
+      detail: '最终回复与知识沉淀必须经过人工确认，不自动关闭工单。',
+      layer: 'evidence',
+    },
+  ] satisfies ArchitectureNode[],
+  modules: [
+    {
+      index: 'M01',
+      title: 'Ticket Workbench',
+      detail: '围绕工单上下文、处理建议和状态历史组织主工作台。',
+    },
+    {
+      index: 'M02',
+      title: 'Knowledge Base',
+      detail: '展示知识文章、来源路径、命中关键词和引用片段。',
+    },
+    {
+      index: 'M03',
+      title: 'RAG Evidence',
+      detail: '把知识命中和回复草稿之间的依据关系显式呈现。',
+    },
+    {
+      index: 'M04',
+      title: 'Provider fallback',
+      detail: '记录 provider、model、latency、fallbackUsed 与 fallbackReason。',
+    },
+    {
+      index: 'M05',
+      title: 'Trace Evidence',
+      detail: '聚合工单分析、generation record、状态历史和知识引用。',
+    },
+    {
+      index: 'M06',
+      title: 'Human Review',
+      detail: '通过人工审核控制建议草稿、处理结论和知识发布。',
+    },
+    {
+      index: 'M07',
+      title: 'Showcase Screenshots',
+      detail: 'README 使用真实浏览器生成的五个 Showcase 页面截图。',
+    },
+    {
+      index: 'M08',
+      title: 'README Evidence',
+      detail: '文档明确验证结果、能力边界和 Provider 调试口径。',
+    },
+  ] satisfies CoreModuleItem[],
+  screenshots: [
+    {
+      index: 'S01',
+      title: 'Enterprise Copilot Dashboard',
+      description: '企业工单 Copilot 总览，展示队列、运行边界、知识覆盖和人工审核状态。',
+      src: '/images/projects/ticket-rag/dashboard.png',
+      alt: 'Enterprise Ticket RAG Copilot Dashboard 真实浏览器截图',
+      source: 'D:\\workhome\\enterprise-ai-ticket-copilot\\docs\\images\\dashboard.png',
+      featured: true,
+    },
+    {
+      index: 'S02',
+      title: 'Ticket Workbench',
+      description: '工单上下文、处理建议、知识命中和人工确认入口放在同一工作流里。',
+      src: '/images/projects/ticket-rag/ticket-detail.png',
+      alt: 'Enterprise Ticket RAG Copilot Ticket Workbench 真实浏览器截图',
+      source: 'D:\\workhome\\enterprise-ai-ticket-copilot\\docs\\images\\ticket-detail.png',
+    },
+    {
+      index: 'S03',
+      title: 'Knowledge / RAG',
+      description: '知识引用页面展示来源路径、关键词命中、相关度和片段证据。',
+      src: '/images/projects/ticket-rag/knowledge-base.png',
+      alt: 'Enterprise Ticket RAG Copilot Knowledge Base 真实浏览器截图',
+      source: 'D:\\workhome\\enterprise-ai-ticket-copilot\\docs\\images\\knowledge-base.png',
+    },
+    {
+      index: 'S04',
+      title: 'Trace Evidence',
+      description: 'Trace 页面聚合 Provider fallback、generation record、RAG Reference 和 JSON 证据。',
+      src: '/images/projects/ticket-rag/trace-evidence.png',
+      alt: 'Enterprise Ticket RAG Copilot Trace Evidence 真实浏览器截图',
+      source: 'D:\\workhome\\enterprise-ai-ticket-copilot\\docs\\images\\trace-evidence.png',
+    },
+    {
+      index: 'S05',
+      title: 'Human Review',
+      description: '人工审核页面展示 Approve、Request Changes、Reject 的决策边界。',
+      src: '/images/projects/ticket-rag/human-review.png',
+      alt: 'Enterprise Ticket RAG Copilot Human Review 真实浏览器截图',
+      source: 'D:\\workhome\\enterprise-ai-ticket-copilot\\docs\\images\\human-review.png',
+    },
+  ] satisfies ScreenshotEvidence[],
+  engineeringEvidenceGroups: [
+    {
+      index: 'G01',
+      title: 'Frontend Showcase',
+      description: '用 Vue 3 + TypeScript 呈现企业 Copilot 的多页面工作流，而不是聊天框或后台表格。',
+      items: [
+        {
+          index: 'E01',
+          title: 'Vue 3 + TypeScript frontend',
+          detail: '源项目 README 记录前端使用 Vue 3、TypeScript、Vite 和原生 CSS Design Tokens。',
+          scope: 'Frontend',
+        },
+        {
+          index: 'E02',
+          title: 'Five showcase pages',
+          detail: 'Dashboard、Ticket Workbench、Knowledge / RAG、Trace Evidence 与 Human Review 均有真实浏览器截图。',
+          scope: 'Showcase',
+        },
+      ],
+    },
+    {
+      index: 'G02',
+      title: 'Spring Boot Workflow',
+      description: '后端支撑工单、Trace Evidence、Provider fallback、RBAC demo 和 Human Review 接口。',
+      items: [
+        {
+          index: 'E03',
+          title: 'Spring Boot backend',
+          detail: 'README 记录 Java 17、Spring Boot 3、MyBatis-Plus、Bean Validation 与 SpringDoc OpenAPI。',
+          scope: 'Java backend',
+        },
+        {
+          index: 'E04',
+          title: 'Ticket workflow',
+          detail: '工单状态流转、知识草稿和处理结论都保留人工确认边界，不自动回复或关闭工单。',
+          scope: 'Workflow state',
+        },
+      ],
+    },
+    {
+      index: 'G03',
+      title: 'RAG & Evidence Chain',
+      description: '把知识引用、Provider 记录、fallback 原因和 Trace Evidence 放进可复盘链路。',
+      items: [
+        {
+          index: 'E05',
+          title: 'Knowledge Base / RAG context',
+          detail: '当前 RAG 表示关键词知识引用与证据展示，不是 embedding、Vector DB 或完整 RAG Pipeline。',
+          scope: 'Light RAG',
+        },
+        {
+          index: 'E06',
+          title: 'Provider fallback',
+          detail: 'OpenAI-compatible Provider 代码路径已实现；未配置、超时或失败时记录原因并回退 local-rule。',
+          scope: 'Provider path',
+        },
+        {
+          index: 'E07',
+          title: 'Trace Evidence',
+          detail: '聚合 ticket_ai_analysis、generation_record、ticket_status_history 与 knowledge_article。',
+          scope: 'Evidence API',
+        },
+      ],
+    },
+    {
+      index: 'G04',
+      title: 'Verification & Boundaries',
+      description: '用构建、测试、截图和 README 说明项目可运行，同时保留真实能力边界。',
+      items: [
+        {
+          index: 'E08',
+          title: '24 backend tests',
+          detail: 'README 记录后端 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0。',
+          scope: 'Testing',
+        },
+        {
+          index: 'E09',
+          title: 'Build verification',
+          detail: 'README 记录前端 npm run build 通过；截图脚本覆盖 5 个 Showcase 路由。',
+          scope: 'Build',
+        },
+        {
+          index: 'E10',
+          title: 'README portfolio documentation',
+          detail: 'README 明确当前不声明真实模型成功响应、生产级 RAG 或生产级客服系统。',
+          scope: 'Docs',
+        },
+      ],
+    },
+  ] satisfies EngineeringEvidenceGroup[],
+  trustPanel: [
+    {
+      title: 'What is real',
+      description: '当前真实定位',
+      tone: 'positive',
+      items: [
+        '一个真实可运行的企业工单 RAG Copilot 作品集工程项目，不是静态页面。',
+        '真实前端 Showcase 页面、真实浏览器截图、README 文档和 build / screenshots 验收。',
+        '后端接口、工单状态流转、Trace Evidence、Provider fallback 和 Human Review 均有项目证据支撑。',
+      ],
+    },
+    {
+      title: 'What it is not',
+      description: '明确不声称的能力',
+      tone: 'negative',
+      items: [
+        '不包装成生产级企业 RAG 系统、自动客服系统或无人值守 Agent。',
+        '不虚构真实企业客户、真实工单数据、线上流量或商业指标。',
+        '不声称 OpenAI、DeepSeek 或真实 Provider 稳定连接成功；以源项目 README 和实际验证为准。',
+      ],
+    },
+    {
+      title: 'Scope assumptions',
+      description: '项目边界与假设',
+      tone: 'neutral',
+      items: [
+        '默认 local-rule fallback 是本地规则、关键词知识匹配和模板化建议草稿。',
+        'Provider fallback 是作品集工程路径，不等于稳定真实大模型服务。',
+        'RAG 表示知识引用与证据展示，不是 embedding、Vector DB 或完整生产级 RAG Pipeline。',
+        'Human Review 是作品集工程中的人工审核闭环，不是生产级审核任务平台。',
+      ],
+    },
+  ] satisfies TrustPanelSection[],
+  interviewQuestions: [
+    {
+      index: 'Q01',
+      question: '这个项目和普通客服问答页面有什么区别？',
+      answer:
+        '我不是只做一个聊天框，而是把 Ticket、Knowledge Retrieval、Provider fallback、Trace Evidence 和 Human Review 串成企业 Copilot 的可解释工作流。',
+    },
+    {
+      index: 'Q02',
+      question: '为什么要做 Trace Evidence？',
+      answer:
+        '企业场景里，AI 回答需要知道依据来自哪里、调用路径是什么、是否需要人工确认。Trace Evidence 是为了让回答过程可复盘。',
+    },
+    {
+      index: 'Q03',
+      question: 'Provider fallback 的作用是什么？',
+      answer:
+        '它展示系统在模型不可用或未配置时如何保留可运行路径，但我不会把 fallback 包装成真实大模型稳定能力。',
+    },
+    {
+      index: 'Q04',
+      question: '这个项目主要体现什么能力？',
+      answer:
+        '它体现 RAG 场景理解、企业 AI Copilot 流程拆解、前端产品表达、Java 后端接口组织和工程证据整理能力。',
+    },
+    {
+      index: 'Q05',
+      question: '项目边界是什么？',
+      answer:
+        '它是真实可运行的作品集工程项目，但不是生产级企业 RAG 系统，也不虚构真实客户、工单数据或线上业务指标。',
+    },
+  ] satisfies InterviewQA[],
+}
+
 export const mcpGatewayDetail = {
   title: 'MCP Tool Gateway',
   subtitle: '企业 Agent 工具网关',
