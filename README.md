@@ -4,9 +4,11 @@ Personal portfolio frontend for Wang Zhenlong, focused on Java Backend, AI Appli
 
 This repository is the portfolio site itself. It presents three runnable portfolio engineering projects through a cinematic homepage, a Projects index, and focused case-study detail pages.
 
-Repository: [https://github.com/jameswilson87156-del/ai-agent-portfolio-hub](https://github.com/jameswilson87156-del/ai-agent-portfolio-hub)
+Live Demo: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
 
-Deployment: pending.
+GitHub Repo: [https://github.com/jameswilson87156-del/ai-agent-portfolio-hub](https://github.com/jameswilson87156-del/ai-agent-portfolio-hub)
+
+This is a personal AI Agent Engineer Portfolio Hub frontend portfolio project. The live site is deployed by Vercel. It is a static frontend portfolio, not a backend business system.
 
 CI: GitHub Actions runs build and screenshots on `main` pushes and pull requests.
 
@@ -77,13 +79,18 @@ npm run screenshots
 - AI, Provider, RAG, RBAC, MCP, audit, persistence, and Human Review capabilities are bounded by the corresponding source project README files and code evidence.
 - OpenAI / DeepSeek / real Provider connection success is not claimed unless the source project evidence explicitly supports it.
 
-## Deployment Preparation
+## Deployment
 
-This repository is a static Vite frontend. Vercel is the recommended deployment target; GitHub Pages is also possible with the correct base-path configuration if deploying under a repository subpath.
+This repository is a static Vite frontend deployed on Vercel. GitHub Pages is also possible with the correct base-path configuration if deploying under a repository subpath.
+
+- Live Demo: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
 
 For Vercel, `vercel.json` rewrites all routes to `index.html` so Vue Router history routes can refresh directly.
 
-Before deployment:
+Final release checks:
 
 ```bash
 npm run build
@@ -92,4 +99,4 @@ git diff --check
 git status --short
 ```
 
-Deployment notes are tracked in [docs/deployment.md](docs/deployment.md). No production deployment is claimed by this README.
+Deployment notes are tracked in [docs/deployment.md](docs/deployment.md).

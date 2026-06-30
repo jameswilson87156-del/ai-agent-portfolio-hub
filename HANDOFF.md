@@ -6,11 +6,21 @@
 
 ## Current State
 
-P4A release-readiness QA is complete. The portfolio has the approved cinematic homepage, Projects case-study index, and three case-study detail routes.
+P4F final release documentation and deployment handoff is complete. The portfolio has the approved cinematic homepage, Projects case-study index, and three case-study detail routes.
 
-Latest expected commit after this pass:
+Latest live URL:
 
-`chore: prepare portfolio site for release`
+`https://ai-agent-portfolio-hub.vercel.app/`
+
+Final feature/page status:
+
+- Home: complete
+- Projects: complete
+- DevFlow detail page: complete
+- Ticket RAG detail page: complete
+- MCP Gateway detail page: complete
+- GitHub Actions CI: passing
+- Vercel live deployment: passing
 
 ## Current Routes
 
@@ -32,7 +42,7 @@ Latest expected commit after this pass:
   - `/projects/mcp-gateway`
 - Each detail page has a `返回 Projects` action in its hero.
 - Shared footer links only to real destinations: `/projects` and the three source project GitHub repositories.
-- The portfolio hub itself has no remote configured in this workspace, so no fake Portfolio Hub GitHub URL is used.
+- The portfolio hub repository is `https://github.com/jameswilson87156-del/ai-agent-portfolio-hub`.
 
 ## Source Projects
 
@@ -75,7 +85,7 @@ Design references:
 
 - This repository is a personal portfolio frontend, not a backend business system.
 - No backend, login, CMS, or real API integration is added here.
-- No production traffic, real customers, real users, commercial metrics, or production deployment is claimed.
+- No production traffic, real customers, real users, or commercial metrics are claimed. The Vercel portfolio deployment is live; the three source projects do not claim production deployments.
 - DevFlow Copilot is a real runnable portfolio engineering project, not a production AI IDE.
 - Enterprise Ticket RAG Copilot is a real runnable portfolio engineering project, not a production enterprise RAG system.
 - MCP Tool Gateway is MCP-style; it does not claim complete official MCP protocol compatibility.
@@ -85,13 +95,13 @@ Design references:
 ## Release Prep
 
 - `README.md` is now organized as a release-facing repository README.
-- `docs/deployment.md` records Vercel and GitHub Pages preparation notes.
+- `docs/deployment.md` records completed Vercel deployment settings and GitHub Pages preparation notes.
 - Vite currently uses the default root base in `vite.config.ts`, suitable for Vercel or a custom domain root. For GitHub Pages under a repository subpath, set `base` before building.
+- Vercel deployment is complete at `https://ai-agent-portfolio-hub.vercel.app/`.
 
 ## Next Steps
 
-- P4B: Prepare deployment target configuration and dry-run deployment checklist.
-- P4C: Polish GitHub README presentation after the portfolio repository remote is created.
-- P5: Integrate resume bullets and interview talk tracks with finalized portfolio routes.
+- Perform final manual live-site acceptance on the Vercel URL.
+- Integrate resume bullets and interview talk tracks with finalized portfolio routes.
 
 Do not add production claims, fake links, real API keys, `.env`, `dist`, `node_modules`, video assets, or changes to the three source project directories without a separate explicit task.

@@ -1,10 +1,19 @@
-# Deployment Preparation
+# Deployment
 
 This repository is a static Vue 3 + Vite portfolio frontend. It has no backend dependency at runtime.
 
-## Recommended Target
+## Current Deployment
 
-Vercel is the simplest deployment target:
+- Vercel deployment: completed
+- Live URL: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+- SPA rewrite: handled by `vercel.json`
+
+## Vercel Target
+
+Vercel is the active deployment target:
 
 1. Import the repository.
 2. Use the default Vite build command: `npm run build`.
