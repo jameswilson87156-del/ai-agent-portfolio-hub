@@ -93,7 +93,12 @@ try {
     const captureUrl = new URL(capture.route, url).toString()
 
     await page.goto(captureUrl, { waitUntil: 'networkidle' })
-    await page.evaluate(() => document.fonts.ready)
+    await page.evaluate(async () => {
+      await document.fonts.ready
+      await Promise.all(
+        Array.from(document.images, (image) => image.decode().catch(() => undefined)),
+      )
+    })
     await page.waitForTimeout(900)
     await page.screenshot({ path: capture.path, fullPage: capture.fullPage ?? false })
     await page.close()

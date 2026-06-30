@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CapabilityItem } from '../../data/projects'
+import { projectLabels, type CapabilityItem } from '../../data/projects'
 
 defineProps<{
   items: CapabilityItem[]
@@ -25,7 +25,8 @@ defineProps<{
             :key="project"
             :class="`project-code--${project.toLowerCase()}`"
           >
-            {{ project }}
+            <b>{{ project }}</b>
+            {{ projectLabels[project] }}
           </span>
         </div>
       </article>

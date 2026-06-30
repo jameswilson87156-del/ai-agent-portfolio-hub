@@ -9,7 +9,7 @@ import { navItems } from '../data/portfolio'
 import {
   capabilityMatrix,
   caseStudyProjects,
-  evidenceWall,
+  evidenceGroups,
   projectBoundary,
 } from '../data/projects'
 </script>
@@ -22,7 +22,7 @@ import {
     <main class="projects-main">
       <header class="projects-intro" aria-labelledby="projects-title">
         <div class="projects-intro__copy">
-          <p class="projects-intro__kicker">CASE STUDY INDEX / P2</p>
+          <p class="projects-intro__kicker">CASE STUDY INDEX / P2A</p>
           <h1 id="projects-title">Projects</h1>
           <p class="projects-intro__lead">
             三个 AI Agent 工程案例，把 Prompt、Tool、Provider、Trace Evidence 与
@@ -56,7 +56,7 @@ import {
       </section>
 
       <CapabilityMatrix :items="capabilityMatrix" />
-      <EvidenceWall :items="evidenceWall" />
+      <EvidenceWall :groups="evidenceGroups" />
       <ProjectBoundaryNote
         :summary="projectBoundary.summary"
         :focus="projectBoundary.focus"

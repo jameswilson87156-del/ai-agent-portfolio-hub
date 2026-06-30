@@ -5,5 +5,6 @@
 - P1D: Complete visual hierarchy, whitespace, and density refinement for the homepage.
 - P1E: Complete Hero visual rebuild with safer title spacing, stronger cinematic terrain, lighter evidence panels, and editorial case-study entries.
 - P2: Complete the Projects overview route with three case-study previews, Capability Matrix, Evidence Wall, Project Boundaries, and real browser screenshots.
+- P2A: Complete Projects readability refinement, real project screenshot previews, grouped engineering evidence, and clearer capability mapping.
 - P3: Build the three project detail pages for DevFlow Copilot, Enterprise Ticket RAG Copilot, and MCP Tool Gateway.
 - P4: Deploy and finalize the portfolio package.

@@ -12,6 +12,12 @@ export type CaseStudyProject = {
   evidence: string[]
   boundary: string
   resumeValue: string
+  preview: {
+    src: string
+    alt: string
+    caption: string
+    source: string
+  }
   tone: 'orange' | 'green'
 }
 
@@ -25,6 +31,19 @@ export type EvidenceItem = {
   label: string
   detail: string
   projects: ProjectCode[]
+}
+
+export type EvidenceGroup = {
+  index: string
+  title: string
+  description: string
+  items: EvidenceItem[]
+}
+
+export const projectLabels: Record<ProjectCode, string> = {
+  DF: 'DevFlow',
+  RAG: 'Ticket RAG',
+  MCP: 'MCP Gateway',
 }
 
 export const caseStudyProjects: CaseStudyProject[] = [
@@ -43,19 +62,23 @@ export const caseStudyProjects: CaseStudyProject[] = [
       'Knowledge Reference',
       'Human Review',
     ],
-    stack: ['Vue 3', 'TypeScript', 'Spring Boot', 'Java', 'H2', 'Playwright'],
+    stack: ['Vue 3', 'TypeScript', 'Spring Boot', 'Java'],
     evidence: [
       '真实浏览器截图',
-      'README',
       'Generation History',
       'Prompt Templates',
-      'Trace',
-      'build 验收',
+      'Trace + Human Review',
     ],
     boundary:
       '作品集 demo，不夸大为生产级 AI IDE，不虚构真实线上用户。',
     resumeValue:
       '体现 AI Coding 工作流拆解、Provider 抽象、可追踪生成记录与前后端产品表达能力。',
+    preview: {
+      src: '/images/projects/devflow-preview.png',
+      alt: 'DevFlow Copilot Agentic Coding 工作流控制台真实浏览器截图',
+      caption: 'Agentic Coding workflow console / local demo',
+      source: 'ai-coding-workbench · docs/images/dashboard-agentic.png',
+    },
     tone: 'orange',
   },
   {
@@ -80,20 +103,23 @@ export const caseStudyProjects: CaseStudyProject[] = [
       'Java',
       'RAG demo',
       'Provider fallback',
-      'Playwright',
     ],
     evidence: [
-      '工单工作台',
-      '知识库',
+      '真实浏览器截图',
+      'Knowledge Reference',
       'Trace Evidence',
       'Human Review',
-      'README',
-      '真实浏览器截图',
     ],
     boundary:
       'RAG / Provider 为作品集演示路径，不虚构真实企业客户或线上生产数据。',
     resumeValue:
       '体现 RAG 应用流程、知识引用、Provider 回退和人工复核等企业 AI 场景理解。',
+    preview: {
+      src: '/images/projects/ticket-rag-preview.png',
+      alt: 'Enterprise Ticket RAG Copilot Trace 证据控制台真实浏览器截图',
+      caption: 'Trace evidence console / explainable RAG path',
+      source: 'enterprise-ai-ticket-copilot · docs/images/large/trace-evidence.png',
+    },
     tone: 'green',
   },
   {
@@ -118,20 +144,13 @@ export const caseStudyProjects: CaseStudyProject[] = [
       'Java 17',
       'Vue 3',
       'TypeScript',
-      'H2',
-      'JdbcTemplate',
       'OpenAPI',
       'Docker',
-      'GitHub Actions',
     ],
     evidence: [
       '60 backend tests',
-      'CI',
-      'Docker',
-      'OpenAPI',
+      'CI + OpenAPI',
       'JSON-RPC adapter',
-      'H2 Persistence',
-      'RBAC demo',
       'Audit Log',
       '真实浏览器截图',
     ],
@@ -139,6 +158,12 @@ export const caseStudyProjects: CaseStudyProject[] = [
       'MCP-style，不声称完整官方 MCP 协议；RBAC 是 demo；X-Demo-Role 不是生产鉴权。',
     resumeValue:
       '突出 Java 后端、工具接入、策略检查、审计链路与工程化交付能力。',
+    preview: {
+      src: '/images/projects/mcp-gateway-preview.png',
+      alt: 'MCP Tool Gateway 工具调用工作台真实浏览器截图',
+      caption: 'Tool call workbench / policy and audit chain',
+      source: 'mcp-tool-gateway · docs/images/large/mcp-tool-workbench.png',
+    },
     tone: 'orange',
   },
 ]
@@ -158,72 +183,118 @@ export const capabilityMatrix: CapabilityItem[] = [
   { label: 'CI / Docker / OpenAPI', projects: ['MCP'] },
 ]
 
-export const evidenceWall: EvidenceItem[] = [
+export const evidenceGroups: EvidenceGroup[] = [
   {
-    index: 'E01',
-    label: 'README',
-    detail: '范围、运行方式与工程边界说明',
-    projects: ['DF', 'RAG', 'MCP'],
+    index: 'G01',
+    title: 'Documentation',
+    description: '说明如何运行，也说明能力做到哪里。',
+    items: [
+      {
+        index: 'E01',
+        label: 'README',
+        detail: '范围、运行方式与工程边界说明',
+        projects: ['DF', 'RAG', 'MCP'],
+      },
+      {
+        index: 'E02',
+        label: 'Boundary notes',
+        detail: '明确 demo、协议兼容与生产能力边界',
+        projects: ['DF', 'RAG', 'MCP'],
+      },
+    ],
   },
   {
-    index: 'E02',
-    label: '真实浏览器截图',
-    detail: '由本地可运行前端生成，不使用概念图冒充',
-    projects: ['DF', 'RAG', 'MCP'],
+    index: 'G02',
+    title: 'Runtime Evidence',
+    description: '由可运行页面和可重复命令留下验证材料。',
+    items: [
+      {
+        index: 'E03',
+        label: '真实浏览器截图',
+        detail: '来自三个本地项目的实际页面，不使用概念图冒充',
+        projects: ['DF', 'RAG', 'MCP'],
+      },
+      {
+        index: 'E04',
+        label: 'Playwright screenshots',
+        detail: '固定视口的可重复页面验收',
+        projects: ['DF', 'RAG', 'MCP'],
+      },
+      {
+        index: 'E05',
+        label: 'Build passed',
+        detail: '以可复现构建结果作为交付证据',
+        projects: ['DF', 'RAG', 'MCP'],
+      },
+      {
+        index: 'E06',
+        label: 'Trace Evidence',
+        detail: '保留请求、调用与结果之间的解释链',
+        projects: ['DF', 'RAG', 'MCP'],
+      },
+    ],
   },
   {
-    index: 'E03',
-    label: 'Playwright screenshots',
-    detail: '固定视口的可重复页面验收',
-    projects: ['DF', 'RAG', 'MCP'],
+    index: 'G03',
+    title: 'Backend Evidence',
+    description: '通过测试、契约和交付路径证明后端工程工作。',
+    items: [
+      {
+        index: 'E07',
+        label: 'Backend tests',
+        detail: 'MCP Tool Gateway 包含 60 项后端测试',
+        projects: ['MCP'],
+      },
+      {
+        index: 'E08',
+        label: 'CI',
+        detail: 'GitHub Actions 自动化校验路径',
+        projects: ['MCP'],
+      },
+      {
+        index: 'E09',
+        label: 'OpenAPI',
+        detail: '后端接口契约与联调入口',
+        projects: ['MCP'],
+      },
+      {
+        index: 'E10',
+        label: 'Docker',
+        detail: '可重复的本地容器运行方式',
+        projects: ['MCP'],
+      },
+    ],
   },
   {
-    index: 'E04',
-    label: 'Build passed',
-    detail: '以可复现构建结果作为交付证据',
-    projects: ['DF', 'RAG', 'MCP'],
-  },
-  {
-    index: 'E05',
-    label: 'Backend tests',
-    detail: 'MCP Tool Gateway 包含 60 项后端测试',
-    projects: ['MCP'],
-  },
-  {
-    index: 'E06',
-    label: 'CI',
-    detail: 'GitHub Actions 自动化校验路径',
-    projects: ['MCP'],
-  },
-  {
-    index: 'E07',
-    label: 'OpenAPI',
-    detail: '后端接口契约与联调入口',
-    projects: ['MCP'],
-  },
-  {
-    index: 'E08',
-    label: 'Docker',
-    detail: '可重复的本地容器运行方式',
-    projects: ['MCP'],
-  },
-  {
-    index: 'E09',
-    label: 'Trace Evidence',
-    detail: '保留请求、调用与结果之间的解释链',
-    projects: ['DF', 'RAG', 'MCP'],
-  },
-  {
-    index: 'E10',
-    label: 'Human Review',
-    detail: '高风险输出保留人工确认边界',
-    projects: ['DF', 'RAG', 'MCP'],
-  },
-  {
-    index: 'E11',
-    label: 'Audit Log',
-    detail: '展示工具调用与策略检查的审计意识',
-    projects: ['MCP'],
+    index: 'G04',
+    title: 'AI Governance',
+    description: '把回退、审核、权限与审计放进 Agent 链路。',
+    items: [
+      {
+        index: 'E11',
+        label: 'Human Review',
+        detail: '高风险输出保留人工确认边界',
+        projects: ['DF', 'RAG', 'MCP'],
+      },
+      {
+        index: 'E12',
+        label: 'Provider fallback',
+        detail: '演示 Provider 不可用时的明确回退路径',
+        projects: ['DF', 'RAG'],
+      },
+      {
+        index: 'E13',
+        label: 'Audit Log',
+        detail: '展示工具调用与策略检查的审计意识',
+        projects: ['MCP'],
+      },
+      {
+        index: 'E14',
+        label: 'RBAC demo',
+        detail: '只表达演示权限边界，不冒充生产鉴权',
+        projects: ['MCP'],
+      },
+    ],
   },
 ]
 

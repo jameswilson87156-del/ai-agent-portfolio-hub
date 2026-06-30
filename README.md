@@ -8,7 +8,7 @@ This project contains a cinematic homepage and a Projects case-study index for a
 
 ## Current Stage
 
-P2 complete: the approved cinematic homepage is preserved, and `/projects` now provides a structured case-study index for the three core AI Agent engineering projects.
+P2A complete: the approved cinematic homepage is preserved, while `/projects` now provides a more readable case-study index with real project previews and grouped engineering evidence.
 
 ## Tech Stack
 
@@ -51,6 +51,14 @@ The `/projects` route presents three large editorial case-study previews instead
 - **MCP Tool Gateway** — Java backend Tool gateway, policy checks, JSON-RPC adapter, Audit Log, RBAC demo, CI, Docker, and OpenAPI evidence.
 
 The page also includes a Capability Matrix, an Evidence Wall, and explicit Project Boundaries. Detail routes are intentionally deferred to P3 and are shown as `Coming soon` rather than implemented placeholders.
+
+P2A raises body-text contrast and size, maps capabilities to readable project-name chips, and groups the Evidence Wall into Documentation, Runtime Evidence, Backend Evidence, and AI Governance. Each case study includes a copied real browser screenshot from the corresponding local project's `docs/images` directory:
+
+- `public/images/projects/devflow-preview.png` from `D:\workhome\ai-coding-workbench\docs\images\dashboard-agentic.png`
+- `public/images/projects/ticket-rag-preview.png` from `D:\workhome\enterprise-ai-ticket-copilot\docs\images\large\trace-evidence.png`
+- `public/images/projects/mcp-gateway-preview.png` from `D:\workhome\mcp-tool-gateway\docs\images\large\mcp-tool-workbench.png`
+
+These files are screenshot copies of locally runnable project pages. The AI-generated design reference remains separate and is never presented as runtime evidence.
 
 ## Motion Boundary
 

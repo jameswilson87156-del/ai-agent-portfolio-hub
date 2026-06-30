@@ -19,6 +19,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented the P1D homepage visual rescue pass after manual review found the P1C screen too dense, visually obstructed, and not spacious enough for a premium portfolio homepage.
 - Implemented the P1E Hero visual rebuild after manual review found the P1D title spacing unsafe, the mountain terrain too weak, and the project entries still too dashboard-like.
 - Implemented P2 Projects overview after the cinematic homepage direction passed manual review.
+- Implemented P2A Projects readability and engineering-evidence refinement without changing the approved homepage.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added centralized Projects case-study data in `src/data/projects.ts`.
 - Added real browser screenshot generation with Playwright.
@@ -53,9 +54,25 @@ Vue Router is installed and configured in `src/router/index.ts`. Project detail 
 - DevFlow Copilot is positioned around AI Coding workflow and generation traceability.
 - Enterprise Ticket RAG Copilot is positioned around explainable RAG, knowledge references, Provider fallback, and Human Review.
 - MCP Tool Gateway is positioned around Java backend Tool access, policy checks, JSON-RPC, Audit Log, CI, Docker, and OpenAPI.
-- Capability Matrix maps twelve engineering dimensions to one or more project codes.
+- Capability Matrix maps twelve engineering dimensions to readable project-name chips.
 - Evidence Wall lists verifiable portfolio materials without inventing KPI or production metrics.
 - Project Boundaries explicitly reject claims of real enterprise customers, production traffic, complete MCP compatibility, or production authentication.
+
+## P2A Readability And Evidence
+
+- Each case card now centers four concise blocks: Problem, Agent Chain, Evidence, and Boundary.
+- Body copy, evidence labels, project chips, and boundary notes use larger type and stronger contrast at 1440px and 1920px.
+- Capability Matrix maps each capability to readable project-name chips instead of code-only micro labels.
+- Evidence Wall is grouped into Documentation, Runtime Evidence, Backend Evidence, and AI Governance.
+- The Projects navigation item receives an active visual state on `/projects`; the homepage `查看核心项目` button and `作品` navigation item both route to `/projects`.
+
+### Project Preview Sources
+
+- `public/images/projects/devflow-preview.png` is copied from `D:\workhome\ai-coding-workbench\docs\images\dashboard-agentic.png`.
+- `public/images/projects/ticket-rag-preview.png` is copied from `D:\workhome\enterprise-ai-ticket-copilot\docs\images\large\trace-evidence.png`.
+- `public/images/projects/mcp-gateway-preview.png` is copied from `D:\workhome\mcp-tool-gateway\docs\images\large\mcp-tool-workbench.png`.
+
+The source projects were inspected read-only and were not modified. These previews are real browser screenshot copies, not design references or fabricated production evidence.
 
 ## P1E Hero Rebuild
 
@@ -101,4 +118,4 @@ These are real browser screenshots generated from the Vue app. The reference ima
 
 ## Next Step
 
-P3 should add three focused project detail pages using the current case-study data and routing foundation. Keep each detail page distinct, reuse the Projects evidence vocabulary, and do not turn the portfolio into a dashboard or claim production capability that is not implemented.
+P3 should add three focused project detail pages using the current case-study data, preview provenance, and routing foundation. Keep each detail page distinct, reuse the Projects evidence vocabulary, and do not turn the portfolio into a dashboard or claim production capability that is not implemented.
