@@ -1,14 +1,16 @@
 # AI Agent Engineer Portfolio Hub
 
-Personal AI Agent engineer portfolio hub for Wang Zhenlong, Software Engineering undergraduate, Class of 2027.
+Personal portfolio frontend for Wang Zhenlong, focused on Java Backend, AI Application, AI Agent, and Web Full-stack internship directions.
 
-## Positioning
+This repository is the portfolio site itself. It presents three runnable portfolio engineering projects through a cinematic homepage, a Projects index, and focused case-study detail pages.
 
-This project contains a cinematic homepage and a Projects case-study index for a personal portfolio aimed at Java backend internship, AI application development, and AI Agent / AI Native full-stack engineering roles.
+## Current Pages
 
-## Current Stage
-
-P3C complete: `/projects/ticket-rag` now adds the Enterprise Ticket RAG Copilot detail page, while keeping the boundary that it is a runnable portfolio engineering project rather than a production enterprise RAG system.
+- `/` — Home
+- `/projects` — Projects case-study index
+- `/projects/devflow` — DevFlow Copilot case study
+- `/projects/ticket-rag` — Enterprise Ticket RAG Copilot case study
+- `/projects/mcp-gateway` — MCP Tool Gateway case study
 
 ## Tech Stack
 
@@ -19,114 +21,67 @@ P3C complete: `/projects/ticket-rag` now adds the Enterprise Ticket RAG Copilot 
 - Native CSS
 - Playwright screenshots
 
-## Design Reference
+## Source Projects
 
-Reference image:
+The case studies describe real local engineering projects. Their screenshots and claims should be checked against the corresponding source repositories and README files.
 
-`docs/design/references/cinematic-ai-agent-homepage-reference.png`
+- DevFlow Copilot: [https://github.com/jameswilson87156-del/devflow-copilot](https://github.com/jameswilson87156-del/devflow-copilot)
+- Enterprise Ticket RAG Copilot: [https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot](https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot)
+- MCP Tool Gateway: [https://github.com/jameswilson87156-del/mcp-tool-gateway](https://github.com/jameswilson87156-del/mcp-tool-gateway)
 
-This file is an AI-generated visual reference. It is not a running webpage screenshot and must not be presented as the finished homepage.
+## Screenshot Evidence
 
-## Real Browser Screenshots
+`docs/images/` contains real browser screenshots generated from this Vue portfolio app with `npm run screenshots`:
 
-- Desktop: `docs/images/portfolio-home.png`
-- Large desktop: `docs/images/large/portfolio-home.png`
-- Projects desktop: `docs/images/projects-overview.png`
-- Projects large desktop: `docs/images/large/projects-overview.png`
-- DevFlow detail desktop: `docs/images/devflow-detail.png`
-- DevFlow detail large desktop: `docs/images/large/devflow-detail.png`
-- Ticket RAG detail desktop: `docs/images/ticket-rag-detail.png`
-- Ticket RAG detail large desktop: `docs/images/large/ticket-rag-detail.png`
-- MCP detail desktop: `docs/images/mcp-gateway-detail.png`
-- MCP detail large desktop: `docs/images/large/mcp-gateway-detail.png`
+- `docs/images/portfolio-home.png`
+- `docs/images/projects-overview.png`
+- `docs/images/devflow-detail.png`
+- `docs/images/ticket-rag-detail.png`
+- `docs/images/mcp-gateway-detail.png`
 
-These screenshots are generated from the implemented Vue app with `npm run screenshots`. They are real browser captures of `/`, `/projects`, `/projects/devflow`, `/projects/ticket-rag`, and `/projects/mcp-gateway`.
+`docs/images/large/` contains the same route captures at a larger desktop viewport.
 
-## Visual Rebuild
+`public/images/projects/` contains copied real browser screenshot evidence from the three local source projects:
 
-P1E rebuilds the Hero visual system around a large separated `AI Agent` title, a clear Chinese title block, a stronger CSS/SVG cinematic mountain terrain, lighter JSON-RPC and Trace evidence elements, and editorial case-study project entries.
+- `public/images/projects/devflow/` from `D:\workhome\ai-coding-workbench\docs\images`
+- `public/images/projects/ticket-rag/` from `D:\workhome\enterprise-ai-ticket-copilot\docs\images`
+- `public/images/projects/mcp/` from `D:\workhome\mcp-tool-gateway\docs\images\large`
 
-The current homepage is intended to read as a premium AI Agent engineer portfolio landing page, not a dashboard, blog template, or admin console.
+`docs/design/references/` contains design references only. These images are not running-page screenshots and must not be described as runtime evidence.
 
-## Projects Case Study Index
+## Quick Start
 
-The `/projects` route presents three large editorial case-study previews instead of a dense project card wall:
+```bash
+npm install
+npm run dev
+npm run build
+npm run screenshots
+```
 
-- **DevFlow Copilot** — AI Coding workflow, Provider calls, generation Trace, knowledge reference, and Human Review.
-- **Enterprise Ticket RAG Copilot** — explainable ticket retrieval, RAG, Provider fallback, Trace Evidence, and Human Review.
-- **MCP Tool Gateway** — Java backend Tool gateway, policy checks, JSON-RPC adapter, Audit Log, RBAC demo, CI, Docker, and OpenAPI evidence.
+`npm run screenshots` starts a local Vite server and captures all portfolio routes listed above.
 
-The page also includes a Capability Matrix, an Evidence Wall, and explicit Project Boundaries. DevFlow Copilot, Enterprise Ticket RAG Copilot, and MCP Tool Gateway now link to implemented detail routes.
+## Project Boundaries
 
-P2A raises body-text contrast and size, maps capabilities to readable project-name chips, and groups the Evidence Wall into Documentation, Runtime Evidence, Backend Evidence, and AI Governance. Each case study includes a copied real browser screenshot from the corresponding local project's `docs/images` directory:
+- This is a personal portfolio frontend, not a backend business system.
+- The site does not implement login, CMS, real API integration, or production data flows.
+- The case studies do not claim real enterprise customers, real online users, production traffic, commercial metrics, or production deployments.
+- DevFlow Copilot is presented as a real runnable portfolio AI Coding workflow project, not a production AI IDE.
+- Enterprise Ticket RAG Copilot is presented as a real runnable portfolio enterprise Copilot workflow project, not a production enterprise RAG system.
+- MCP Tool Gateway is presented as MCP-style tooling; it does not claim full official MCP protocol compatibility.
+- AI, Provider, RAG, RBAC, MCP, audit, persistence, and Human Review capabilities are bounded by the corresponding source project README files and code evidence.
+- OpenAI / DeepSeek / real Provider connection success is not claimed unless the source project evidence explicitly supports it.
 
-- `public/images/projects/devflow-preview.png` from `D:\workhome\ai-coding-workbench\docs\images\dashboard-agentic.png`
-- `public/images/projects/ticket-rag-preview.png` from `D:\workhome\enterprise-ai-ticket-copilot\docs\images\large\trace-evidence.png`
-- `public/images/projects/mcp-gateway-preview.png` from `D:\workhome\mcp-tool-gateway\docs\images\large\mcp-tool-workbench.png`
+## Deployment Preparation
 
-These files are screenshot copies of locally runnable project pages. The AI-generated design reference remains separate and is never presented as runtime evidence.
+This repository is a static Vite frontend. Vercel is the recommended deployment target; GitHub Pages is also possible with the correct base-path configuration if deploying under a repository subpath.
 
-## DevFlow Copilot Detail
+Before deployment:
 
-P3B adds `/projects/devflow` as the DevFlow Copilot detail route. The page presents the project problem, Agentic Coding Workflow architecture, Core Product Modules, five real browser evidence screenshots, engineering evidence, explicit project boundaries, and interview notes.
+```bash
+npm run build
+npm run screenshots
+git diff --check
+git status --short
+```
 
-The gallery uses real browser screenshot copies from the local `D:\workhome\ai-coding-workbench\docs\images` directory:
-
-- `dashboard-agentic.png`
-- `workbench-running.png`
-- `generation-history.png`
-- `prompt-templates.png`
-- `human-review-trace-detail.png`
-
-The screenshots are copied into `public/images/projects/devflow/`. They are runtime evidence from the local DevFlow project, not design references, customer systems, or production environment captures.
-
-The page keeps the DevFlow boundary clear: this is a runnable portfolio engineering project, not a production AI IDE or commercial online system. The default `local-rule` Provider is local rule/template generation rather than real LLM inference; OpenAI-compatible Provider support is a code-level adapter that requires environment configuration and separate verification. Knowledge Base is lightweight keyword/simple-similarity retrieval, not production vector RAG.
-
-## Enterprise Ticket RAG Copilot Detail
-
-P3C adds `/projects/ticket-rag` as the Enterprise Ticket RAG Copilot detail route. The page presents the project problem, Ticket RAG Copilot Workflow, Core Product Modules, five real browser evidence screenshots, engineering evidence, explicit project boundaries, and interview notes.
-
-The gallery uses real browser screenshot copies from the local `D:\workhome\enterprise-ai-ticket-copilot\docs\images` directory:
-
-- `dashboard.png`
-- `ticket-detail.png`
-- `knowledge-base.png`
-- `trace-evidence.png`
-- `human-review.png`
-
-The screenshots are copied into `public/images/projects/ticket-rag/`. They are runtime evidence from the local Enterprise Ticket RAG Copilot project, not design references, customer systems, or production environment captures.
-
-The page keeps the Ticket RAG boundary clear: this is a runnable portfolio engineering project, not a production enterprise RAG system, automatic customer-service platform, or commercial online product. The source README states that default behavior uses local-rule fallback, keyword knowledge matching, and templated suggestion drafts. OpenAI-compatible Provider code exists, but the source project does not claim a successful stable real-model response; the portfolio page follows that evidence and does not invent one. Current RAG means knowledge references and evidence display, not embedding, Vector DB, or a complete production RAG pipeline.
-
-## MCP Tool Gateway Detail
-
-P3A adds `/projects/mcp-gateway` as the first project detail route. The page presents the project problem, layered architecture, core Agent Tool invocation flow, five real browser evidence screenshots, Java backend delivery evidence, explicit project boundaries, and interview notes.
-
-The gallery uses real browser screenshot copies from the local `D:\workhome\mcp-tool-gateway\docs\images\large` directory:
-
-- `mcp-tool-workbench.png`
-- `tool-registry.png`
-- `human-review-center.png`
-- `trace-evidence.png`
-- `audit-log.png`
-
-The screenshots are copied into `public/images/projects/mcp/`. They are runtime evidence from the local demo project, not design references, customer systems, or production environment captures.
-
-P3A-Polish adds a four-part Project Summary Rail, enlarges the Agent Governance Flow, standardizes all five screenshots inside restrained browser evidence frames, groups backend evidence into four engineering domains, and replaces the boundary list with a three-part Trust Panel. Interview notes are now concise Q&A cards for faster review by Java backend and AI Agent interviewers.
-
-## Motion Boundary
-
-The particle terrain flow, Trace Timeline light point, panel hover states, and parallax are front-end visual expressions only. They do not represent real runtime status, real API calls, or production system state.
-
-Motion references under `docs/design/motion-references/` are local design references only and are not page assets.
-
-## Current Boundaries
-
-- No backend.
-- No real API integration.
-- No login.
-- No production traffic, customer, or deployment claims.
-- DevFlow Copilot, Enterprise Ticket RAG Copilot, and MCP Tool Gateway detail pages are implemented.
-- DevFlow is labeled as a real runnable portfolio AI Coding workflow project, not a production AI IDE.
-- Enterprise Ticket RAG Copilot is labeled as a real runnable portfolio enterprise Copilot workflow project, not a production enterprise RAG system.
-- MCP-style and RBAC demo capabilities are labeled as demonstrations, not complete production implementations.
+Deployment notes are tracked in [docs/deployment.md](docs/deployment.md). No production deployment is claimed by this README.

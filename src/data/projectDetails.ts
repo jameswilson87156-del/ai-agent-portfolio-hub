@@ -780,12 +780,12 @@ export const mcpGatewayDetail = {
     },
     {
       label: 'Boundary',
-      value: 'MCP-style demo, not full official MCP',
+      value: 'MCP-style prototype, not full official MCP',
       tone: 'green',
     },
   ] satisfies ProjectSummaryItem[],
   problem:
-    '企业 AI Agent 如果直接调用工具，容易出现工具边界不清、权限不可见、调用过程不可追踪、审核与审计缺失的问题。MCP Tool Gateway 用一个 demo 级工具网关，把 Tool Registry、Policy Check、Trace Evidence、Audit Log 与 Human Review 串起来，展示 Agent 工具调用治理的完整链路。',
+    '企业 AI Agent 如果直接调用工具，容易出现工具边界不清、权限不可见、调用过程不可追踪、审核与审计缺失的问题。MCP Tool Gateway 用一个作品集级工具网关，把 Tool Registry、Policy Check、Trace Evidence、Audit Log 与 Human Review 串起来，展示 Agent 工具调用治理的完整链路。',
   architecture: [
     {
       index: '01',
@@ -983,7 +983,7 @@ export const mcpGatewayDetail = {
           index: 'E07',
           title: 'JSON-RPC adapter',
           detail: 'HTTP POST 入口演示 tools/list、tools/call、prompts/list 与 resources/list。',
-          scope: 'MCP-style demo',
+          scope: 'MCP-style scope',
         },
         {
           index: 'E08',
@@ -1012,7 +1012,7 @@ export const mcpGatewayDetail = {
       description: '当前真实定位',
       tone: 'positive',
       items: [
-        '一个面向作品集展示的 MCP-style Agent 工具治理网关 demo。',
+        '一个面向作品集展示的 MCP-style Agent 工具治理网关原型。',
         '一条可运行、可测试、可截图复核的 Tool / Policy / Trace / Audit / Review 链路。',
       ],
     },
@@ -1026,8 +1026,8 @@ export const mcpGatewayDetail = {
       ],
     },
     {
-      title: 'Demo-only assumptions',
-      description: '仅用于本地演示的假设',
+      title: 'Scope assumptions',
+      description: '项目边界与本地运行假设',
       tone: 'neutral',
       items: [
         'X-Demo-Role 是 demo/testing helper，不是生产鉴权。',

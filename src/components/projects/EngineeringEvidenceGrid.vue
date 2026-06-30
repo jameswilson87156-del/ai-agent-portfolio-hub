@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 }>(), {
   kicker: '05 / DELIVERY EVIDENCE',
   title: 'Backend & Engineering Evidence',
-  description: '证据来自源项目代码、文档与最近验收记录；其中 demo 能力均保持明确标注。',
+  description: '证据来自源项目代码、文档与最近验收记录；其中边界型能力均保持明确标注。',
 })
 </script>
 

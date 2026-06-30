@@ -29,18 +29,18 @@ import { RouterLink } from 'vue-router'
       串成可展示、可解释、可验证的 AI Agent 项目作品集。
     </p>
 
-    <div class="hero-actions" id="resume">
+    <div class="hero-actions">
       <RouterLink class="hero-button hero-button--primary" to="/projects">
         查看核心项目
         <span class="button-icon" aria-hidden="true">→</span>
       </RouterLink>
-      <a class="hero-button" href="#github">
-        查看 GitHub
+      <RouterLink class="hero-button" to="/projects">
+        查看项目证据
         <span class="button-icon" aria-hidden="true">↗</span>
-      </a>
-      <a class="hero-button hero-button--resume" href="#resume">
+      </RouterLink>
+      <a class="hero-button hero-button--resume" href="#evidence">
         <span class="button-icon" aria-hidden="true">↓</span>
-        下载简历
+        查看证据链
       </a>
     </div>
   </section>

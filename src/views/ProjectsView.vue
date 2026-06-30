@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import TopNav from '../components/TopNav.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 import CapabilityMatrix from '../components/projects/CapabilityMatrix.vue'
 import EvidenceWall from '../components/projects/EvidenceWall.vue'
 import ProjectBoundaryNote from '../components/projects/ProjectBoundaryNote.vue'
@@ -63,13 +63,7 @@ import {
         :commitments="projectBoundary.commitments"
       />
 
-      <footer class="projects-footer">
-        <p>Wang Zhenlong · AI Agent Engineer Portfolio Hub</p>
-        <RouterLink to="/">
-          返回首页
-          <span aria-hidden="true">↗</span>
-        </RouterLink>
-      </footer>
+      <SiteFooter />
     </main>
   </div>
 </template>

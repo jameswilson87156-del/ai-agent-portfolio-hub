@@ -78,7 +78,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
     preview: {
       src: '/images/projects/devflow-preview.png',
       alt: 'DevFlow Copilot Agentic Coding 工作流控制台真实浏览器截图',
-      caption: 'Agentic Coding workflow console / local demo',
+      caption: 'Agentic Coding workflow console / runnable local project',
       source: 'ai-coding-workbench · docs/images/dashboard-agentic.png',
     },
     tone: 'orange',
@@ -202,7 +202,7 @@ export const evidenceGroups: EvidenceGroup[] = [
       {
         index: 'E02',
         label: 'Boundary notes',
-        detail: '明确 demo、协议兼容与生产能力边界',
+        detail: '明确项目范围、协议兼容与生产能力边界',
         projects: ['DF', 'RAG', 'MCP'],
       },
     ],
@@ -308,7 +308,7 @@ export const projectBoundary = {
   focus:
     '重点展示系统拆解能力、AI Agent 流程理解、Java 后端工程能力、前端产品表达和工程证据意识。',
   commitments: [
-    'Demo 能力明确标注',
+    '项目范围与边界明确标注',
     '概念协议不冒充完整实现',
     '本地样例不冒充生产数据',
     '真实截图只来自可运行页面',

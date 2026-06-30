@@ -13,7 +13,7 @@ defineProps<{
         <p class="detail-kicker">07 / INTERVIEW NARRATIVE</p>
         <h2 id="interview-title">How I explain it in interviews</h2>
       </div>
-      <p>用真实实现和明确边界讲清楚设计判断，不把 demo 包装成生产系统。</p>
+      <p>用真实实现和明确边界讲清楚设计判断，不把作品集工程包装成生产系统。</p>
     </header>
 
     <div class="interview-qa-grid">

@@ -29,9 +29,7 @@ export type ProjectItem = {
 export const navItems: NavItem[] = [
   { label: '作品', href: '/projects' },
   { label: '能力', href: '/#capabilities' },
-  { label: '技术栈', href: '/#stack' },
   { label: '证据链', href: '/#evidence' },
-  { label: '简历', href: '/#resume' },
 ]
 
 export const techTags: TechTag[] = [

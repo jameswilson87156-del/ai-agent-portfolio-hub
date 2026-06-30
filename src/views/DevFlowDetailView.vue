@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import TopNav from '../components/TopNav.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 import ArchitectureFlow from '../components/projects/ArchitectureFlow.vue'
 import BoundaryPanel from '../components/projects/BoundaryPanel.vue'
 import DetailHero from '../components/projects/DetailHero.vue'
@@ -93,13 +93,7 @@ import { devFlowDetail } from '../data/projectDetails'
       <BoundaryPanel :sections="devFlowDetail.trustPanel" />
       <InterviewNotes :items="devFlowDetail.interviewQuestions" />
 
-      <footer class="detail-footer">
-        <p>Wang Zhenlong · DevFlow Copilot · Portfolio case study</p>
-        <div>
-          <RouterLink to="/projects">← Projects</RouterLink>
-          <a :href="devFlowDetail.githubUrl" target="_blank" rel="noreferrer">GitHub ↗</a>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   </div>
 </template>

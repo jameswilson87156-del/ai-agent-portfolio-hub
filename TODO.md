@@ -11,4 +11,7 @@
 - P3B: Complete the DevFlow Copilot detail page with workflow architecture, real screenshots, engineering evidence, boundaries, and interview notes.
 - P3B-CopyFix: Clarify DevFlow as a real runnable portfolio engineering project, not a production AI IDE.
 - P3C: Complete the Enterprise Ticket RAG Copilot detail page with workflow architecture, real screenshots, engineering evidence, boundaries, and interview notes.
-- P4: Prepare whole-site navigation, screenshots, README, deployment readiness, and portfolio finalization.
+- P4A: Complete whole-site release-readiness QA for navigation, boundaries, README, screenshots, footer, and deployment preparation.
+- P4B: Prepare deployment target configuration and dry-run deployment checklist.
+- P4C: Polish GitHub README presentation after the portfolio repository remote is created.
+- P5: Integrate resume bullets and interview talk tracks with the finalized portfolio routes.
