@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'projects',
       component: () => import('../views/ProjectsView.vue'),
     },
+    {
+      path: '/projects/mcp-gateway',
+      name: 'mcp-gateway-detail',
+      component: () => import('../views/McpGatewayDetailView.vue'),
+    },
   ],
   scrollBehavior(to) {
     if (to.hash) {

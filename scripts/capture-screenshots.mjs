@@ -36,6 +36,20 @@ const captures = [
     height: 1080,
     fullPage: true,
   },
+  {
+    route: '/projects/mcp-gateway',
+    path: path.join(imageDir, 'mcp-gateway-detail.png'),
+    width: 1440,
+    height: 900,
+    fullPage: true,
+  },
+  {
+    route: '/projects/mcp-gateway',
+    path: path.join(largeImageDir, 'mcp-gateway-detail.png'),
+    width: 1920,
+    height: 1080,
+    fullPage: true,
+  },
 ]
 
 async function launchBrowser() {

@@ -20,6 +20,7 @@ The reference image is an AI-generated visual reference only. It is not a real b
 - Implemented the P1E Hero visual rebuild after manual review found the P1D title spacing unsafe, the mountain terrain too weak, and the project entries still too dashboard-like.
 - Implemented P2 Projects overview after the cinematic homepage direction passed manual review.
 - Implemented P2A Projects readability and engineering-evidence refinement without changing the approved homepage.
+- Implemented P3A MCP Tool Gateway detail page as the first focused project case study.
 - Added centralized portfolio data in `src/data/portfolio.ts`.
 - Added centralized Projects case-study data in `src/data/projects.ts`.
 - Added real browser screenshot generation with Playwright.
@@ -28,8 +29,9 @@ The reference image is an AI-generated visual reference only. It is not a real b
 
 - `/` — approved cinematic AI Agent Engineer portfolio homepage.
 - `/projects` — Projects case-study index.
+- `/projects/mcp-gateway` — MCP Tool Gateway engineering case study.
 
-Vue Router is installed and configured in `src/router/index.ts`. Project detail routes are intentionally not implemented in P2.
+Vue Router is installed and configured in `src/router/index.ts`. DevFlow Copilot and Enterprise Ticket RAG Copilot detail routes remain intentionally deferred.
 
 ## Implemented Components
 
@@ -46,6 +48,12 @@ Vue Router is installed and configured in `src/router/index.ts`. Project detail 
 - `projects/CapabilityMatrix.vue`
 - `projects/EvidenceWall.vue`
 - `projects/ProjectBoundaryNote.vue`
+- `projects/DetailHero.vue`
+- `projects/ArchitectureFlow.vue`
+- `projects/ScreenshotGallery.vue`
+- `projects/EngineeringEvidenceGrid.vue`
+- `projects/BoundaryPanel.vue`
+- `projects/InterviewNotes.vue`
 
 ## P2 Projects Overview
 
@@ -73,6 +81,26 @@ Vue Router is installed and configured in `src/router/index.ts`. Project detail 
 - `public/images/projects/mcp-gateway-preview.png` is copied from `D:\workhome\mcp-tool-gateway\docs\images\large\mcp-tool-workbench.png`.
 
 The source projects were inspected read-only and were not modified. These previews are real browser screenshot copies, not design references or fabricated production evidence.
+
+## P3A MCP Tool Gateway Detail
+
+- Route: `/projects/mcp-gateway`.
+- Structure: Detail Hero, Why this project exists, System Architecture, Core Agent Flow, Real Browser Evidence, Backend & Engineering Evidence, Project Boundaries, and interview notes.
+- The architecture and flow sections explain Tool Registry, Prompt / Resource, PolicyService, HTTP-only JSON-RPC adapter, Tool Call, Trace, Audit, and Human Review as one governance chain.
+- Backend evidence covers the source project's recorded 60 tests, GitHub Actions CI, Docker Compose, OpenAPI, H2, JdbcTemplate repositories, JSON-RPC adapter, RBAC PolicyService, Audit Log, and Trace repository boundary.
+- Boundaries explicitly state MCP-style rather than full MCP compatibility, demo RBAC and `X-Demo-Role`, local H2 persistence, sandbox Tool execution, and the absence of real customers, production traffic, or commercial data.
+
+### MCP Detail Screenshot Sources
+
+All five files are copied read-only from `D:\workhome\mcp-tool-gateway\docs\images\large` into `public/images/projects/mcp/`:
+
+- `mcp-tool-workbench.png`
+- `tool-registry.png`
+- `human-review-center.png`
+- `trace-evidence.png`
+- `audit-log.png`
+
+The original MCP Tool Gateway project must remain unchanged. These are real local browser screenshot copies, not design-reference material.
 
 ## P1E Hero Rebuild
 
@@ -113,9 +141,11 @@ The source projects were inspected read-only and were not modified. These previe
 - `docs/images/large/portfolio-home.png`
 - `docs/images/projects-overview.png`
 - `docs/images/large/projects-overview.png`
+- `docs/images/mcp-gateway-detail.png`
+- `docs/images/large/mcp-gateway-detail.png`
 
 These are real browser screenshots generated from the Vue app. The reference image remains only a design reference.
 
 ## Next Step
 
-P3 should add three focused project detail pages using the current case-study data, preview provenance, and routing foundation. Keep each detail page distinct, reuse the Projects evidence vocabulary, and do not turn the portfolio into a dashboard or claim production capability that is not implemented.
+P3B should add the DevFlow Copilot detail page using the same evidence discipline while giving its AI Coding workflow a distinct editorial treatment. P3C should then cover Enterprise Ticket RAG Copilot. Do not turn either page into a dashboard or claim production capability that is not implemented.

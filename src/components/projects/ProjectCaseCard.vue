@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import type { CaseStudyProject } from '../../data/projects'
 
 defineProps<{
@@ -10,7 +11,7 @@ defineProps<{
   <article
     :id="project.slug"
     :class="['case-card', `case-card--${project.tone}`]"
-    tabindex="0"
+    :tabindex="project.detailPath ? undefined : 0"
     :aria-labelledby="`${project.slug}-title`"
   >
     <div class="case-card__rail" aria-hidden="true">
@@ -26,7 +27,15 @@ defineProps<{
           <p class="case-card__position">{{ project.position }}</p>
         </div>
 
-        <span class="case-card__details" aria-disabled="true">
+        <RouterLink
+          v-if="project.detailPath"
+          class="case-card__details case-card__details--available"
+          :to="project.detailPath"
+        >
+          View case study
+          <span aria-hidden="true">↗</span>
+        </RouterLink>
+        <span v-else class="case-card__details" aria-disabled="true">
           P3 · Coming soon
           <span aria-hidden="true">↗</span>
         </span>

@@ -8,7 +8,7 @@ This project contains a cinematic homepage and a Projects case-study index for a
 
 ## Current Stage
 
-P2A complete: the approved cinematic homepage is preserved, while `/projects` now provides a more readable case-study index with real project previews and grouped engineering evidence.
+P3A complete: the approved homepage and Projects index are preserved, and `/projects/mcp-gateway` now provides a focused MCP Tool Gateway engineering case study.
 
 ## Tech Stack
 
@@ -33,8 +33,10 @@ This file is an AI-generated visual reference. It is not a running webpage scree
 - Large desktop: `docs/images/large/portfolio-home.png`
 - Projects desktop: `docs/images/projects-overview.png`
 - Projects large desktop: `docs/images/large/projects-overview.png`
+- MCP detail desktop: `docs/images/mcp-gateway-detail.png`
+- MCP detail large desktop: `docs/images/large/mcp-gateway-detail.png`
 
-These screenshots are generated from the implemented Vue app with `npm run screenshots`. They are real browser captures of `/` and `/projects`.
+These screenshots are generated from the implemented Vue app with `npm run screenshots`. They are real browser captures of `/`, `/projects`, and `/projects/mcp-gateway`.
 
 ## Visual Rebuild
 
@@ -60,6 +62,20 @@ P2A raises body-text contrast and size, maps capabilities to readable project-na
 
 These files are screenshot copies of locally runnable project pages. The AI-generated design reference remains separate and is never presented as runtime evidence.
 
+## MCP Tool Gateway Detail
+
+P3A adds `/projects/mcp-gateway` as the first project detail route. The page presents the project problem, layered architecture, core Agent Tool invocation flow, five real browser evidence screenshots, Java backend delivery evidence, explicit project boundaries, and interview notes.
+
+The gallery uses real browser screenshot copies from the local `D:\workhome\mcp-tool-gateway\docs\images\large` directory:
+
+- `mcp-tool-workbench.png`
+- `tool-registry.png`
+- `human-review-center.png`
+- `trace-evidence.png`
+- `audit-log.png`
+
+The screenshots are copied into `public/images/projects/mcp/`. They are runtime evidence from the local demo project, not design references, customer systems, or production environment captures.
+
 ## Motion Boundary
 
 The particle terrain flow, Trace Timeline light point, panel hover states, and parallax are front-end visual expressions only. They do not represent real runtime status, real API calls, or production system state.
@@ -72,5 +88,5 @@ Motion references under `docs/design/motion-references/` are local design refere
 - No real API integration.
 - No login.
 - No production traffic, customer, or deployment claims.
-- No project detail pages yet.
+- Only the MCP Tool Gateway detail page is implemented; the other two project details remain deferred.
 - MCP-style and RBAC demo capabilities are labeled as demonstrations, not complete production implementations.

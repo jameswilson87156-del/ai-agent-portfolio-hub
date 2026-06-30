@@ -314,6 +314,21 @@
   transition: transform 180ms ease;
 }
 
+.case-card__details--available {
+  color: rgba(255, 248, 236, 0.78);
+}
+
+.case-card__details--available:hover,
+.case-card__details--available:focus-visible {
+  color: var(--color-ember);
+  outline: none;
+}
+
+.case-card--green .case-card__details--available:hover,
+.case-card--green .case-card__details--available:focus-visible {
+  color: var(--color-green);
+}
+
 .case-card--green .case-card__details span {
   color: var(--color-green);
 }

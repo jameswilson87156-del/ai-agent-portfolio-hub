@@ -4,6 +4,7 @@ export type CaseStudyProject = {
   index: string
   code: ProjectCode
   slug: string
+  detailPath?: string
   title: string
   position: string
   problem: string
@@ -126,6 +127,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
     index: '03',
     code: 'MCP',
     slug: 'mcp-gateway',
+    detailPath: '/projects/mcp-gateway',
     title: 'MCP Tool Gateway',
     position: '企业 Agent 工具网关',
     problem:
