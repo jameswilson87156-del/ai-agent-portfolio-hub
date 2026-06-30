@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 const imageDir = path.join(root, 'docs', 'images')
 const largeImageDir = path.join(imageDir, 'large')
+const reviewImageDir = path.join(imageDir, 'review')
 
 const captures = [
   {
@@ -15,6 +16,12 @@ const captures = [
     path: path.join(imageDir, 'portfolio-home.png'),
     width: 1440,
     height: 900,
+  },
+  {
+    route: '/',
+    path: path.join(reviewImageDir, 'home-1366x768.png'),
+    width: 1366,
+    height: 768,
   },
   {
     route: '/',
@@ -105,6 +112,7 @@ async function launchBrowser() {
 
 await mkdir(imageDir, { recursive: true })
 await mkdir(largeImageDir, { recursive: true })
+await mkdir(reviewImageDir, { recursive: true })
 
 const server = await createServer({
   root,

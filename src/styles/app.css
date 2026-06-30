@@ -13,19 +13,18 @@
   position: relative;
   z-index: 2;
   width: min(var(--content-max), calc(100vw - 88px));
-  height: calc(100dvh - 82px);
-  min-height: 760px;
+  min-height: calc(100dvh - 82px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(500px, 0.92fr) minmax(620px, 1.08fr);
-  grid-template-rows: minmax(0, 1fr) minmax(152px, 18.5vh);
+  grid-template-rows: minmax(clamp(620px, 68vh, 760px), auto) auto;
   grid-template-areas:
     "hero evidence"
     "projects projects";
   column-gap: clamp(48px, 6vw, 118px);
-  row-gap: clamp(18px, 2.4vh, 34px);
+  row-gap: clamp(72px, 8vh, 112px);
   align-items: stretch;
-  padding: clamp(8px, 1.2vh, 18px) 0 clamp(24px, 3vh, 36px);
+  padding: clamp(8px, 1.2vh, 18px) 0 clamp(56px, 7vh, 88px);
 }
 
 .top-nav,
@@ -658,7 +657,7 @@
   grid-template-columns: 1.1fr 1.25fr 1fr;
   gap: clamp(26px, 2.8vw, 52px);
   align-items: start;
-  transform: translateY(-26px);
+  transform: none;
   animation: contentReveal 720ms 220ms ease-out both;
 }
 
@@ -1152,11 +1151,11 @@
 
   .home-main {
     grid-template-columns: minmax(520px, 0.92fr) minmax(620px, 1.08fr);
-    grid-template-rows: minmax(0, 1fr) 132px;
+    grid-template-rows: minmax(clamp(590px, 66vh, 710px), auto) auto;
     column-gap: 42px;
-    row-gap: 22px;
+    row-gap: clamp(72px, 8.5vh, 104px);
     padding-top: 6px;
-    padding-bottom: 24px;
+    padding-bottom: clamp(60px, 7vh, 84px);
   }
 
   .hero-copy {
@@ -1184,7 +1183,7 @@
   }
 
   .hero-actions {
-    margin-top: 26px;
+    margin-top: 30px;
   }
 
   .json-window {
@@ -1204,7 +1203,7 @@
 
   .project-card {
     min-height: 142px;
-    padding-top: 19px;
+    padding-top: 22px;
     gap: 16px;
   }
 
@@ -1235,6 +1234,147 @@
 
   .hero-actions {
     margin-top: 34px;
+  }
+}
+
+@media (min-width: 1181px) and (max-height: 820px) {
+  .home-main {
+    grid-template-rows: minmax(610px, auto) auto;
+    row-gap: clamp(78px, 9vh, 104px);
+    padding-top: 4px;
+    padding-bottom: 80px;
+  }
+
+  .hero-copy {
+    align-self: start;
+    max-width: 660px;
+    padding-top: clamp(18px, 2.5vh, 26px);
+    padding-bottom: 0;
+  }
+
+  .hero-kicker {
+    margin-bottom: 16px;
+    font-size: clamp(0.96rem, 1.02vw, 1.12rem);
+  }
+
+  .hero-title {
+    gap: clamp(18px, 2vh, 24px);
+  }
+
+  .title-en {
+    font-size: clamp(4.75rem, 6.6vw, 7.05rem);
+    line-height: 0.94;
+  }
+
+  .title-cn {
+    font-size: clamp(3rem, 4.12vw, 4.55rem);
+    line-height: 1.08;
+  }
+
+  .identity-line {
+    margin-top: 24px;
+    font-size: clamp(1.08rem, 1.3vw, 1.36rem);
+  }
+
+  .direction-line {
+    margin-top: 8px;
+  }
+
+  .hero-divider {
+    margin-top: 22px;
+  }
+
+  .hero-subtitle {
+    max-width: 600px;
+    margin-top: 22px;
+    font-size: clamp(1rem, 1.08vw, 1.14rem);
+    line-height: 1.72;
+  }
+
+  .hero-description {
+    max-width: 590px;
+    margin-top: 12px;
+    line-height: 1.76;
+  }
+
+  .hero-actions {
+    margin-top: 26px;
+  }
+
+  .project-showcase {
+    transform: none;
+  }
+
+  .json-window {
+    top: clamp(56px, 9vh, 86px);
+  }
+
+  .trace-panel {
+    bottom: clamp(42px, 7vh, 68px);
+  }
+}
+
+@media (min-width: 1181px) and (max-height: 760px) {
+  .home-main {
+    grid-template-rows: minmax(650px, auto) auto;
+    row-gap: clamp(88px, 12vh, 118px);
+    padding-top: 0;
+    padding-bottom: 92px;
+  }
+
+  .hero-copy {
+    max-width: 620px;
+    padding-top: 8px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 13px;
+  }
+
+  .hero-title {
+    gap: 16px;
+  }
+
+  .title-en {
+    font-size: clamp(4.45rem, 6.1vw, 6.5rem);
+  }
+
+  .title-cn {
+    font-size: clamp(2.82rem, 3.85vw, 4.18rem);
+  }
+
+  .identity-line {
+    margin-top: 20px;
+  }
+
+  .hero-divider {
+    margin-top: 18px;
+  }
+
+  .hero-subtitle {
+    margin-top: 18px;
+    line-height: 1.64;
+  }
+
+  .hero-description {
+    margin-top: 10px;
+    line-height: 1.66;
+  }
+
+  .hero-actions {
+    margin-top: 22px;
+  }
+
+  .hero-button {
+    min-height: 54px;
+  }
+
+  .project-card {
+    border-top-color: rgba(255, 121, 0, 0.28);
+  }
+
+  .project-card--green {
+    border-top-color: rgba(89, 228, 122, 0.28);
   }
 }
 
