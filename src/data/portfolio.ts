@@ -19,6 +19,7 @@ export type TimelineStep = {
 
 export type ProjectItem = {
   index: string
+  href: string
   title: string
   subtitle: string
   value: string
@@ -49,6 +50,7 @@ export const timelineSteps: TimelineStep[] = [
 export const projects: ProjectItem[] = [
   {
     index: '01',
+    href: '/projects/devflow',
     title: 'DevFlow Copilot',
     subtitle: 'AI Coding / Agentic Workflow Console',
     value: '将 Prompt 编排、执行轨迹与人工审核收束为可复盘的开发闭环。',
@@ -57,6 +59,7 @@ export const projects: ProjectItem[] = [
   },
   {
     index: '02',
+    href: '/projects/ticket-rag',
     title: 'Enterprise Ticket RAG Copilot',
     subtitle: '企业工单 RAG 智能助手',
     value: '以知识引用和回退机制，让工单检索结果可追溯、可复核。',
@@ -65,6 +68,7 @@ export const projects: ProjectItem[] = [
   },
   {
     index: '03',
+    href: '/projects/mcp-gateway',
     title: 'MCP Tool Gateway',
     subtitle: '企业 Agent 工具网关',
     value: '统一工具注册、调用边界与审计证据，降低 Agent 接入成本。',

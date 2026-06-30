@@ -28,9 +28,17 @@
   padding: clamp(8px, 1.2vh, 18px) 0 clamp(24px, 3vh, 36px);
 }
 
+.top-nav,
+.hero-copy,
+.hero-actions,
+.project-showcase,
+.site-footer {
+  pointer-events: auto;
+}
+
 .top-nav {
   position: relative;
-  z-index: 5;
+  z-index: 10;
   width: min(var(--content-max), calc(100vw - 88px));
   height: 82px;
   margin: 0 auto;
@@ -102,6 +110,7 @@
   background: var(--color-ember);
   box-shadow: 0 0 12px rgba(255, 121, 0, 0.65);
   content: "";
+  pointer-events: none;
 }
 
 .contact-link.is-active {
@@ -153,10 +162,10 @@
 .hero-copy {
   grid-area: hero;
   position: relative;
-  z-index: 4;
+  z-index: 6;
   align-self: center;
-  max-width: 760px;
-  padding-bottom: clamp(8px, 2vh, 22px);
+  max-width: 700px;
+  padding-bottom: clamp(16px, 2.4vh, 28px);
   animation: contentReveal 720ms 80ms ease-out both;
 }
 
@@ -170,7 +179,7 @@
 
 .hero-title {
   display: grid;
-  gap: clamp(14px, 1.65vw, 26px);
+  gap: clamp(20px, 2.2vw, 34px);
   margin: 0;
   color: #fff8ec;
   letter-spacing: 0;
@@ -188,22 +197,22 @@
 .title-en {
   display: flex;
   align-items: baseline;
-  gap: clamp(0.08em, 0.62vw, 0.14em);
+  gap: clamp(0.12em, 0.72vw, 0.18em);
   font-family: var(--font-display);
-  font-size: clamp(5.6rem, 8vw, 9.6rem);
+  font-size: clamp(5.25rem, 7.15vw, 8.55rem);
   font-weight: 650;
-  line-height: 0.82;
-  letter-spacing: -0.035em;
+  line-height: 0.92;
+  letter-spacing: 0;
 }
 
 .title-cn {
   font-family:
     "PingFang SC", "Microsoft YaHei UI", "Noto Sans CJK SC",
     "Source Han Sans SC", var(--font-body);
-  font-size: clamp(3.7rem, 5.08vw, 6.1rem);
+  font-size: clamp(3.35rem, 4.62vw, 5.45rem);
   font-weight: 450;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  line-height: 1.08;
+  letter-spacing: 0;
   text-shadow: 0 22px 64px rgba(0, 0, 0, 0.78);
 }
 
@@ -212,7 +221,7 @@
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
-  margin: clamp(24px, 3vh, 38px) 0 0;
+  margin: clamp(30px, 3.7vh, 48px) 0 0;
   color: rgba(255, 248, 236, 0.96);
   font-size: clamp(1.18rem, 1.42vw, 1.58rem);
   line-height: 1.4;
@@ -225,7 +234,7 @@
 }
 
 .direction-line {
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   color: rgba(245, 240, 231, 0.74);
   font-size: clamp(0.98rem, 1.08vw, 1.18rem);
   line-height: 1.55;
@@ -234,45 +243,50 @@
 .hero-divider {
   width: 62px;
   height: 3px;
-  margin: clamp(20px, 2.6vh, 30px) 0 0;
+  margin: clamp(24px, 3vh, 34px) 0 0;
   border-radius: 999px;
   background: var(--color-ember);
   box-shadow: 0 0 24px rgba(255, 121, 0, 0.18);
+  pointer-events: none;
+  user-select: none;
 }
 
 .hero-subtitle {
-  max-width: 680px;
-  margin: clamp(20px, 2.6vh, 30px) 0 0;
+  max-width: 640px;
+  margin: clamp(24px, 3vh, 34px) 0 0;
   color: rgba(255, 248, 236, 0.94);
   font-size: clamp(1.04rem, 1.22vw, 1.34rem);
   line-height: 1.78;
 }
 
 .hero-description {
-  max-width: 660px;
-  margin: 14px 0 0;
+  max-width: 610px;
+  margin: 16px 0 0;
   color: rgba(245, 240, 231, 0.68);
   font-size: clamp(0.94rem, 1.02vw, 1.08rem);
   line-height: 1.86;
 }
 
 .hero-actions {
+  position: relative;
+  z-index: 8;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 20px;
-  margin-top: clamp(28px, 3.8vh, 44px);
+  gap: 16px 20px;
+  margin-top: clamp(30px, 4vh, 46px);
 }
 
 .hero-button {
   position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 11px;
   width: 188px;
   min-width: 188px;
-  height: 54px;
-  padding: 0 24px;
+  min-height: 56px;
+  padding: 0 26px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 8px;
   color: rgba(255, 248, 236, 0.9);
@@ -280,6 +294,8 @@
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.035);
   font-size: 1rem;
   line-height: 1;
+  text-decoration: none;
+  pointer-events: auto;
   overflow: hidden;
   transition:
     border-color 180ms ease,
@@ -363,6 +379,8 @@
   z-index: 3;
   align-self: stretch;
   min-height: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .stage-stack {
@@ -395,6 +413,7 @@
     transform 220ms ease,
     background 220ms ease;
   animation: contentReveal 720ms 120ms ease-out both;
+  pointer-events: none;
   will-change: transform;
 }
 
@@ -505,6 +524,7 @@
     transform 220ms ease,
     background 220ms ease;
   animation: contentReveal 720ms 180ms ease-out both;
+  pointer-events: none;
   will-change: transform;
 }
 
@@ -566,6 +586,7 @@
   box-shadow: 0 0 6px rgba(89, 228, 122, 0.06);
   animation: traceLineFlow 15s linear infinite;
   content: "";
+  pointer-events: none;
 }
 
 .trace-runner {
@@ -632,27 +653,32 @@
 .project-showcase {
   grid-area: projects;
   position: relative;
-  z-index: 4;
+  z-index: 6;
   display: grid;
   grid-template-columns: 1.1fr 1.25fr 1fr;
   gap: clamp(26px, 2.8vw, 52px);
   align-items: start;
-  transform: translateY(-40px);
+  transform: translateY(-26px);
   animation: contentReveal 720ms 220ms ease-out both;
 }
 
 .project-card {
   position: relative;
+  z-index: 1;
   min-height: 150px;
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr) 30px;
   gap: clamp(16px, 1.5vw, 24px);
   align-items: start;
-  padding: clamp(20px, 1.65vw, 25px) 0 clamp(18px, 1.35vw, 22px);
-  border-top: 1px solid rgba(255, 121, 0, 0.52);
+  padding: clamp(22px, 1.75vw, 28px) 0 clamp(18px, 1.4vw, 24px);
+  border-top: 1px solid rgba(255, 121, 0, 0.4);
   border-radius: 0;
   background: linear-gradient(180deg, rgba(255, 121, 0, 0.038), transparent 66%);
   box-shadow: none;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  pointer-events: auto;
   overflow: hidden;
   transition:
     border-color 180ms ease,
@@ -662,18 +688,25 @@
 }
 
 .project-card:hover,
+.project-card:focus-visible,
 .project-card:focus-within {
   transform: translateY(-2px);
   border-color: rgba(255, 121, 0, 0.8);
   background: linear-gradient(180deg, rgba(255, 121, 0, 0.07), transparent 72%);
 }
 
+.project-card:focus-visible {
+  outline: 1px solid rgba(255, 248, 236, 0.22);
+  outline-offset: 6px;
+}
+
 .project-card--green {
-  border-color: rgba(89, 228, 122, 0.52);
+  border-color: rgba(89, 228, 122, 0.4);
   background: linear-gradient(180deg, rgba(89, 228, 122, 0.038), transparent 66%);
 }
 
 .project-card--green:hover,
+.project-card--green:focus-visible,
 .project-card--green:focus-within {
   border-color: rgba(89, 228, 122, 0.8);
   background: linear-gradient(180deg, rgba(89, 228, 122, 0.07), transparent 72%);
@@ -691,6 +724,8 @@
 }
 
 .project-card__body {
+  position: relative;
+  z-index: 1;
   min-width: 0;
 }
 
@@ -705,21 +740,21 @@
 }
 
 .project-subtitle {
-  margin: 7px 0 0;
+  margin: 8px 0 0;
   color: rgba(245, 240, 231, 0.66);
   font-size: 0.84rem;
   line-height: 1.45;
 }
 
 .project-detail {
-  margin-top: 9px;
+  margin-top: 12px;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 12px;
   transition:
     opacity 180ms ease,
     transform 180ms ease;
@@ -736,6 +771,7 @@
 }
 
 .project-card:hover .project-value,
+.project-card:focus-visible .project-value,
 .project-card:focus-within .project-value {
   color: rgba(255, 248, 236, 0.92);
 }
@@ -758,6 +794,7 @@
 }
 
 .project-card:hover .project-tag,
+.project-card:focus-visible .project-tag,
 .project-card:focus-within .project-tag {
   border-color: rgba(255, 121, 0, 0.22);
   color: rgba(255, 248, 236, 0.9);
@@ -765,6 +802,7 @@
 }
 
 .project-card--green:hover .project-tag,
+.project-card--green:focus-visible .project-tag,
 .project-card--green:focus-within .project-tag {
   border-color: rgba(89, 228, 122, 0.22);
   background: rgba(89, 228, 122, 0.045);
@@ -779,6 +817,7 @@
 }
 
 .project-card:hover .project-arrow,
+.project-card:focus-visible .project-arrow,
 .project-card:focus-within .project-arrow {
   transform: translateX(8px);
 }
@@ -786,8 +825,9 @@
 .floating-tags {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
+  user-select: none;
 }
 
 .tech-tag {
@@ -810,6 +850,8 @@
   white-space: nowrap;
   animation: tagFloat 15s ease-in-out infinite;
   animation-delay: var(--tag-delay);
+  pointer-events: none;
+  user-select: none;
   will-change: transform;
 }
 
@@ -827,10 +869,11 @@
   left: 50%;
   top: 100%;
   width: 1px;
-  height: var(--line);
+  height: min(var(--line), 44px);
   background: linear-gradient(180deg, var(--tag-color), transparent);
-  opacity: 0.32;
+  opacity: 0.16;
   content: "";
+  pointer-events: none;
 }
 
 .tech-tag--green {
@@ -849,6 +892,15 @@
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  user-select: none;
+}
+
+.cinematic-background,
+.cinematic-background *,
+.cinematic-background::before,
+.cinematic-background::after {
+  pointer-events: none;
+  user-select: none;
 }
 
 .cinematic-background::before {
