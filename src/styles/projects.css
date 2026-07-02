@@ -144,6 +144,10 @@
   color: rgba(120, 235, 145, 0.76);
 }
 
+.projects-intro__rail span:nth-child(4) {
+  color: rgba(217, 176, 109, 0.72);
+}
+
 .case-index {
   animation: projectsReveal 720ms 150ms ease-out both;
 }
@@ -670,6 +674,12 @@
 .evidence-wall__projects .project-code--mcp {
   border-color: rgba(217, 176, 109, 0.16);
   color: rgba(217, 176, 109, 0.66);
+}
+
+.capability-projects .project-code--off,
+.evidence-wall__projects .project-code--off {
+  border-color: rgba(120, 235, 145, 0.18);
+  color: rgba(193, 215, 154, 0.74);
 }
 
 .evidence-groups {

@@ -75,6 +75,15 @@ export const projects: ProjectItem[] = [
     tags: ['MCP-style', 'JSON-RPC', 'Audit Log'],
     tone: 'orange',
   },
+  {
+    index: '04',
+    href: '/projects/offerflow',
+    title: 'OfferFlow Copilot',
+    subtitle: 'JD Intake · Resume Evidence · Human Review · Provider Trace',
+    value: '把 JD 分析、简历证据、匹配报告、Provider Trace、人工复核和复制门禁串成可审核的 AI 工作流。',
+    tags: ['Spring Boot', 'Provider SPI', 'Copy Gate'],
+    tone: 'green',
+  },
 ]
 
 export const jsonRpcPayload = `{

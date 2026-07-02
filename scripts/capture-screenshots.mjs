@@ -85,6 +85,20 @@ const captures = [
     height: 1080,
     fullPage: true,
   },
+  {
+    route: '/projects/offerflow',
+    path: path.join(imageDir, 'offerflow-detail.png'),
+    width: 1440,
+    height: 900,
+    fullPage: true,
+  },
+  {
+    route: '/projects/offerflow',
+    path: path.join(largeImageDir, 'offerflow-detail.png'),
+    width: 1920,
+    height: 1080,
+    fullPage: true,
+  },
 ]
 
 async function launchBrowser() {

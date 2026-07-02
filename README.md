@@ -2,7 +2,7 @@
 
 Personal portfolio frontend for Wang Zhenlong, focused on Java Backend, AI Application, AI Agent, and Web Full-stack internship directions.
 
-This repository is the portfolio site itself. It presents three runnable portfolio engineering projects through a cinematic homepage, a Projects index, and focused case-study detail pages.
+This repository is the portfolio site itself. It presents four runnable portfolio engineering projects through a cinematic homepage, a Projects index, and focused case-study detail pages.
 
 Live Demo: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
 
@@ -19,6 +19,7 @@ CI: GitHub Actions runs build and screenshots on `main` pushes and pull requests
 - `/projects/devflow` — DevFlow Copilot case study
 - `/projects/ticket-rag` — Enterprise Ticket RAG Copilot case study
 - `/projects/mcp-gateway` — MCP Tool Gateway case study
+- `/projects/offerflow` — OfferFlow Copilot case study
 
 ## Tech Stack
 
@@ -36,6 +37,7 @@ The case studies describe real local engineering projects. Their screenshots and
 - DevFlow Copilot: [https://github.com/jameswilson87156-del/devflow-copilot](https://github.com/jameswilson87156-del/devflow-copilot)
 - Enterprise Ticket RAG Copilot: [https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot](https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot)
 - MCP Tool Gateway: [https://github.com/jameswilson87156-del/mcp-tool-gateway](https://github.com/jameswilson87156-del/mcp-tool-gateway)
+- OfferFlow Copilot: local source project prepared for publication; GitHub remote is not hardcoded until the repository URL is available.
 
 ## Screenshot Evidence
 
@@ -46,14 +48,16 @@ The case studies describe real local engineering projects. Their screenshots and
 - `docs/images/devflow-detail.png`
 - `docs/images/ticket-rag-detail.png`
 - `docs/images/mcp-gateway-detail.png`
+- `docs/images/offerflow-detail.png`
 
 `docs/images/large/` contains the same route captures at a larger desktop viewport.
 
-`public/images/projects/` contains copied real browser screenshot evidence from the three local source projects:
+`public/images/projects/` contains copied real browser screenshot evidence from the four local source projects:
 
 - `public/images/projects/devflow/` from `D:\workhome\ai-coding-workbench\docs\images`
 - `public/images/projects/ticket-rag/` from `D:\workhome\enterprise-ai-ticket-copilot\docs\images`
 - `public/images/projects/mcp/` from `D:\workhome\mcp-tool-gateway\docs\images\large`
+- `public/images/projects/offerflow/` from `D:\workhome\offerflow-copilot\docs\images`
 
 `docs/design/references/` contains design references only. These images are not running-page screenshots and must not be described as runtime evidence.
 
@@ -76,8 +80,10 @@ npm run screenshots
 - DevFlow Copilot is presented as a real runnable portfolio AI Coding workflow project, not a production AI IDE.
 - Enterprise Ticket RAG Copilot is presented as a real runnable portfolio enterprise Copilot workflow project, not a production enterprise RAG system.
 - MCP Tool Gateway is presented as MCP-style tooling; it does not claim full official MCP protocol compatibility.
-- AI, Provider, RAG, RBAC, MCP, audit, persistence, and Human Review capabilities are bounded by the corresponding source project README files and code evidence.
+- OfferFlow Copilot is presented as a portfolio-ready local release candidate for evidence-first JD workflow governance, not a production recruiting platform.
+- AI, Provider, RAG, RBAC, MCP, audit, persistence, Human Review, and Copy Permission capabilities are bounded by the corresponding source project README files and code evidence.
 - OpenAI / DeepSeek / real Provider connection success is not claimed unless the source project evidence explicitly supports it.
+- OfferFlow real Provider wording is limited to an optional manual real Provider dry-run path manually verified with DeepSeek and an OpenAI-compatible relay; it remains disabled by default and review-gated.
 
 ## Deployment
 

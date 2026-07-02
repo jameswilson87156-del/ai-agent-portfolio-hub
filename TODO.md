@@ -14,4 +14,5 @@
 - P4A: Complete whole-site release-readiness QA for navigation, boundaries, README, screenshots, footer, and deployment preparation.
 - P4B: Prepare deployment target configuration and dry-run deployment checklist.
 - P4C: Polish GitHub README presentation after the portfolio repository remote is created.
-- P5: Integrate resume bullets and interview talk tracks with the finalized portfolio routes.
+- P5D: Complete OfferFlow Copilot case study integration with Projects index, detail route, copied runtime screenshots, README, and screenshot capture path.
+- P5E: Integrate resume bullets and interview talk tracks with the finalized portfolio routes.

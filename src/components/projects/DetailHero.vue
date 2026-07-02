@@ -6,7 +6,7 @@ defineProps<{
   subtitle: string
   positioning: string
   tags: string[]
-  githubUrl: string
+  githubUrl?: string
   kicker?: string
   dossierStage?: string
   dossierDescription?: string
@@ -28,7 +28,7 @@ defineProps<{
           <span aria-hidden="true">←</span>
           返回 Projects
         </RouterLink>
-        <a class="detail-button" :href="githubUrl" target="_blank" rel="noreferrer">
+        <a v-if="githubUrl" class="detail-button" :href="githubUrl" target="_blank" rel="noreferrer">
           查看 GitHub
           <span aria-hidden="true">↗</span>
         </a>

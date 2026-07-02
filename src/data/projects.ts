@@ -1,4 +1,4 @@
-export type ProjectCode = 'DF' | 'RAG' | 'MCP'
+export type ProjectCode = 'DF' | 'RAG' | 'MCP' | 'OFF'
 
 export type CaseStudyProject = {
   index: string
@@ -45,6 +45,7 @@ export const projectLabels: Record<ProjectCode, string> = {
   DF: 'DevFlow',
   RAG: 'Ticket RAG',
   MCP: 'MCP Gateway',
+  OFF: 'OfferFlow',
 }
 
 export const caseStudyProjects: CaseStudyProject[] = [
@@ -170,21 +171,68 @@ export const caseStudyProjects: CaseStudyProject[] = [
     },
     tone: 'orange',
   },
+  {
+    index: '04',
+    code: 'OFF',
+    slug: 'offerflow',
+    detailPath: '/projects/offerflow',
+    title: 'OfferFlow Copilot',
+    position: 'Java + AI workflow demo for JD intake and evidence-backed review',
+    problem:
+      '把 JD 分析、简历证据、匹配报告、Provider Trace、人工复核和复制门禁串成一条可追踪、可审核、可验证的 AI 工作流。',
+    workflow: [
+      'JD Intake',
+      'Resume Evidence',
+      'Match Report',
+      'Provider Trace',
+      'Human Review',
+      'Copy Permission',
+    ],
+    stack: [
+      'Spring Boot 3',
+      'Vue 3',
+      'MyBatis-Plus',
+      'Flyway',
+      'Provider SPI',
+      'Human Review',
+      'Copy Permission',
+      'Trace Evidence',
+    ],
+    evidence: [
+      '126 backend tests',
+      'GitHub Actions CI',
+      'Playwright screenshots',
+      'Manual Provider dry-run summary',
+    ],
+    boundary:
+      'Portfolio-grade engineering demo，不是生产级招聘系统；不接招聘平台 API、不爬虫、不自动投递、不预测 Offer。',
+    resumeValue:
+      '突出 Java 后端、AI workflow 治理、Provider 契约、审计链路和复制权限边界的工程表达能力。',
+    preview: {
+      src: '/images/projects/offerflow/jd-analyzer.png',
+      alt: 'OfferFlow Copilot JD Analyzer 真实运行截图',
+      caption: 'Evidence-first job workflow / human review and copy gate',
+      source: 'offerflow-copilot · docs/images/offerflow-dashboard.png',
+    },
+    tone: 'green',
+  },
 ]
 
 export const capabilityMatrix: CapabilityItem[] = [
-  { label: 'Java Backend', projects: ['DF', 'RAG', 'MCP'] },
-  { label: 'Spring Boot', projects: ['DF', 'RAG', 'MCP'] },
-  { label: 'Vue 3 + TypeScript', projects: ['DF', 'RAG', 'MCP'] },
-  { label: 'AI Application', projects: ['DF', 'RAG', 'MCP'] },
+  { label: 'Java Backend', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'Spring Boot', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'Vue 3 + TypeScript', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'AI Application', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
   { label: 'Agent Workflow', projects: ['DF', 'MCP'] },
   { label: 'RAG', projects: ['RAG'] },
   { label: 'MCP-style Tooling', projects: ['MCP'] },
-  { label: 'Trace Evidence', projects: ['DF', 'RAG', 'MCP'] },
-  { label: 'Human Review', projects: ['DF', 'RAG', 'MCP'] },
-  { label: 'Audit Log', projects: ['MCP'] },
+  { label: 'Trace Evidence', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'Human Review', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'Audit Log', projects: ['MCP', 'OFF'] },
   { label: 'RBAC demo', projects: ['MCP'] },
-  { label: 'CI / Docker / OpenAPI', projects: ['MCP'] },
+  { label: 'Provider SPI', projects: ['OFF'] },
+  { label: 'Copy Permission', projects: ['OFF'] },
+  { label: 'CI / Docker / OpenAPI', projects: ['MCP', 'OFF'] },
 ]
 
 export const evidenceGroups: EvidenceGroup[] = [
@@ -197,13 +245,13 @@ export const evidenceGroups: EvidenceGroup[] = [
         index: 'E01',
         label: 'README',
         detail: '范围、运行方式与工程边界说明',
-        projects: ['DF', 'RAG', 'MCP'],
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
       {
         index: 'E02',
         label: 'Boundary notes',
         detail: '明确项目范围、协议兼容与生产能力边界',
-        projects: ['DF', 'RAG', 'MCP'],
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
     ],
   },
@@ -215,26 +263,26 @@ export const evidenceGroups: EvidenceGroup[] = [
       {
         index: 'E03',
         label: '真实浏览器截图',
-        detail: '来自三个本地项目的实际页面，不使用概念图冒充',
-        projects: ['DF', 'RAG', 'MCP'],
+        detail: '来自四个本地项目的实际页面，不使用概念图冒充',
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
       {
         index: 'E04',
         label: 'Playwright screenshots',
         detail: '固定视口的可重复页面验收',
-        projects: ['DF', 'RAG', 'MCP'],
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
       {
         index: 'E05',
         label: 'Build passed',
         detail: '以可复现构建结果作为交付证据',
-        projects: ['DF', 'RAG', 'MCP'],
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
       {
         index: 'E06',
         label: 'Trace Evidence',
         detail: '保留请求、调用与结果之间的解释链',
-        projects: ['DF', 'RAG', 'MCP'],
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
     ],
   },
@@ -253,7 +301,7 @@ export const evidenceGroups: EvidenceGroup[] = [
         index: 'E08',
         label: 'CI',
         detail: 'GitHub Actions 自动化校验路径',
-        projects: ['MCP'],
+        projects: ['MCP', 'OFF'],
       },
       {
         index: 'E09',
@@ -278,13 +326,13 @@ export const evidenceGroups: EvidenceGroup[] = [
         index: 'E11',
         label: 'Human Review',
         detail: '高风险输出保留人工确认边界',
-        projects: ['DF', 'RAG', 'MCP'],
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
       {
         index: 'E12',
         label: 'Provider fallback',
         detail: '演示 Provider 不可用时的明确回退路径',
-        projects: ['DF', 'RAG'],
+        projects: ['DF', 'RAG', 'OFF'],
       },
       {
         index: 'E13',
@@ -297,6 +345,12 @@ export const evidenceGroups: EvidenceGroup[] = [
         label: 'RBAC demo',
         detail: '只表达演示权限边界，不冒充生产鉴权',
         projects: ['MCP'],
+      },
+      {
+        index: 'E15',
+        label: 'Copy Permission',
+        detail: '复制前需要 Human Review confirmed 与 Copy Permission Contract 通过',
+        projects: ['OFF'],
       },
     ],
   },

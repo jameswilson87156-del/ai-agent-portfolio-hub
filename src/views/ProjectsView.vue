@@ -25,7 +25,7 @@ import {
           <p class="projects-intro__kicker">CASE STUDY INDEX / P2A</p>
           <h1 id="projects-title">Projects</h1>
           <p class="projects-intro__lead">
-            三个 AI Agent 工程案例，把 Prompt、Tool、Provider、Trace Evidence 与
+            四个 AI Agent 工程案例，把 Prompt、Tool、Provider、Trace Evidence 与
             Human Review 串成可展示、可解释、可验证的作品集。
           </p>
           <p class="projects-intro__audience">
@@ -33,17 +33,18 @@ import {
           </p>
         </div>
 
-        <aside class="projects-intro__rail" aria-label="三个项目定位">
+        <aside class="projects-intro__rail" aria-label="四个项目定位">
           <span>01 · AI Coding Workflow</span>
           <span>02 · Explainable RAG</span>
           <span>03 · Tool Gateway Governance</span>
+          <span>04 · Evidence-first Job Workflow</span>
         </aside>
       </header>
 
       <section class="case-index" aria-labelledby="case-index-title">
         <header class="case-index__heading">
           <p class="section-kicker">01 / CORE PROJECTS</p>
-          <h2 id="case-index-title">Three systems, three engineering questions.</h2>
+          <h2 id="case-index-title">Four systems, four engineering questions.</h2>
         </header>
 
         <div class="case-index__list">

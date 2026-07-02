@@ -1065,3 +1065,366 @@ export const mcpGatewayDetail = {
     },
   ] satisfies InterviewQA[],
 }
+
+export const offerFlowDetail = {
+  title: 'OfferFlow Copilot',
+  subtitle: 'JD Intake · Resume Evidence · Human Review · Provider Trace',
+  positioning:
+    'Java + AI workflow demo for JD intake, resume evidence management, match report versioning, human review, provider traceability, and copy permission governance.',
+  tags: [
+    'Spring Boot 3',
+    'Java 17',
+    'Vue 3',
+    'TypeScript',
+    'MyBatis-Plus',
+    'Flyway',
+    'Provider SPI',
+    'Prompt / Schema Contract',
+    'Risk Guard',
+    'Copy Permission',
+    'Trace Evidence',
+    'GitHub Actions',
+    'Playwright',
+  ],
+  summary: [
+    {
+      label: 'Status',
+      value: 'Portfolio-ready local release',
+      tone: 'green',
+    },
+    {
+      label: 'Core',
+      value: 'JD + Evidence + Review + Copy Gate',
+      tone: 'orange',
+    },
+    {
+      label: 'Provider',
+      value: 'Optional manual dry-run verified',
+      tone: 'green',
+    },
+    {
+      label: 'Boundary',
+      value: 'No platform API / crawler / auto-apply',
+      tone: 'orange',
+    },
+  ] satisfies ProjectSummaryItem[],
+  problem:
+    'OfferFlow Copilot 不是普通 JD 分析器。它把 JD 入库、简历证据、匹配报告版本、Provider Trace、Schema Validate、Risk Guard、Human Review 和 Copy Permission 串成一条 evidence-first AI workflow，避免把 AI 生成内容直接当作可复制结果。',
+  problemSignals: [
+    {
+      label: 'EVIDENCE',
+      value: '简历证据需要先确认、可编辑、可审计，再进入匹配报告。',
+    },
+    {
+      label: 'TRACE',
+      value: 'Provider 输出必须经过 prompt/schema/risk/copy 状态链路，而不是直接信任。',
+    },
+    {
+      label: 'REVIEW',
+      value: '最终复制前必须经过 Human Review confirmed 与 Copy Permission Contract。',
+    },
+  ],
+  architecture: [
+    {
+      index: '01',
+      title: 'JD Intake',
+      detail: '手动粘贴 JD，生成结构化解析版本并保留输入边界。',
+      layer: 'entry',
+    },
+    {
+      index: '02',
+      title: 'Resume Evidence',
+      detail: '把简历项目、技能和证明材料放入可审计的证据库。',
+      layer: 'entry',
+    },
+    {
+      index: '03',
+      title: 'Evidence Binding',
+      detail: '将岗位要求与已确认或待复核证据建立绑定关系。',
+      layer: 'entry',
+    },
+    {
+      index: '04',
+      title: 'Match Report',
+      detail: '生成版本化匹配报告、评分拆解和证据来源说明。',
+      layer: 'governance',
+    },
+    {
+      index: '05',
+      title: 'Provider Trace',
+      detail: '记录 provider、fallback、schema、risk 和 run timeline。',
+      layer: 'governance',
+    },
+    {
+      index: '06',
+      title: 'Schema Validate',
+      detail: 'Provider response 必须符合 task schema，失败时 fallback。',
+      layer: 'governance',
+    },
+    {
+      index: '07',
+      title: 'Risk Guard',
+      detail: '拦截 Offer 概率、录取概率、保证通过等禁用表述。',
+      layer: 'governance',
+    },
+    {
+      index: '08',
+      title: 'Human Review',
+      detail: '通过 confirm、return、flag-risk 保留人工决策和审计记录。',
+      layer: 'evidence',
+    },
+    {
+      index: '09',
+      title: 'Copy Permission',
+      detail: '只有 confirmed 且 Copy Permission Contract 通过后才允许复制。',
+      layer: 'evidence',
+    },
+  ] satisfies ArchitectureNode[],
+  modules: [
+    {
+      index: 'M01',
+      title: 'Structured JD Intake',
+      detail: '手动输入 JD，形成 parse version、requirements 和 evidence binding 上下文。',
+    },
+    {
+      index: 'M02',
+      title: 'Resume Evidence Library',
+      detail: '维护证据状态、详情、覆盖图、编辑记录和审计历史。',
+    },
+    {
+      index: 'M03',
+      title: 'Match Report Versioning',
+      detail: '把报告、评分拆解、证据来源和 Human Review handoff 作为版本化对象。',
+    },
+    {
+      index: 'M04',
+      title: 'Provider Trace Evidence',
+      detail: '展示 Provider descriptors、config check、schema validation、risk guard 和 fallback trace。',
+    },
+    {
+      index: 'M05',
+      title: 'Human Review Audit Trail',
+      detail: '保留 confirm、return、flag-risk 等人工动作的审计链路。',
+    },
+    {
+      index: 'M06',
+      title: 'Copy Permission Contract',
+      detail: '把复制行为从生成行为里拆出来，确认前 copyAllowed=false。',
+    },
+    {
+      index: 'M07',
+      title: 'Persistence + CI',
+      detail: 'Flyway、H2 demo mode、MySQL profile、GitHub Actions 和 Playwright screenshots 支撑工程验收。',
+    },
+  ] satisfies CoreModuleItem[],
+  screenshots: [
+    {
+      index: 'S01',
+      title: 'JD Analyzer',
+      description: '手动 JD 入库、解析版本、证据绑定和工作台导航。',
+      src: '/images/projects/offerflow/jd-analyzer.png',
+      alt: 'OfferFlow Copilot JD Analyzer 真实运行截图',
+      source: 'D:\\workhome\\offerflow-copilot\\docs\\images\\offerflow-dashboard.png',
+      featured: true,
+    },
+    {
+      index: 'S02',
+      title: 'Resume Evidence Library',
+      description: '证据状态、编辑上下文、详情面板、覆盖图和审计历史。',
+      src: '/images/projects/offerflow/evidence-library.png',
+      alt: 'OfferFlow Copilot Resume Evidence Library 真实运行截图',
+      source: 'D:\\workhome\\offerflow-copilot\\docs\\images\\offerflow-evidence-library.png',
+    },
+    {
+      index: 'S03',
+      title: 'Match Report',
+      description: '版本化报告、评分拆解、Human Review handoff 和 copy permission。',
+      src: '/images/projects/offerflow/match-report.png',
+      alt: 'OfferFlow Copilot Match Report 真实运行截图',
+      source: 'D:\\workhome\\offerflow-copilot\\docs\\images\\offerflow-match-report.png',
+    },
+    {
+      index: 'S04',
+      title: 'Human Review',
+      description: 'confirm、return、flag-risk 的审计链路和风险状态。',
+      src: '/images/projects/offerflow/human-review.png',
+      alt: 'OfferFlow Copilot Human Review 真实运行截图',
+      source: 'D:\\workhome\\offerflow-copilot\\docs\\images\\offerflow-human-review.png',
+    },
+    {
+      index: 'S05',
+      title: 'Provider Settings',
+      description: 'Provider Trace、Schema Validate、Risk Guard 和 manual dry-run 边界。',
+      src: '/images/projects/offerflow/provider-trace.png',
+      alt: 'OfferFlow Copilot Provider Trace 真实运行截图',
+      source: 'D:\\workhome\\offerflow-copilot\\docs\\images\\offerflow-provider-trace.png',
+    },
+  ] satisfies ScreenshotEvidence[],
+  engineeringEvidenceGroups: [
+    {
+      index: 'G01',
+      title: 'Java Workflow Backend',
+      description: '用 Spring Boot 3、MyBatis-Plus 和 Flyway 承载 JD、证据、报告、review 与 trace 数据路径。',
+      items: [
+        {
+          index: 'E01',
+          title: 'Spring Boot 3 + Java 17',
+          detail: '后端以 Controller / Service / Persistence 分层组织业务流程，默认 H2 demo mode 可本地启动。',
+          scope: 'Java backend',
+        },
+        {
+          index: 'E02',
+          title: 'Flyway + H2/MySQL',
+          detail: 'Flyway 管理 schema migration；H2 用于 demo/test，MySQL profile 和 Docker Compose 用于本地验证。',
+          scope: 'Persistence',
+        },
+      ],
+    },
+    {
+      index: 'G02',
+      title: 'AI Governance Contracts',
+      description: '把 Provider 输出放进 prompt、schema、risk、review 和 copy 的 contract 链路。',
+      items: [
+        {
+          index: 'E03',
+          title: 'Provider SPI',
+          detail: 'Provider SPI 支持 local-rule、no-op adapters 和 optional manual real Provider dry-run path。',
+          scope: 'Provider boundary',
+        },
+        {
+          index: 'E04',
+          title: 'Prompt / Schema Contract',
+          detail: 'Provider task type 绑定 promptVersion、schemaVersion 和 required fields。',
+          scope: 'Contract registry',
+        },
+        {
+          index: 'E05',
+          title: 'Provider Response Validator',
+          detail: '校验 schemaVersion、required fields、rawResponseSaved=false 和禁用表述。',
+          scope: 'Validation',
+        },
+        {
+          index: 'E06',
+          title: 'Risk Policy Guard',
+          detail: '检查 Offer prediction、guaranteed pass、real-time interview assistance 等禁用边界。',
+          scope: 'Risk guard',
+        },
+      ],
+    },
+    {
+      index: 'G03',
+      title: 'Review & Copy Gates',
+      description: '把“生成了”与“可以使用/复制”分开，保留人工确认和审计记录。',
+      items: [
+        {
+          index: 'E07',
+          title: 'Human Review Audit Trail',
+          detail: 'Draft、Needs review、Confirmed、Returned 和 Risk flagged 状态都有 audit evidence。',
+          scope: 'Review workflow',
+        },
+        {
+          index: 'E08',
+          title: 'Copy Permission Contract',
+          detail: 'copyAllowed 在 confirmed 前保持 false；复制检查本身也写入 audit history。',
+          scope: 'Copy gate',
+        },
+        {
+          index: 'E09',
+          title: 'Local Permission Workflow',
+          detail: '本地 demo role 控制写操作边界，不冒充生产 authentication 或 authorization。',
+          scope: 'Demo permission',
+        },
+      ],
+    },
+    {
+      index: 'G04',
+      title: 'Verification & Release Packaging',
+      description: '用测试、构建、截图、CI 和 release docs 证明作品集展示可信度。',
+      items: [
+        {
+          index: 'E10',
+          title: '126 backend tests',
+          detail: 'OfferFlow P5C 本地验收记录为 126 tests passed。',
+          scope: 'Testing',
+        },
+        {
+          index: 'E11',
+          title: 'GitHub Actions CI',
+          detail: 'CI 覆盖 Maven tests、frontend build 和 Playwright screenshot validation，默认 local-rule mode。',
+          scope: 'CI',
+        },
+        {
+          index: 'E12',
+          title: 'Playwright screenshots',
+          detail: '18 passed，覆盖 runtime screenshots 和 1366 horizontal overflow validation。',
+          scope: 'Screenshots',
+        },
+      ],
+    },
+  ] satisfies EngineeringEvidenceGroup[],
+  trustPanel: [
+    {
+      title: 'What is real',
+      description: '当前真实定位',
+      tone: 'positive',
+      items: [
+        '一个 portfolio-ready local release 的 Java + AI workflow demo。',
+        '真实运行截图来自 OfferFlow docs/images 和 docs/images/large，不使用 docs/design/references。',
+        'P5C 验收记录包括 126 backend tests、frontend build、18 个 Playwright screenshot checks 和 GitHub Actions CI。',
+      ],
+    },
+    {
+      title: 'What it is not',
+      description: '明确不声称的能力',
+      tone: 'negative',
+      items: [
+        '不是生产级招聘平台，不接招聘平台 API，不爬虫，不自动投递。',
+        '不保存真实隐私数据，不输出 Offer 概率、录取概率或保证通过。',
+        '不做实时面试辅助；不声明生产级 DeepSeek、GPT 或中转站接入。',
+      ],
+    },
+    {
+      title: 'Provider dry-run wording',
+      description: '真实 Provider 只能这样表达',
+      tone: 'neutral',
+      items: [
+        'Optional manual real Provider dry-run path，disabled by default。',
+        'API keys are read from environment variables only；rawResponseSaved=false。',
+        'DeepSeek manual dry-run verified; OpenAI-compatible relay manual dry-run verified。',
+        'Output still requires Schema Validate, Risk Guard, Human Review, and Copy Permission; copyAllowed=false before confirmation。',
+      ],
+    },
+  ] satisfies TrustPanelSection[],
+  interviewQuestions: [
+    {
+      index: 'Q01',
+      question: 'OfferFlow 和普通 JD 分析器有什么区别？',
+      answer:
+        '它不是把 JD 丢给模型然后展示文本，而是把 JD intake、resume evidence、match report versioning、Provider Trace、Human Review 和 Copy Permission 串成 evidence-first workflow。',
+    },
+    {
+      index: 'Q02',
+      question: '为什么强调 Copy Permission？',
+      answer:
+        'AI 生成内容不能默认可复制。OfferFlow 把 copy gate 独立出来，只有 Human Review confirmed 且 Copy Permission Contract 通过后才允许复制。',
+    },
+    {
+      index: 'Q03',
+      question: '真实 Provider dry-run 表示什么？',
+      answer:
+        '它只表示 optional manual dry-run path 已用脱敏输入手动验证过 DeepSeek 和 OpenAI-compatible relay；这不是生产级稳定接入，也不绕过 schema、risk、review 和 copy gate。',
+    },
+    {
+      index: 'Q04',
+      question: '这个项目最能证明什么工程能力？',
+      answer:
+        '它能证明 Java 后端分层、数据迁移、Provider 契约、风险校验、审计链路、前端产品表达和自动化验收能力。',
+    },
+    {
+      index: 'Q05',
+      question: '项目边界是什么？',
+      answer:
+        '它是 portfolio-grade engineering demo，不是生产招聘系统；不接平台 API、不爬虫、不自动投递、不保存真实隐私，也不预测 Offer 或提供实时面试辅助。',
+    },
+  ] satisfies InterviewQA[],
+}
