@@ -15,4 +15,5 @@
 - P4B: Prepare deployment target configuration and dry-run deployment checklist.
 - P4C: Polish GitHub README presentation after the portfolio repository remote is created.
 - P5D: Complete OfferFlow Copilot case study integration with Projects index, detail route, copied runtime screenshots, README, and screenshot capture path.
-- P5E: Integrate resume bullets and interview talk tracks with the finalized portfolio routes.
+- P5E: Complete OfferFlow interview talk track documentation for portfolio, resume, and interview use.
+- P5F: Prepare GitHub remote metadata, deployment polish, and profile showcase next steps.

@@ -6,7 +6,7 @@
 
 ## Current State
 
-P5D OfferFlow case study integration is complete. The portfolio has the approved cinematic homepage, Projects case-study index, and four case-study detail routes.
+P5E OfferFlow interview talk track documentation is complete. The portfolio has the approved cinematic homepage, Projects case-study index, four case-study detail routes, and a dedicated OfferFlow talk track for resume and interview use.
 
 Latest live URL:
 
@@ -105,12 +105,13 @@ Design references:
 
 - `README.md` is now organized as a release-facing repository README.
 - `docs/deployment.md` records completed Vercel deployment settings and GitHub Pages preparation notes.
+- `docs/offerflow-talk-track.md` records how to explain OfferFlow inside this portfolio without overstating production or provider claims.
 - Vite currently uses the default root base in `vite.config.ts`, suitable for Vercel or a custom domain root. For GitHub Pages under a repository subpath, set `base` before building.
 - Vercel deployment is complete at `https://ai-agent-portfolio-hub.vercel.app/`.
 
 ## Next Steps
 
-- Perform final manual live-site acceptance on the Vercel URL.
-- Integrate resume bullets and interview talk tracks with finalized portfolio routes.
+- Prepare GitHub remote metadata, deployment notes, and profile showcase polish for the portfolio repository.
+- Perform final manual live-site acceptance on the Vercel URL after the next metadata/deploy pass.
 
 Do not add production claims, fake links, real API keys, `.env`, `dist`, `node_modules`, video assets, or changes to the source project directories without a separate explicit task.
