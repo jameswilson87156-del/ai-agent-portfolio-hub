@@ -23,7 +23,7 @@ import { offerFlowDetail } from '../data/projectDetails'
         :subtitle="offerFlowDetail.subtitle"
         :positioning="offerFlowDetail.positioning"
         :tags="offerFlowDetail.tags"
-        kicker="CASE STUDY 04 / EVIDENCE-FIRST JOB WORKFLOW"
+        kicker="CASE STUDY 05 / EVIDENCE-FIRST JOB WORKFLOW"
         dossier-stage="P5C / PORTFOLIO-READY LOCAL RELEASE"
         dossier-description="以 OfferFlow 源项目 README、release notes、CI、126 项后端测试、Playwright 截图和真实运行截图构成证据；不包装成生产级招聘系统。"
       />

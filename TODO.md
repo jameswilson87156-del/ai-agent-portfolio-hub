@@ -17,3 +17,4 @@
 - P5D: Complete OfferFlow Copilot case study integration with Projects index, detail route, copied runtime screenshots, README, and screenshot capture path.
 - P5E: Complete OfferFlow interview talk track documentation for portfolio, resume, and interview use.
 - P5F: Prepare GitHub remote metadata, deployment polish, and profile showcase next steps.
+- P6: Completed Portfolio Hub v2 PromptOps integration with five-project ordering, case-study route, real runtime screenshots, README sync, build, and screenshot acceptance.

@@ -25,6 +25,11 @@ const router = createRouter({
       component: () => import('../views/TicketRagDetailView.vue'),
     },
     {
+      path: '/projects/promptops',
+      name: 'promptops-detail',
+      component: () => import('../views/PromptOpsDetailView.vue'),
+    },
+    {
       path: '/projects/mcp-gateway',
       name: 'mcp-gateway-detail',
       component: () => import('../views/McpGatewayDetailView.vue'),
