@@ -5,7 +5,7 @@
 
 ## 1. v2 范围决定
 
-本轮建议只新增 PromptOps Studio，不新增 GenAI DataPipeline 卡片，不把 Flash Sale System 放入核心项目序列。
+本轮只新增 PromptOps Studio，首页与 Projects 页固定展示 5 个核心项目，不设置候选项目卡片。
 
 目标排序：
 
@@ -14,8 +14,6 @@
 3. PromptOps Studio
 4. MCP Tool Gateway
 5. OfferFlow Copilot
-
-GenAI DataPipeline 保留在文档中的候选清单。等它具备真实运行截图、测试/构建快照和清晰边界后，再以独立变更加入第 6 位。
 
 ## 2. 数据与证据规则
 
@@ -127,18 +125,12 @@ GenAI DataPipeline 保留在文档中的候选清单。等它具备真实运行�
 - PromptOps 详情页只展示真实运行截图，不使用 design refs。
 - README 的 Source Projects、Current Pages、截图清单与真实文件一致。
 - PromptOps 所有文案明确 Local Demo、Mock Output、Rule-based Eval 和未接真实模型。
-- GenAI DataPipeline 未被悄悄写成已验证项目；Flash Sale 未进入 AI 核心序列。
+- 首页、Projects 页、Capability Matrix 与 Evidence Wall 只包含 5 个既定核心项目，不出现额外候选卡片。
 - `npm run build` 通过。
 - `npm run screenshots` 通过。
 - Vercel 静态边界未改变，没有后端/API Key/环境密钥进入 Portfolio Hub。
 - 最终 Git 工作树按用户确认的提交策略保持 clean。
 
-## 6. 后续候选门槛
+## 6. 范围冻结
 
-GenAI DataPipeline 满足以下条件后再加入：
-
-- 至少 3 张来自真实运行页面的截图，并有来源清单。
-- README 明确 demo 数据、真实 Provider、LangChain4j 和专家复核边界。
-- 有可复现的 build/test 或 smoke 记录，最好保存到 `docs/metrics` 或验收文档。
-- 不提交 API Key、弱口令、真实业务数据或本机配置。
-- 能用一页 case-study 清晰证明 Java + Python + Redis/MySQL + Vue + HITL 的真实链路，而不只重复 README 架构图。
+v2 仅维护 DevFlow、Enterprise Ticket RAG、PromptOps、MCP Tool Gateway 与 OfferFlow 五个核心项目。新增第六个项目、候选卡片或备用序列不属于本计划，必须另开任务并重新确认范围。

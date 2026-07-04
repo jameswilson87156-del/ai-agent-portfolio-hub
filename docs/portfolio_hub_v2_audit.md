@@ -57,7 +57,7 @@
 - `Current Pages` 与 6 个现有路由一致，但缺少未来的 `/projects/promptops`。
 - `Source Projects` 当前只有 DevFlow、Ticket RAG、MCP 和 OfferFlow；OfferFlow 仍写成“本地准备发布”，但 GitHub 仓库现已存在，信息已过时。
 - README 明确站点是静态作品集，不是后端业务系统，也明确不声称生产用户、客户、流量、商业指标或生产部署，边界正确。
-- README 当前描述“四个项目”，v2 需要同步改为五个核心项目；如果未来纳入 GenAI DataPipeline，再单独调整数量。
+- README 当前描述“四个项目”，v2 需要同步改为五个核心项目；本轮范围固定，不设置额外候选卡片。
 
 ### Portfolio Hub 截图
 
@@ -134,25 +134,6 @@
 
 可安全展示：JD Intake、Resume Evidence、Match Report、Provider Trace、Schema/Risk Guard、Human Review、Copy Permission；源 README 记录 126 backend tests passed、18 个 Playwright checks。默认是 deterministic `local-rule` + H2 seeded demo data。真实 Provider 只能描述为“optional manual dry-run path, disabled by default”，不能描述为生产集成、稳定服务或可绕过 review/copy gate。
 
-### GenAI DataPipeline — 建议本轮暂缓新增卡片
-
-GitHub 来源：
-
-- `https://github.com/jameswilson87156-del/GenAI-DataPipeline`
-- 当前可审查证据主要是 GitHub README。
-
-README 描述的主链路具有差异化：Java 主控、Python FastAPI 清洗节点、Redis pending/processing 可靠队列、MySQL CAS、LangChain4j 预标注、Vue 专家复核工作台。它很适合作为未来第 6 个候选项目。
-
-本轮不建议上卡片的原因：GitHub tree 当前未发现 `docs/images`、`docs/metrics`、测试结果快照或 screenshot manifest；README 也没有真实运行截图。仅凭 README 的“已打通”描述不足以满足 v2 的证据标准。后续至少需要真实运行截图、可复现测试/构建记录、清楚的 demo/provider/data 边界，才能加入。
-
-如果用户仍决定本轮加入，只能标为 `Candidate / README-verified, runtime evidence pending`，不得展示未经复核的指标，也不得使用概念图替代运行截图；但这会削弱整个 Portfolio Hub 的统一证据标准，因此不推荐。
-
-### Flash Sale System — 不建议放入 AI 核心项目序列
-
-GitHub 来源：`https://github.com/jameswilson87156-del/wzl-flash-sale`。
-
-它是 Spring Boot、Redis、RabbitMQ、MySQL 的高并发秒杀学习/工程化改造项目，能补充 Java 后端面试材料，但不属于 AI Full-Stack 主线。README 明确说明它来源于开源社区并做了工程化改造，且 GitHub tree 当前没有运行截图、metrics 或测试快照。建议只作为 Java Backend 备选链接或简历补充，不进入首页核心卡片，也不与原创 AI 项目并列。
-
 ## 6. 视觉审计与 v2 方向
 
 选择的方向：保留现有 cinematic AI portfolio，并把 Projects/详情页继续做成 editorial evidence dossier。
@@ -176,10 +157,7 @@ GitHub 来源：`https://github.com/jameswilson87156-del/wzl-flash-sale`。
 4. MCP Tool Gateway
 5. OfferFlow Copilot
 
-本轮不推荐加入核心序列：
-
-- GenAI DataPipeline：暂缓，等待真实截图与可复核工程证据。
-- Flash Sale System：保留为 Java 后端备选，不属于 AI Full-Stack 核心叙事，且包含开源改造属性。
+本轮 Portfolio Hub 首页、Projects 页和数据模型只维护上述 5 个核心项目，不设置候选项目卡片或额外备选序列。
 
 ## 8. 本轮未执行项
 
