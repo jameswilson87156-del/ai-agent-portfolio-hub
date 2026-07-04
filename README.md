@@ -1,14 +1,14 @@
-# AI Agent Engineer Portfolio Hub
+# AI Full-Stack Developer Portfolio Hub v2
 
 Personal portfolio frontend for Wang Zhenlong, focused on Java Backend, AI Application, AI Agent, and Web Full-stack internship directions.
 
-This repository is the portfolio site itself. It presents four runnable portfolio engineering projects through a cinematic homepage, a Projects index, and focused case-study detail pages.
+This repository is the portfolio site itself. It presents five runnable portfolio engineering projects through a cinematic homepage, a Projects index, and focused case-study detail pages.
 
 Live Demo: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
 
 GitHub Repo: [https://github.com/jameswilson87156-del/ai-agent-portfolio-hub](https://github.com/jameswilson87156-del/ai-agent-portfolio-hub)
 
-This is a personal AI Agent Engineer Portfolio Hub frontend portfolio project. The live site is deployed by Vercel. It is a static frontend portfolio, not a backend business system.
+This is a personal AI Full-Stack Developer Portfolio Hub frontend project. The live site is deployed by Vercel. It is a static frontend portfolio, not a backend business system.
 
 CI: GitHub Actions runs build and screenshots on `main` pushes and pull requests.
 
@@ -18,6 +18,7 @@ CI: GitHub Actions runs build and screenshots on `main` pushes and pull requests
 - `/projects` — Projects case-study index
 - `/projects/devflow` — DevFlow Copilot case study
 - `/projects/ticket-rag` — Enterprise Ticket RAG Copilot case study
+- `/projects/promptops` — PromptOps Studio case study
 - `/projects/mcp-gateway` — MCP Tool Gateway case study
 - `/projects/offerflow` — OfferFlow Copilot case study
 
@@ -36,8 +37,9 @@ The case studies describe real local engineering projects. Their screenshots and
 
 - DevFlow Copilot: [https://github.com/jameswilson87156-del/devflow-copilot](https://github.com/jameswilson87156-del/devflow-copilot)
 - Enterprise Ticket RAG Copilot: [https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot](https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot)
+- PromptOps Studio: [https://github.com/jameswilson87156-del/ai-agent-eval-promptops](https://github.com/jameswilson87156-del/ai-agent-eval-promptops)
 - MCP Tool Gateway: [https://github.com/jameswilson87156-del/mcp-tool-gateway](https://github.com/jameswilson87156-del/mcp-tool-gateway)
-- OfferFlow Copilot: local source project prepared for publication; GitHub remote is not hardcoded until the repository URL is available.
+- OfferFlow Copilot: [https://github.com/jameswilson87156-del/offerflow-copilot](https://github.com/jameswilson87156-del/offerflow-copilot)
 
 ## Screenshot Evidence
 
@@ -47,15 +49,17 @@ The case studies describe real local engineering projects. Their screenshots and
 - `docs/images/projects-overview.png`
 - `docs/images/devflow-detail.png`
 - `docs/images/ticket-rag-detail.png`
+- `docs/images/promptops-detail.png`
 - `docs/images/mcp-gateway-detail.png`
 - `docs/images/offerflow-detail.png`
 
-`docs/images/large/` contains the same route captures at a larger desktop viewport.
+`docs/images/large/` contains the same route captures at a larger desktop viewport, including `docs/images/large/promptops-detail.png`.
 
-`public/images/projects/` contains copied real browser screenshot evidence from the four local source projects:
+`public/images/projects/` contains copied real browser screenshot evidence from the five local source projects:
 
 - `public/images/projects/devflow/` from `D:\workhome\ai-coding-workbench\docs\images`
 - `public/images/projects/ticket-rag/` from `D:\workhome\enterprise-ai-ticket-copilot\docs\images`
+- `public/images/projects/promptops/` from `D:\workhome\ai-agent-eval-promptops\docs\images`
 - `public/images/projects/mcp/` from `D:\workhome\mcp-tool-gateway\docs\images\large`
 - `public/images/projects/offerflow/` from `D:\workhome\offerflow-copilot\docs\images`
 
@@ -79,6 +83,7 @@ npm run screenshots
 - The case studies do not claim real enterprise customers, real online users, production traffic, commercial metrics, or production deployments.
 - DevFlow Copilot is presented as a real runnable portfolio AI Coding workflow project, not a production AI IDE.
 - Enterprise Ticket RAG Copilot is presented as a real runnable portfolio enterprise Copilot workflow project, not a production enterprise RAG system.
+- PromptOps Studio is presented as a local demo Prompt evaluation and regression console using Mock Output and Rule-based Eval. It does not claim real LLM quality, production users, production approvals, or LLM-as-Judge results.
 - MCP Tool Gateway is presented as MCP-style tooling; it does not claim full official MCP protocol compatibility.
 - OfferFlow Copilot is presented as a portfolio-ready local release candidate for evidence-first JD workflow governance, not a production recruiting platform.
 - AI, Provider, RAG, RBAC, MCP, audit, persistence, Human Review, and Copy Permission capabilities are bounded by the corresponding source project README files and code evidence.

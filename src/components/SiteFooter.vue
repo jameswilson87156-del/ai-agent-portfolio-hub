@@ -11,8 +11,16 @@ const sourceLinks = [
     href: 'https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot',
   },
   {
+    label: 'PromptOps GitHub',
+    href: 'https://github.com/jameswilson87156-del/ai-agent-eval-promptops',
+  },
+  {
     label: 'MCP GitHub',
     href: 'https://github.com/jameswilson87156-del/mcp-tool-gateway',
+  },
+  {
+    label: 'OfferFlow GitHub',
+    href: 'https://github.com/jameswilson87156-del/offerflow-copilot',
   },
 ]
 </script>

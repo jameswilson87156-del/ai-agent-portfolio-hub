@@ -1,4 +1,4 @@
-export type ProjectCode = 'DF' | 'RAG' | 'MCP' | 'OFF'
+export type ProjectCode = 'DF' | 'RAG' | 'EVAL' | 'MCP' | 'OFF'
 
 export type CaseStudyProject = {
   index: string
@@ -44,6 +44,7 @@ export type EvidenceGroup = {
 export const projectLabels: Record<ProjectCode, string> = {
   DF: 'DevFlow',
   RAG: 'Ticket RAG',
+  EVAL: 'PromptOps',
   MCP: 'MCP Gateway',
   OFF: 'OfferFlow',
 }
@@ -128,6 +129,52 @@ export const caseStudyProjects: CaseStudyProject[] = [
   },
   {
     index: '03',
+    code: 'EVAL',
+    slug: 'promptops',
+    detailPath: '/projects/promptops',
+    title: 'PromptOps Studio',
+    position: 'AI Agent Eval / Prompt Regression Console',
+    problem:
+      '把 Prompt 版本、Dataset、批量评测、输出对比、Trace、失败归因与人工复核组织成可复现的本地回归分析闭环。',
+    workflow: [
+      'Dataset',
+      'Prompt Version',
+      'Mock Output',
+      'Rule-based Eval',
+      'Failure Case',
+      'Human Review',
+    ],
+    stack: [
+      'Vue 3',
+      'TypeScript',
+      'Vite',
+      'Java 17',
+      'Spring Boot 3.3',
+      'MyBatis-Plus',
+      'H2 Demo Profile',
+      'Playwright',
+    ],
+    evidence: [
+      '真实浏览器截图',
+      '13 backend tests 验收记录',
+      'Batch Evaluation',
+      'Trace + Failure Cases',
+      'System Boundary',
+    ],
+    boundary:
+      'Local Demo：使用确定性 Mock Output 与 Rule-based Eval，无需 API Key；未启用 LLM-as-Judge，不声明真实模型质量或生产审批记录。',
+    resumeValue:
+      '体现 Prompt 版本治理、可复现评测、回归对比、失败归因与 AI 应用质量工程的前后端表达能力。',
+    preview: {
+      src: '/images/projects/promptops/eval-dashboard.png',
+      alt: 'PromptOps Studio 本地评测总览真实浏览器截图',
+      caption: 'Prompt evaluation and regression console / local demo',
+      source: 'ai-agent-eval-promptops · docs/images/eval-dashboard.png',
+    },
+    tone: 'orange',
+  },
+  {
+    index: '04',
     code: 'MCP',
     slug: 'mcp-gateway',
     detailPath: '/projects/mcp-gateway',
@@ -169,10 +216,10 @@ export const caseStudyProjects: CaseStudyProject[] = [
       caption: 'Tool call workbench / policy and audit chain',
       source: 'mcp-tool-gateway · docs/images/large/mcp-tool-workbench.png',
     },
-    tone: 'orange',
+    tone: 'green',
   },
   {
-    index: '04',
+    index: '05',
     code: 'OFF',
     slug: 'offerflow',
     detailPath: '/projects/offerflow',
@@ -214,20 +261,22 @@ export const caseStudyProjects: CaseStudyProject[] = [
       caption: 'Evidence-first job workflow / human review and copy gate',
       source: 'offerflow-copilot · docs/images/offerflow-dashboard.png',
     },
-    tone: 'green',
+    tone: 'orange',
   },
 ]
 
 export const capabilityMatrix: CapabilityItem[] = [
-  { label: 'Java Backend', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
-  { label: 'Spring Boot', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
-  { label: 'Vue 3 + TypeScript', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
-  { label: 'AI Application', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'Java Backend', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
+  { label: 'Spring Boot', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
+  { label: 'Vue 3 + TypeScript', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
+  { label: 'AI Application', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
   { label: 'Agent Workflow', projects: ['DF', 'MCP'] },
+  { label: 'Prompt Evaluation', projects: ['EVAL'] },
+  { label: 'Rule-based Eval', projects: ['EVAL'] },
   { label: 'RAG', projects: ['RAG'] },
   { label: 'MCP-style Tooling', projects: ['MCP'] },
-  { label: 'Trace Evidence', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
-  { label: 'Human Review', projects: ['DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'Trace Evidence', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
+  { label: 'Human Review', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
   { label: 'Audit Log', projects: ['MCP', 'OFF'] },
   { label: 'RBAC demo', projects: ['MCP'] },
   { label: 'Provider SPI', projects: ['OFF'] },
@@ -245,13 +294,13 @@ export const evidenceGroups: EvidenceGroup[] = [
         index: 'E01',
         label: 'README',
         detail: '范围、运行方式与工程边界说明',
-        projects: ['DF', 'RAG', 'MCP', 'OFF'],
+        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
       },
       {
         index: 'E02',
         label: 'Boundary notes',
         detail: '明确项目范围、协议兼容与生产能力边界',
-        projects: ['DF', 'RAG', 'MCP', 'OFF'],
+        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
       },
     ],
   },
@@ -263,26 +312,26 @@ export const evidenceGroups: EvidenceGroup[] = [
       {
         index: 'E03',
         label: '真实浏览器截图',
-        detail: '来自四个本地项目的实际页面，不使用概念图冒充',
-        projects: ['DF', 'RAG', 'MCP', 'OFF'],
+        detail: '来自五个本地项目的实际页面，不使用概念图冒充',
+        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
       },
       {
         index: 'E04',
         label: 'Playwright screenshots',
         detail: '固定视口的可重复页面验收',
-        projects: ['DF', 'RAG', 'MCP', 'OFF'],
+        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
       },
       {
         index: 'E05',
         label: 'Build passed',
         detail: '以可复现构建结果作为交付证据',
-        projects: ['DF', 'RAG', 'MCP', 'OFF'],
+        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
       },
       {
         index: 'E06',
         label: 'Trace Evidence',
         detail: '保留请求、调用与结果之间的解释链',
-        projects: ['DF', 'RAG', 'MCP', 'OFF'],
+        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
       },
     ],
   },
@@ -294,8 +343,8 @@ export const evidenceGroups: EvidenceGroup[] = [
       {
         index: 'E07',
         label: 'Backend tests',
-        detail: 'MCP Tool Gateway 包含 60 项后端测试',
-        projects: ['MCP'],
+        detail: '源项目验收记录：PromptOps 13 项、MCP Tool Gateway 60 项后端测试',
+        projects: ['EVAL', 'MCP'],
       },
       {
         index: 'E08',
@@ -326,7 +375,7 @@ export const evidenceGroups: EvidenceGroup[] = [
         index: 'E11',
         label: 'Human Review',
         detail: '高风险输出保留人工确认边界',
-        projects: ['DF', 'RAG', 'MCP', 'OFF'],
+        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
       },
       {
         index: 'E12',

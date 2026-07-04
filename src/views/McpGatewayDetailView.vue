@@ -24,6 +24,7 @@ import { mcpGatewayDetail } from '../data/projectDetails'
         :positioning="mcpGatewayDetail.positioning"
         :tags="mcpGatewayDetail.tags"
         :github-url="mcpGatewayDetail.githubUrl"
+        kicker="CASE STUDY 04 / JAVA BACKEND + AGENT GOVERNANCE"
       />
       <ProjectSummaryRail :items="mcpGatewayDetail.summary" />
 

@@ -744,6 +744,360 @@ export const ticketRagDetail = {
   ] satisfies InterviewQA[],
 }
 
+export const promptOpsDetail = {
+  title: 'PromptOps Studio',
+  subtitle: 'AI Agent Eval / Prompt Regression Console',
+  positioning:
+    'PromptOps Studio 是一个本地可运行的 Prompt 评测与回归分析控制台，用于展示 Prompt 版本、批量评测、输出对比、Trace 追踪、失败归因与人工复核闭环。',
+  tags: [
+    'Vue 3',
+    'TypeScript',
+    'Vite',
+    'Java 17',
+    'Spring Boot 3.3',
+    'MyBatis-Plus',
+    'MySQL / H2 Demo Profile',
+    'Playwright',
+    'Rule-based Eval',
+  ],
+  githubUrl: 'https://github.com/jameswilson87156-del/ai-agent-eval-promptops',
+  summary: [
+    {
+      label: 'Role',
+      value: 'Prompt Evaluation / Regression Analysis',
+      tone: 'orange',
+    },
+    {
+      label: 'Workflow',
+      value: 'Dataset + Prompt Version + Eval + Trace + Review',
+      tone: 'green',
+    },
+    {
+      label: 'Evidence',
+      value: 'Real browser screenshots / 13-test acceptance record / README',
+      tone: 'orange',
+    },
+    {
+      label: 'Boundary',
+      value: 'Local Demo / Mock Output / Rule-based Eval',
+      tone: 'green',
+    },
+  ] satisfies ProjectSummaryItem[],
+  problem:
+    'Prompt 迭代不能只靠主观浏览单次输出。PromptOps Studio 把 Prompt Version、Dataset、Eval Run、Case Result、Generation Trace、Failure Case 与 Human Review 放进同一条本地可复现链路，用确定性规则建立可解释的评测与回归基线。',
+  problemSignals: [
+    {
+      label: 'VERSION',
+      value: 'Prompt 模板、变量和版本链路需要可比较，避免改动后无法解释差异。',
+    },
+    {
+      label: 'EVAL',
+      value: '同一 Dataset 上的批量运行、规则评分和输出对比需要可重复查看。',
+    },
+    {
+      label: 'REVIEW',
+      value: '失败样本需要进入归因与人工复核，但当前复核结论只在页面中演示。',
+    },
+  ],
+  architecture: [
+    {
+      index: '01',
+      title: 'Dataset / Test Cases',
+      detail: '组织本地虚构样本、期望输出、标签、覆盖率与难度结构。',
+      layer: 'entry',
+    },
+    {
+      index: '02',
+      title: 'Prompt Version',
+      detail: '选择模板版本、变量与规则集，形成可比较的评测输入。',
+      layer: 'entry',
+    },
+    {
+      index: '03',
+      title: 'Mock Output',
+      detail: '由确定性 MockOutputGenerator 生成本地输出，不调用真实模型。',
+      layer: 'governance',
+    },
+    {
+      index: '04',
+      title: 'Rule-based Eval',
+      detail: '使用 MUST_CONTAIN、FORBIDDEN_WORD、RISK_NOTICE_REQUIRED 与 FORMAT 规则评分。',
+      layer: 'governance',
+    },
+    {
+      index: '05',
+      title: 'Output Compare',
+      detail: '对比 Prompt 版本输出、规则分、Schema 差异与回归风险。',
+      layer: 'governance',
+    },
+    {
+      index: '06',
+      title: 'Trace / Failure Case',
+      detail: '追踪输入、Prompt 构建、Mock Output、规则检查与失败原因。',
+      layer: 'evidence',
+    },
+    {
+      index: '07',
+      title: 'Human Review',
+      detail: '把失败样本带入本地复核闭环；结论不持久化，也不是生产审批。',
+      layer: 'evidence',
+    },
+  ] satisfies ArchitectureNode[],
+  modules: [
+    {
+      index: 'M01',
+      title: 'Eval Dashboard',
+      detail: '汇总当前评测实验、规则指标、风险样本、Trace 与 Prompt 迭代建议。',
+    },
+    {
+      index: 'M02',
+      title: 'Prompt Version Management',
+      detail: '维护 Prompt 模板、变量、版本链路、规则配置与本地调试上下文。',
+    },
+    {
+      index: 'M03',
+      title: 'Batch Evaluation',
+      detail: '组合 Dataset、Prompt Version 与规则集，查看 Run 状态和 Score Matrix。',
+    },
+    {
+      index: 'M04',
+      title: 'Output Compare',
+      detail: '比较版本输出、规则分、Schema 差异与回归风险，不声称真实模型提升。',
+    },
+    {
+      index: 'M05',
+      title: 'Trace / Run Detail',
+      detail: '回放输入、Prompt Build、Mock Output、Rule Evaluator、Score 与失败节点。',
+    },
+    {
+      index: 'M06',
+      title: 'Failure Cases',
+      detail: '按根因聚合失败样本，关联修复建议、回归状态与人工复核节点。',
+    },
+    {
+      index: 'M07',
+      title: 'Dataset / Test Cases',
+      detail: '管理本地评测样本、期望输出、标签、覆盖率与难度结构。',
+    },
+    {
+      index: 'M08',
+      title: 'System Boundary',
+      detail: '集中说明 Local Demo、Mock Output、Rule-based Eval、数据来源与未实现能力。',
+    },
+  ] satisfies CoreModuleItem[],
+  screenshots: [
+    {
+      index: 'S01',
+      title: 'Eval Dashboard',
+      description: '聚合本地评测实验、规则指标、风险样本、Trace 与 Prompt 迭代建议。',
+      src: '/images/projects/promptops/eval-dashboard.png',
+      alt: 'PromptOps Studio 本地评测总览真实浏览器截图',
+      source: 'ai-agent-eval-promptops · docs/images/eval-dashboard.png',
+      featured: true,
+    },
+    {
+      index: 'S02',
+      title: 'Batch Evaluation',
+      description: '组合 Dataset、Prompt Version 与规则集，展示运行进度和 Score Matrix。',
+      src: '/images/projects/promptops/batch-evaluation.png',
+      alt: 'PromptOps Studio 批量评测真实浏览器截图',
+      source: 'ai-agent-eval-promptops · docs/images/batch-evaluation.png',
+    },
+    {
+      index: 'S03',
+      title: 'Output Compare',
+      description: '对比 Prompt 版本输出、规则得分、Schema 差异与本地回归风险。',
+      src: '/images/projects/promptops/output-compare.png',
+      alt: 'PromptOps Studio 输出对比真实浏览器截图',
+      source: 'ai-agent-eval-promptops · docs/images/output-compare.png',
+    },
+    {
+      index: 'S04',
+      title: 'Trace / Run Detail',
+      description: '回放从输入、Prompt Build、Mock Output 到规则评测、失败样本和人工复核的链路。',
+      src: '/images/projects/promptops/trace-detail.png',
+      alt: 'PromptOps Studio 运行追踪详情真实浏览器截图',
+      source: 'ai-agent-eval-promptops · docs/images/trace-detail.png',
+      featured: true,
+    },
+    {
+      index: 'S05',
+      title: 'Failure Cases',
+      description: '按规则失败与根因聚合样本，展示修复建议和回归任务。',
+      src: '/images/projects/promptops/failure-cases.png',
+      alt: 'PromptOps Studio 失败归因真实浏览器截图',
+      source: 'ai-agent-eval-promptops · docs/images/failure-cases.png',
+    },
+    {
+      index: 'S06',
+      title: 'Dataset / Test Cases',
+      description: '展示本地测试集、Case、期望输出、标签分布与覆盖结构。',
+      src: '/images/projects/promptops/dataset.png',
+      alt: 'PromptOps Studio 测试集真实浏览器截图',
+      source: 'ai-agent-eval-promptops · docs/images/dataset.png',
+    },
+    {
+      index: 'S07',
+      title: 'System Boundary',
+      description: '把 Local Demo、Mock Output、Rule-based Eval、无需 API Key 和未启用能力集中说明。',
+      src: '/images/projects/promptops/system-boundary.png',
+      alt: 'PromptOps Studio 系统边界真实浏览器截图',
+      source: 'ai-agent-eval-promptops · docs/images/system-boundary.png',
+      featured: true,
+    },
+  ] satisfies ScreenshotEvidence[],
+  engineeringEvidenceGroups: [
+    {
+      index: 'G01',
+      title: 'Prompt Evaluation Domain',
+      description: '把 Prompt 迭代拆成可查询、可比较、可追踪的领域对象。',
+      items: [
+        {
+          index: 'E01',
+          title: 'Prompt + Version Model',
+          detail: 'Prompt Template、Prompt Version 与 variables JSON 形成版本化输入边界。',
+          scope: 'Version management',
+        },
+        {
+          index: 'E02',
+          title: 'Dataset + Case Model',
+          detail: 'Eval Dataset 与 Eval Case 组织本地虚构样本、期望输出与规则绑定。',
+          scope: 'Synthetic demo data',
+        },
+        {
+          index: 'E03',
+          title: 'Run + Case Result',
+          detail: 'Eval Run 保存聚合结果，Eval Case Result 保存逐 Case 状态、评分与解释。',
+          scope: 'Local persistence',
+        },
+      ],
+    },
+    {
+      index: 'G02',
+      title: 'Deterministic Eval & Trace',
+      description: '当前质量链路以确定性 Mock 和规则评分为基线，不冒充真实模型评测。',
+      items: [
+        {
+          index: 'E04',
+          title: 'MockOutputGenerator',
+          detail: '根据版本与 Case 生成确定性本地输出，不进行真实 Provider 调用。',
+          scope: 'Mock Output',
+        },
+        {
+          index: 'E05',
+          title: 'RuleEvaluator',
+          detail: '执行四类确定性规则并计算加权分数；JSON FORMAT 规则使用 Jackson 解析。',
+          scope: 'Rule-based Eval',
+        },
+        {
+          index: 'E06',
+          title: 'Generation Trace',
+          detail: '保存输入/输出摘要、规则检查与失败原因，支持按 Run 和 Case 查询。',
+          scope: 'Trace evidence',
+        },
+        {
+          index: 'E07',
+          title: 'EvaluationPolicy',
+          detail: '统一判断 Review 与回归风险；该判断不等同于持久化审批。',
+          scope: 'Review gate demo',
+        },
+      ],
+    },
+    {
+      index: 'G03',
+      title: 'Full-Stack Delivery',
+      description: '前端、后端、数据 profile 与浏览器截图形成可复查的本地交付证据。',
+      items: [
+        {
+          index: 'E08',
+          title: 'Vue 3 + TypeScript',
+          detail: '多页面 PromptOps 控制台覆盖 Prompt、Batch Eval、Compare、Trace、Failure、Dataset 与 Boundary。',
+          scope: 'Frontend',
+        },
+        {
+          index: 'E09',
+          title: 'Spring Boot + MyBatis-Plus',
+          detail: '后端提供 Prompt、Dataset、Case、Rule、Eval Run 与 Trace API。',
+          scope: 'Java 17 backend',
+        },
+        {
+          index: 'E10',
+          title: 'MySQL / H2 Demo Profile',
+          detail: '默认模式使用 MySQL；demo/test 使用内存 H2 与虚构种子数据。',
+          scope: 'Local demo profile',
+        },
+        {
+          index: 'E11',
+          title: 'Acceptance Evidence',
+          detail: '源项目验收清单记录 13 个后端测试通过，并通过 Playwright 生成 8 张真实浏览器截图。',
+          scope: 'Existing acceptance record',
+        },
+      ],
+    },
+  ] satisfies EngineeringEvidenceGroup[],
+  trustPanel: [
+    {
+      title: 'What is real',
+      description: '当前真实定位',
+      items: [
+        '本地可运行的 Prompt 评测与回归分析控制台。',
+        '真实 Vue 页面、Spring Boot API、MyBatis-Plus 领域模型与 H2 demo profile。',
+        '真实浏览器截图来自源项目 docs/images，不使用 docs/design_refs。',
+        'Prompt Version、Dataset、Batch Evaluation、Output Compare、Trace 与 Failure Case 均有页面证据。',
+      ],
+      tone: 'positive',
+    },
+    {
+      title: 'What is not claimed',
+      description: '明确不做的生产声明',
+      items: [
+        '不包含真实用户数据、线上用户、商业落地、生产流量、收益或 SLA。',
+        '未接入真实模型，不声明真实模型质量、准确率、成本或 latency。',
+        '未启用 LLM-as-Judge、多模型对比、RAG、异步队列或生产监控。',
+        'Human Review 结论不持久化，不代表生产审批记录或权限系统。',
+      ],
+      tone: 'negative',
+    },
+    {
+      title: 'Demo conditions',
+      description: '演示成立条件',
+      items: [
+        '输出来自确定性 MockOutputGenerator，不是真实 LLM 推理。',
+        '评分来自 RuleEvaluator，不是 AI 语义裁判。',
+        'Demo profile 使用 H2 与虚构种子数据，无需 API Key。',
+        '页面中的延迟/耗时属于本地模拟数据，不能表述为 Provider 性能。',
+      ],
+      tone: 'neutral',
+    },
+  ] satisfies TrustPanelSection[],
+  interviewQuestions: [
+    {
+      index: 'Q01',
+      question: '为什么先做 Rule-based Eval，而不是直接接 LLM-as-Judge？',
+      answer:
+        '确定性规则更容易复现、解释和回归，适合先验证领域模型、批量运行、失败归因与版本对比链路；LLM-as-Judge 仍是未启用的后续方向。',
+    },
+    {
+      index: 'Q02',
+      question: 'PromptOps 与 DevFlow 有什么区别？',
+      answer:
+        'DevFlow 关注 AI Coding 生成工作流；PromptOps 关注 Prompt 版本、同一 Dataset 上的评测、输出比较、失败归因和回归复核。',
+    },
+    {
+      index: 'Q03',
+      question: '页面中的分数和延迟能代表真实模型效果吗？',
+      answer:
+        '不能。当前输出是 Mock Output，分数来自确定性规则，延迟是本地模拟数据；页面只证明评测工作流和工程结构。',
+    },
+    {
+      index: 'Q04',
+      question: 'Human Review 为什么不算生产审批？',
+      answer:
+        '当前复核结论主要保存在页面状态中，没有持久化审批、角色权限和完整审计，因此只能描述为本地复核闭环演示。',
+    },
+  ] satisfies InterviewQA[],
+}
+
 export const mcpGatewayDetail = {
   title: 'MCP Tool Gateway',
   subtitle: '企业 Agent 工具网关',

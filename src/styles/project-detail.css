@@ -76,6 +76,25 @@
   background: rgba(217, 176, 109, 0.07);
 }
 
+.promptops-detail-page .detail-backdrop {
+  background:
+    linear-gradient(90deg, rgba(255, 121, 0, 0.032), transparent 34%, rgba(89, 228, 122, 0.022) 72%, transparent),
+    linear-gradient(180deg, #050403 0%, #030303 24%, #050504 58%, #030303 100%);
+}
+
+.promptops-detail-page .detail-backdrop::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 121, 0, 0.44), rgba(89, 228, 122, 0.26), transparent);
+}
+
+.promptops-detail-page .detail-hero__dossier {
+  border-top-color: rgba(255, 184, 91, 0.42);
+}
+
+.promptops-detail-page .detail-button--primary {
+  border-color: rgba(255, 184, 91, 0.6);
+  background: rgba(255, 121, 0, 0.07);
+}
+
 .mcp-detail-page .top-nav {
   position: relative;
   z-index: 3;

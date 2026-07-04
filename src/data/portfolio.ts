@@ -68,21 +68,30 @@ export const projects: ProjectItem[] = [
   },
   {
     index: '03',
+    href: '/projects/promptops',
+    title: 'PromptOps Studio',
+    subtitle: 'AI Agent Eval / Prompt Regression Console',
+    value: '用 Prompt 版本、批量评测、输出对比与失败归因建立可复盘的本地回归闭环。',
+    tags: ['Prompt Eval', 'Rule-based Eval', 'Trace'],
+    tone: 'orange',
+  },
+  {
+    index: '04',
     href: '/projects/mcp-gateway',
     title: 'MCP Tool Gateway',
     subtitle: '企业 Agent 工具网关',
     value: '统一工具注册、调用边界与审计证据，降低 Agent 接入成本。',
     tags: ['MCP-style', 'JSON-RPC', 'Audit Log'],
-    tone: 'orange',
+    tone: 'green',
   },
   {
-    index: '04',
+    index: '05',
     href: '/projects/offerflow',
     title: 'OfferFlow Copilot',
     subtitle: 'JD Intake · Resume Evidence · Human Review · Provider Trace',
     value: '把 JD 分析、简历证据、匹配报告、Provider Trace、人工复核和复制门禁串成可审核的 AI 工作流。',
     tags: ['Spring Boot', 'Provider SPI', 'Copy Gate'],
-    tone: 'green',
+    tone: 'orange',
   },
 ]
 
