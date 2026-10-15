@@ -1,43 +1,31 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-
-const sourceLinks = [
-  {
-    label: 'DevFlow GitHub',
-    href: 'https://github.com/jameswilson87156-del/devflow-copilot',
-  },
-  {
-    label: 'Ticket RAG GitHub',
-    href: 'https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot',
-  },
-  {
-    label: 'PromptOps GitHub',
-    href: 'https://github.com/jameswilson87156-del/ai-agent-eval-promptops',
-  },
-  {
-    label: 'MCP GitHub',
-    href: 'https://github.com/jameswilson87156-del/mcp-tool-gateway',
-  },
-  {
-    label: 'OfferFlow GitHub',
-    href: 'https://github.com/jameswilson87156-del/offerflow-copilot',
-  },
-]
+import { profile, projects } from '../data/portfolio'
 </script>
 
 <template>
-  <footer class="site-footer" aria-label="站点页脚">
-    <p>Wang Zhenlong · AI Agent Engineer Portfolio Hub</p>
+  <footer class="site-footer" id="contact" aria-label="站点页脚">
+    <div>
+      <p>王震龙 · AI 应用开发作品集</p>
+      <small>Java + Vue + AI Workflow / RAG / PromptOps / Agent Tooling</small>
+    </div>
+
     <nav aria-label="作品集页脚链接">
-      <RouterLink to="/projects">Projects</RouterLink>
+      <RouterLink to="/projects">核心项目</RouterLink>
+      <a :href="profile.github" target="_blank" rel="noreferrer">GitHub Profile</a>
+      <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
+      <a :href="profile.resume" download="wangzhenlong-ai-application-resume.pdf">下载简历</a>
+      <a :href="profile.portfolioPdf" download="wangzhenlong-ai-project-portfolio.pdf">
+        下载项目作品集
+      </a>
       <a
-        v-for="link in sourceLinks"
-        :key="link.href"
-        :href="link.href"
+        v-for="project in projects"
+        :key="project.githubUrl"
+        :href="project.githubUrl"
         target="_blank"
         rel="noreferrer"
       >
-        {{ link.label }}
+        {{ project.title }}
       </a>
     </nav>
   </footer>

@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <section class="project-summary-rail" aria-label="MCP Tool Gateway 项目摘要">
+  <section class="project-summary-rail" aria-label="项目关键数据">
     <div
       v-for="item in items"
       :key="item.label"

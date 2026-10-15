@@ -5,6 +5,7 @@ export type CaseStudyProject = {
   code: ProjectCode
   slug: string
   detailPath?: string
+  githubUrl?: string
   title: string
   position: string
   problem: string

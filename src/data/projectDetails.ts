@@ -1425,6 +1425,7 @@ export const offerFlowDetail = {
   subtitle: 'JD Intake · Resume Evidence · Human Review · Provider Trace',
   positioning:
     'Java + AI workflow demo for JD intake, resume evidence management, match report versioning, human review, provider traceability, and copy permission governance.',
+  githubUrl: 'https://github.com/jameswilson87156-del/offerflow-copilot',
   tags: [
     'Spring Boot 3',
     'Java 17',

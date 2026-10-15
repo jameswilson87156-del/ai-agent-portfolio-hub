@@ -1,47 +1,78 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { contactLinks, heroSignals, profile } from '../data/portfolio'
+
+const internalLinks = computed(() =>
+  contactLinks.filter((item) => item.href.startsWith('/') && !item.download),
+)
+
+const externalLinks = computed(() =>
+  contactLinks.filter((item) => !item.href.startsWith('/') || item.download),
+)
 </script>
 
 <template>
-  <section class="hero-copy" id="capabilities">
-    <p class="hero-kicker">AI Agent Engineer Portfolio Hub</p>
+  <section class="mountain-hero" id="capabilities" aria-labelledby="page-title">
+    <div class="mountain-hero__copy">
+      <p class="hero-kicker">AI Application Developer Portfolio</p>
 
-    <h1 class="hero-title" id="page-title">
-      <span class="title-en"><span>AI</span><span>Agent</span></span>
-      <span class="title-cn">工程师作品集</span>
-    </h1>
+      <h1 class="hero-title" id="page-title">
+        {{ profile.title }}
+      </h1>
 
-    <p class="identity-line">
-      <span>王震龙</span>
-      <span>软件工程本科</span>
-      <span>2027 届</span>
-    </p>
+      <p class="hero-subtitle">{{ profile.subtitle }}</p>
+      <p class="identity-line">{{ profile.name }}｜{{ profile.role }}</p>
+      <p class="hero-description">{{ profile.summary }}</p>
 
-    <p class="direction-line">Java Backend / AI Application / AI Agent / Web Full-stack</p>
-    <div class="hero-divider" aria-hidden="true" />
+      <div class="direction-chips" aria-label="主投方向">
+        <span v-for="direction in profile.directions" :key="direction">
+          {{ direction }}
+        </span>
+      </div>
 
-    <p class="hero-subtitle">
-      用 Prompt 驱动构建，用 Trace 留下证据，用 Human Review 保证边界。
-    </p>
+      <div class="hero-actions" aria-label="作品集主要操作">
+        <RouterLink
+          v-for="link in internalLinks"
+          :key="link.label"
+          :class="['hero-button', link.kind === 'primary' && 'hero-button--primary']"
+          :to="link.href"
+        >
+          {{ link.label }}
+          <span class="button-icon" aria-hidden="true">→</span>
+        </RouterLink>
 
-    <p class="hero-description">
-      把 Tool、Prompt、Resource、Provider、Trace Evidence、Human Review 与 Audit Log
-      串成可展示、可解释、可验证的 AI Agent 项目作品集。
-    </p>
+        <a
+          v-for="link in externalLinks"
+          :key="link.label"
+          :class="['hero-button', link.kind === 'primary' && 'hero-button--primary']"
+          :href="link.href"
+          :target="link.external ? '_blank' : undefined"
+          :rel="link.external ? 'noreferrer' : undefined"
+          :download="link.download ? link.downloadName : undefined"
+        >
+          {{ link.label }}
+          <span class="button-icon" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
 
-    <div class="hero-actions">
-      <RouterLink class="hero-button hero-button--primary" to="/projects">
-        查看核心项目
-        <span class="button-icon" aria-hidden="true">→</span>
-      </RouterLink>
-      <RouterLink class="hero-button" to="/projects">
-        查看项目证据
-        <span class="button-icon" aria-hidden="true">↗</span>
-      </RouterLink>
-      <a class="hero-button hero-button--resume" href="#evidence">
-        <span class="button-icon" aria-hidden="true">↓</span>
-        查看证据链
-      </a>
+    <div class="mountain-hero__visual" aria-label="大山 Hero 视觉资产，不是项目运行截图">
+      <img
+        src="/images/hero/ai-mountain-hero.png"
+        alt="深蓝黑数据山峰视觉，橙色和青色 Trace 光路穿过山体"
+      />
+      <span class="trace-line trace-line--one" aria-hidden="true" />
+      <span class="trace-line trace-line--two" aria-hidden="true" />
+      <span
+        v-for="signal in heroSignals"
+        :key="signal.label"
+        :class="['hero-signal', `hero-signal--${signal.tone}`]"
+        :style="{ left: signal.x, top: signal.y }"
+      >
+        <strong>{{ signal.label }}</strong>
+        <small>{{ signal.caption }}</small>
+      </span>
     </div>
   </section>
 </template>

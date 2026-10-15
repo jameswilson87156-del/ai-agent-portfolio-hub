@@ -1352,3 +1352,462 @@
     scroll-behavior: auto;
   }
 }
+
+/* Hiring portfolio light overrides for case-study pages */
+.mcp-detail-page {
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(6, 182, 212, 0.13), transparent 28rem),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 44%, #f6fbff 100%);
+}
+
+.detail-backdrop,
+.devflow-detail-page .detail-backdrop,
+.ticket-rag-detail-page .detail-backdrop,
+.promptops-detail-page .detail-backdrop {
+  background:
+    radial-gradient(circle at 86% 6%, rgba(37, 99, 235, 0.1), transparent 28rem),
+    radial-gradient(circle at 10% 24%, rgba(6, 182, 212, 0.14), transparent 30rem);
+}
+
+.detail-backdrop::before {
+  background-image:
+    linear-gradient(rgba(15, 42, 68, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 42, 68, 0.032) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.detail-backdrop::after,
+.devflow-detail-page .detail-backdrop::after,
+.ticket-rag-detail-page .detail-backdrop::after,
+.promptops-detail-page .detail-backdrop::after {
+  background: linear-gradient(90deg, transparent, rgba(8, 145, 178, 0.32), rgba(37, 99, 235, 0.18), transparent);
+}
+
+.detail-main {
+  width: min(var(--content-max), calc(100vw - 64px));
+  padding-top: clamp(42px, 6vw, 86px);
+}
+
+.detail-hero {
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  min-height: 0;
+  gap: clamp(36px, 7vw, 96px);
+  padding: clamp(46px, 7vw, 96px) 0 clamp(44px, 6vw, 82px);
+  border-bottom-color: rgba(15, 42, 68, 0.1);
+}
+
+.detail-hero h1 {
+  color: var(--color-navy);
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 7vw, 6.7rem);
+  font-weight: 850;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  text-shadow: none;
+}
+
+.detail-hero__subtitle {
+  color: #155e75;
+  font-weight: 780;
+}
+
+.detail-hero__positioning,
+.detail-hero__dossier > p,
+.detail-section-heading > p,
+.problem-signals dd,
+.architecture-node p,
+.module-card p,
+.screenshot-item figcaption p,
+.engineering-group__header p,
+.engineering-item p,
+.detail-boundary__lead,
+.trust-panel-column li,
+.interview-qa-card p {
+  color: var(--color-text-soft);
+}
+
+.detail-button {
+  border-color: rgba(15, 42, 68, 0.12);
+  border-radius: 999px;
+  color: var(--color-navy);
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 42, 68, 0.08);
+  font-weight: 760;
+}
+
+.detail-button--primary,
+.devflow-detail-page .detail-button--primary,
+.ticket-rag-detail-page .detail-button--primary,
+.promptops-detail-page .detail-button--primary {
+  border-color: transparent;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0f2a44, #0891b2);
+}
+
+.detail-button:hover,
+.detail-button:focus-visible {
+  border-color: rgba(8, 145, 178, 0.32);
+  color: var(--color-navy);
+  background: #ffffff;
+}
+
+.detail-button--primary:hover,
+.detail-button--primary:focus-visible {
+  color: #ffffff;
+  background: linear-gradient(135deg, #12385d, #06b6d4);
+}
+
+.detail-hero__dossier,
+.devflow-detail-page .detail-hero__dossier,
+.ticket-rag-detail-page .detail-hero__dossier,
+.promptops-detail-page .detail-hero__dossier {
+  padding: 28px;
+  border: 1px solid rgba(15, 42, 68, 0.1);
+  border-top: 4px solid rgba(8, 145, 178, 0.46);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-panel);
+}
+
+.detail-hero__signal span,
+.detail-hero__signal strong {
+  color: var(--color-ember);
+}
+
+.detail-tag-list li {
+  border-color: rgba(8, 145, 178, 0.16);
+  color: #155e75;
+  background: var(--color-cyan-soft);
+}
+
+.detail-section {
+  margin-top: clamp(76px, 8vw, 128px);
+}
+
+.background-section {
+  margin-top: clamp(46px, 6vw, 86px);
+}
+
+.detail-section-heading {
+  grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 72px);
+  margin-bottom: 36px;
+}
+
+.detail-section-heading h2,
+.detail-boundary h2 {
+  color: var(--color-navy);
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 4.6vw, 4.8rem);
+  font-weight: 830;
+  letter-spacing: -0.055em;
+  text-shadow: none;
+}
+
+.background-layout,
+.problem-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+  gap: clamp(28px, 5vw, 70px);
+  padding-top: 34px;
+  border-top: 1px solid rgba(8, 145, 178, 0.22);
+}
+
+.background-layout {
+  align-items: stretch;
+}
+
+.problem-statement {
+  color: var(--color-navy);
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.7vw, 2.45rem);
+  font-weight: 780;
+  line-height: 1.42;
+}
+
+.background-layout .project-summary-rail,
+.project-summary-rail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  border: 0;
+  background: transparent;
+}
+
+.project-summary-rail__item {
+  min-height: 0;
+  padding: 18px;
+  border: 1px solid rgba(15, 42, 68, 0.1);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 42, 68, 0.06);
+}
+
+.project-summary-rail__item::before {
+  left: 18px;
+  background: var(--color-cyan);
+}
+
+.project-summary-rail__item span,
+.project-summary-rail__item--green span {
+  color: var(--color-ember);
+}
+
+.project-summary-rail__item strong {
+  color: var(--color-navy);
+}
+
+.problem-signals {
+  border-top-color: rgba(15, 42, 68, 0.1);
+}
+
+.problem-signals div {
+  border-bottom-color: rgba(15, 42, 68, 0.08);
+}
+
+.problem-signals dt {
+  color: var(--color-ember);
+}
+
+.architecture-canvas,
+.module-card,
+.screenshot-item__frame,
+.engineering-group,
+.detail-boundary,
+.interview-qa-card {
+  border-color: rgba(15, 42, 68, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-panel);
+}
+
+.architecture-canvas {
+  border-top-color: rgba(8, 145, 178, 0.24);
+  border-radius: 28px;
+}
+
+.architecture-canvas__header {
+  border-bottom-color: rgba(15, 42, 68, 0.08);
+}
+
+.architecture-canvas__header span,
+.architecture-canvas__header span:nth-child(2),
+.architecture-canvas__header span:nth-child(3) {
+  color: var(--color-muted);
+}
+
+.architecture-node {
+  border-right-color: rgba(15, 42, 68, 0.08);
+  background: transparent;
+}
+
+.architecture-node--governance,
+.architecture-node--evidence {
+  background: rgba(236, 254, 255, 0.42);
+}
+
+.architecture-node::after {
+  color: var(--color-ember);
+  content: "→";
+}
+
+.architecture-node > span,
+.architecture-node--evidence > span,
+.module-card > span,
+.module-card:nth-child(even) > span,
+.screenshot-item figcaption > span,
+.engineering-group__header > span,
+.engineering-group:nth-child(even) .engineering-group__header > span,
+.engineering-item__index,
+.detail-boundary__index,
+.interview-qa-card > span {
+  color: var(--color-ember);
+}
+
+.architecture-node h3,
+.module-card h3,
+.screenshot-item figcaption h3,
+.engineering-group__header h3,
+.engineering-item h4,
+.trust-panel-column h3,
+.interview-qa-card h3 {
+  color: var(--color-navy);
+}
+
+.module-grid {
+  border-top-color: rgba(8, 145, 178, 0.22);
+}
+
+.module-card {
+  border-right-color: rgba(15, 42, 68, 0.08);
+  border-bottom-color: rgba(15, 42, 68, 0.08);
+  background: #ffffff;
+}
+
+.module-card:nth-child(even) {
+  background: #f8fafc;
+}
+
+.screenshot-gallery,
+.engineering-groups,
+.interview-qa-grid {
+  gap: 28px;
+}
+
+.screenshot-item__frame {
+  background: #f8fafc;
+  box-shadow: 0 20px 60px rgba(15, 42, 68, 0.12);
+}
+
+.screenshot-item__chrome {
+  border-bottom-color: rgba(15, 42, 68, 0.08);
+  color: var(--color-muted);
+  background: #ffffff;
+}
+
+.screenshot-item__chrome small {
+  color: var(--color-ember);
+}
+
+.screenshot-item__viewport {
+  background: #f8fafc;
+}
+
+.screenshot-item img {
+  filter: saturate(1) contrast(1) brightness(0.98);
+}
+
+.screenshot-item figcaption small,
+.engineering-item__scope,
+.trust-panel-column header p {
+  color: var(--color-muted);
+}
+
+.engineering-group,
+.engineering-group:nth-child(even) {
+  border-top-color: rgba(8, 145, 178, 0.26);
+  border-radius: 24px;
+  padding: 0 22px 8px;
+}
+
+.engineering-item,
+.engineering-group__header,
+.trust-panel-column,
+.trust-panel-column li {
+  border-top-color: rgba(15, 42, 68, 0.08);
+}
+
+.detail-boundary {
+  grid-template-columns: minmax(80px, 0.16fr) minmax(0, 1fr);
+  border-top-color: rgba(217, 119, 6, 0.22);
+  border-bottom-color: rgba(15, 42, 68, 0.08);
+  border-radius: 28px;
+  background: linear-gradient(135deg, #fffbeb, #ffffff 54%, #ecfeff);
+}
+
+.trust-panel-grid {
+  gap: 18px;
+}
+
+.trust-panel-column {
+  padding: 22px;
+  border: 1px solid rgba(15, 42, 68, 0.1);
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.detail-next-actions {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.35fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+  padding: 28px;
+  border: 1px solid rgba(15, 42, 68, 0.1);
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: var(--shadow-panel);
+}
+
+.detail-next-actions h2 {
+  margin: 8px 0 0;
+  color: var(--color-navy);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.detail-next-actions nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.detail-next-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border: 1px solid rgba(8, 145, 178, 0.18);
+  border-radius: 999px;
+  color: var(--color-navy);
+  background: #ffffff;
+  font-weight: 780;
+}
+
+.detail-next-actions a:hover,
+.detail-next-actions a:focus-visible {
+  border-color: rgba(8, 145, 178, 0.38);
+  color: var(--color-ember);
+  outline: none;
+}
+
+@media (max-width: 980px) {
+  .detail-main {
+    width: min(100% - 32px, 760px);
+  }
+
+  .detail-hero,
+  .detail-section-heading,
+  .background-layout,
+  .problem-layout,
+  .detail-next-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-next-actions nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .detail-main {
+    width: min(100% - 24px, 460px);
+  }
+
+  .detail-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.2rem);
+  }
+
+  .background-layout .project-summary-rail,
+  .project-summary-rail,
+  .module-grid,
+  .screenshot-gallery,
+  .engineering-groups,
+  .interview-qa-grid,
+  .trust-panel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-canvas {
+    border-radius: 22px;
+  }
+
+  .detail-boundary {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+}

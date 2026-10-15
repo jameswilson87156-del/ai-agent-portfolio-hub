@@ -1,69 +1,104 @@
-# AI Full-Stack Developer Portfolio Hub v2
+# 王震龙｜AI 应用开发作品集
 
-Personal portfolio frontend for Wang Zhenlong, focused on Java Backend, AI Application, AI Agent, and Web Full-stack internship directions.
+用于求职投递的 AI 应用开发作品集官网，配合简历、Boss 直聘、智联校园、GitHub Profile 和技术面试沟通使用。
 
-This repository is the portfolio site itself. It presents five runnable portfolio engineering projects through a cinematic homepage, a Projects index, and focused case-study detail pages.
+Live Portfolio: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
 
-Live Demo: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
+GitHub Profile: [https://github.com/jameswilson87156-del](https://github.com/jameswilson87156-del)
 
-GitHub Repo: [https://github.com/jameswilson87156-del/ai-agent-portfolio-hub](https://github.com/jameswilson87156-del/ai-agent-portfolio-hub)
+Contact: 467113957@qq.com
 
-This is a personal AI Full-Stack Developer Portfolio Hub frontend project. The live site is deployed by Vercel. It is a static frontend portfolio, not a backend business system.
+## Positioning
 
-CI: GitHub Actions runs build and screenshots on `main` pushes and pull requests.
+- 身份：王震龙｜软件工程本科 2027 届
+- 主投方向：AI 应用开发实习 / Java + AI 全栈开发 / AI 工具开发 / RAG / PromptOps / Agent 工具平台
+- 技术主线：Java + Vue + AI Workflow 工程落地
+- 证据链：GitHub、真实项目截图、测试记录、评测样本、截图验收与项目边界说明
 
 ## Current Pages
 
-- `/` — Home
-- `/projects` — Projects case-study index
+- `/` — 大山 Hero 首页与核心项目入口
+- `/projects` — 核心项目证据索引
 - `/projects/devflow` — DevFlow Copilot case study
 - `/projects/ticket-rag` — Enterprise Ticket RAG Copilot case study
 - `/projects/promptops` — PromptOps Studio case study
-- `/projects/mcp-gateway` — MCP Tool Gateway case study
 - `/projects/offerflow` — OfferFlow Copilot case study
+- `/projects/mcp-gateway` — MCP Tool Gateway case study
 
-## Tech Stack
+## Downloads
 
-- Vue 3
-- Vue Router
-- Vite
-- TypeScript
-- Native CSS
-- Playwright screenshots
+- Resume PDF: `/resume/wangzhenlong-ai-application-resume.pdf`
+- Project Portfolio PDF: `/portfolio/wangzhenlong-ai-project-portfolio.pdf`
 
-## Source Projects
+Both public paths use ASCII filenames to avoid deployment/download issues.
 
-The case studies describe real local engineering projects. Their screenshots and claims should be checked against the corresponding source repositories and README files.
+## Core Projects
 
-- DevFlow Copilot: [https://github.com/jameswilson87156-del/devflow-copilot](https://github.com/jameswilson87156-del/devflow-copilot)
-- Enterprise Ticket RAG Copilot: [https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot](https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot)
-- PromptOps Studio: [https://github.com/jameswilson87156-del/ai-agent-eval-promptops](https://github.com/jameswilson87156-del/ai-agent-eval-promptops)
-- MCP Tool Gateway: [https://github.com/jameswilson87156-del/mcp-tool-gateway](https://github.com/jameswilson87156-del/mcp-tool-gateway)
-- OfferFlow Copilot: [https://github.com/jameswilson87156-del/offerflow-copilot](https://github.com/jameswilson87156-del/offerflow-copilot)
+| Order | Project | Focus | Source |
+|---:|---|---|---|
+| 01 | DevFlow Copilot | AI Coding Workbench / Prompt → Provider → Trace → Tool Call → Human Review | [GitHub](https://github.com/jameswilson87156-del/devflow-copilot) |
+| 02 | Enterprise Ticket RAG Copilot | Ticket Workbench / keyword retrieval / Citation Evidence / Trace Timeline / Human Review | [GitHub](https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot) |
+| 03 | PromptOps Studio | Prompt Version / Dataset / Batch Evaluation / Output Compare / Failure Cases | [GitHub](https://github.com/jameswilson87156-del/ai-agent-eval-promptops) |
+| 04 | OfferFlow Copilot | JD Intake / Resume Evidence / Provider Trace / Human Review / Copy Permission | [GitHub](https://github.com/jameswilson87156-del/offerflow-copilot) |
+| 05 | MCP Tool Gateway | Tool Registry / Policy Check / Trace Evidence / Audit Log / MCP-style JSON-RPC adapter demo | [GitHub](https://github.com/jameswilson87156-del/mcp-tool-gateway) |
+
+## Hero Visual Asset Boundary
+
+`public/images/hero/ai-mountain-hero.png` is the homepage brand visual.
+
+Hero mountain image is a visual portfolio asset, not runtime project evidence.
+
+Project evidence must continue to come from source project README files, metrics docs, tests, acceptance docs, or real browser screenshots under `public/images/projects/`.
 
 ## Screenshot Evidence
 
-`docs/images/` contains real browser screenshots generated from this Vue portfolio app with `npm run screenshots`:
+`docs/images/` contains real browser screenshots generated from this portfolio app with `npm run screenshots`:
 
+- `docs/images/home.png`
 - `docs/images/portfolio-home.png`
 - `docs/images/projects-overview.png`
 - `docs/images/devflow-detail.png`
 - `docs/images/ticket-rag-detail.png`
 - `docs/images/promptops-detail.png`
-- `docs/images/mcp-gateway-detail.png`
 - `docs/images/offerflow-detail.png`
+- `docs/images/mcp-gateway-detail.png`
 
-`docs/images/large/` contains the same route captures at a larger desktop viewport, including `docs/images/large/promptops-detail.png`.
+`docs/images/large/` contains larger desktop captures, including `docs/images/large/home.png`.
 
-`public/images/projects/` contains copied real browser screenshot evidence from the five local source projects:
+`docs/images/mobile/` contains 390px mobile captures.
 
-- `public/images/projects/devflow/` from `D:\workhome\ai-coding-workbench\docs\images`
-- `public/images/projects/ticket-rag/` from `D:\workhome\enterprise-ai-ticket-copilot\docs\images`
-- `public/images/projects/promptops/` from `D:\workhome\ai-agent-eval-promptops\docs\images`
-- `public/images/projects/mcp/` from `D:\workhome\mcp-tool-gateway\docs\images\large`
-- `public/images/projects/offerflow/` from `D:\workhome\offerflow-copilot\docs\images`
+`docs/images/review/` contains additional homepage review captures such as 430px, 768px, and 1366px widths.
 
-`docs/design/references/` contains design references only. These images are not running-page screenshots and must not be described as runtime evidence.
+## Source Screenshot Directories
+
+- `public/images/projects/devflow/`
+- `public/images/projects/ticket-rag/`
+- `public/images/projects/promptops/`
+- `public/images/projects/offerflow/`
+- `public/images/projects/mcp/`
+
+Design or hero images are not project runtime evidence.
+
+## Tech Stack
+
+- Vue 3
+- Vue Router
+- TypeScript
+- Vite
+- Native CSS
+- Playwright screenshots
+- Vercel static deployment
+
+## Boundaries
+
+- This repository is a static portfolio frontend.
+- Case-study claims must be traceable to each source project README, docs, tests, metrics, or real screenshots.
+- DevFlow keeps its local-rule default and documents Provider configuration separately.
+- Ticket RAG metrics are from a labeled synthetic dataset and keyword retrieval baseline.
+- PromptOps Studio uses Mock Output and Rule-based Eval for local regression demonstration.
+- OfferFlow external Provider flow is disabled by default and described only as a manual dry-run path.
+- MCP Tool Gateway is described as MCP-style adapter demo.
+- The site avoids unsupported claims about adoption, traffic, business outcomes, model quality, or unverified platform capability.
 
 ## Quick Start
 
@@ -74,34 +109,9 @@ npm run build
 npm run screenshots
 ```
 
-`npm run screenshots` starts a local Vite server and captures all portfolio routes listed above.
+`npm run screenshots` starts a local Vite server, verifies 390 / 430 / 768 / 1366px widths for horizontal overflow, checks that the homepage includes the mountain hero, and captures the portfolio routes.
 
-## Project Boundaries
-
-- This is a personal portfolio frontend, not a backend business system.
-- The site does not implement login, CMS, real API integration, or production data flows.
-- The case studies do not claim real enterprise customers, real online users, production traffic, commercial metrics, or production deployments.
-- DevFlow Copilot is presented as a real runnable portfolio AI Coding workflow project, not a production AI IDE.
-- Enterprise Ticket RAG Copilot is presented as a real runnable portfolio enterprise Copilot workflow project, not a production enterprise RAG system.
-- PromptOps Studio is presented as a local demo Prompt evaluation and regression console using Mock Output and Rule-based Eval. It does not claim real LLM quality, production users, production approvals, or LLM-as-Judge results.
-- MCP Tool Gateway is presented as MCP-style tooling; it does not claim full official MCP protocol compatibility.
-- OfferFlow Copilot is presented as a portfolio-ready local release candidate for evidence-first JD workflow governance, not a production recruiting platform.
-- AI, Provider, RAG, RBAC, MCP, audit, persistence, Human Review, and Copy Permission capabilities are bounded by the corresponding source project README files and code evidence.
-- OpenAI / DeepSeek / real Provider connection success is not claimed unless the source project evidence explicitly supports it.
-- OfferFlow real Provider wording is limited to an optional manual real Provider dry-run path manually verified with DeepSeek and an OpenAI-compatible relay; it remains disabled by default and review-gated.
-
-## Deployment
-
-This repository is a static Vite frontend deployed on Vercel. GitHub Pages is also possible with the correct base-path configuration if deploying under a repository subpath.
-
-- Live Demo: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
-- Framework: Vite
-- Build command: `npm run build`
-- Output directory: `dist`
-
-For Vercel, `vercel.json` rewrites all routes to `index.html` so Vue Router history routes can refresh directly.
-
-Final release checks:
+## Final Checks
 
 ```bash
 npm run build

@@ -17,23 +17,27 @@ defineProps<{
   <header class="detail-hero" aria-labelledby="detail-title">
     <div class="detail-hero__copy">
       <p class="detail-kicker">
-        {{ kicker ?? 'CASE STUDY 03 / JAVA BACKEND + AGENT GOVERNANCE' }}
+        {{ kicker ?? 'CASE STUDY / AI APPLICATION ENGINEERING' }}
       </p>
       <h1 id="detail-title">{{ title }}</h1>
       <p class="detail-hero__subtitle">{{ subtitle }}</p>
       <p class="detail-hero__positioning">{{ positioning }}</p>
 
       <div class="detail-hero__actions" aria-label="项目操作">
-        <RouterLink class="detail-button detail-button--primary" to="/projects">
-          <span aria-hidden="true">←</span>
-          返回 Projects
+        <RouterLink class="detail-button detail-button--primary" to="/">
+          返回首页
+          <span aria-hidden="true">→</span>
+        </RouterLink>
+        <RouterLink class="detail-button" to="/projects">
+          返回项目列表
+          <span aria-hidden="true">→</span>
         </RouterLink>
         <a v-if="githubUrl" class="detail-button" :href="githubUrl" target="_blank" rel="noreferrer">
-          查看 GitHub
+          GitHub
           <span aria-hidden="true">↗</span>
         </a>
         <a class="detail-button detail-button--quiet" href="#evidence">
-          查看截图证据
+          核心截图
           <span aria-hidden="true">↓</span>
         </a>
       </div>
@@ -41,8 +45,8 @@ defineProps<{
 
     <aside class="detail-hero__dossier" aria-label="项目技术与边界摘要">
       <div class="detail-hero__signal">
-        <span>PORTFOLIO DOSSIER</span>
-        <strong>{{ dossierStage ?? 'P3A / LOCAL DEMO' }}</strong>
+        <span>PORTFOLIO CASE STUDY</span>
+        <strong>{{ dossierStage ?? 'LOCAL DEMO / EVIDENCE-BASED' }}</strong>
       </div>
       <p>
         {{

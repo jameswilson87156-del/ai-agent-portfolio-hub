@@ -22,7 +22,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  background: var(--color-black);
+  background: var(--color-surface);
 }
 
 body,
@@ -48,6 +48,6 @@ button {
 }
 
 ::selection {
-  color: var(--color-black);
-  background: var(--color-ember);
+  color: #ffffff;
+  background: var(--color-cyan);
 }

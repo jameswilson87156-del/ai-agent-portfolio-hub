@@ -5,7 +5,7 @@ withDefaults(defineProps<{
   items: ScreenshotEvidence[]
   intro?: string
 }>(), {
-  intro: '以下均为本地 MCP Tool Gateway 可运行页面的浏览器截图副本，不是设计参考图或生产环境截图。',
+  intro: '以下均为源项目本地运行页面的真实浏览器截图副本，不是设计参考图或生产环境截图。',
 })
 </script>
 
@@ -13,8 +13,8 @@ withDefaults(defineProps<{
   <section id="evidence" class="detail-section screenshot-section" aria-labelledby="evidence-title">
     <header class="detail-section-heading">
       <div>
-        <p class="detail-kicker">04 / RUNTIME PROOF</p>
-        <h2 id="evidence-title">Real Browser Evidence</h2>
+        <p class="detail-kicker">05 / SCREENSHOT EVIDENCE</p>
+        <h2 id="evidence-title">核心页面截图</h2>
       </div>
       <p>{{ intro }}</p>
     </header>

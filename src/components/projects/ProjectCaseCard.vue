@@ -11,7 +11,6 @@ defineProps<{
   <article
     :id="project.slug"
     :class="['case-card', `case-card--${project.tone}`]"
-    :tabindex="project.detailPath ? undefined : 0"
     :aria-labelledby="`${project.slug}-title`"
   >
     <div class="case-card__rail" aria-hidden="true">
@@ -27,29 +26,37 @@ defineProps<{
           <p class="case-card__position">{{ project.position }}</p>
         </div>
 
-        <RouterLink
-          v-if="project.detailPath"
-          class="case-card__details case-card__details--available"
-          :to="project.detailPath"
-        >
-          View case study
-          <span aria-hidden="true">↗</span>
-        </RouterLink>
-        <span v-else class="case-card__details" aria-disabled="true">
-          P3 · Coming soon
-          <span aria-hidden="true">↗</span>
-        </span>
+        <div class="case-card__links" aria-label="项目链接">
+          <a
+            v-if="project.githubUrl"
+            class="case-card__details case-card__details--available"
+            :href="project.githubUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+            <span aria-hidden="true">↗</span>
+          </a>
+          <RouterLink
+            v-if="project.detailPath"
+            class="case-card__details case-card__details--available"
+            :to="project.detailPath"
+          >
+            Case Study
+            <span aria-hidden="true">→</span>
+          </RouterLink>
+        </div>
       </header>
 
       <div class="case-card__story">
         <div class="case-card__narrative">
           <section class="case-card__block case-card__problem">
-            <p class="case-label">PROBLEM / 解决问题</p>
+            <p class="case-label">PROBLEM / 解决的问题</p>
             <p>{{ project.problem }}</p>
           </section>
 
           <section class="case-card__block case-card__workflow">
-            <p class="case-label">AGENT CHAIN / 核心链路</p>
+            <p class="case-label">WORKFLOW / 核心链路</p>
             <ol>
               <li v-for="step in project.workflow" :key="step">
                 <span>{{ step }}</span>
@@ -59,14 +66,14 @@ defineProps<{
 
           <div class="case-card__proof-grid">
             <section class="case-card__block">
-              <p class="case-label">EVIDENCE / 工程证据</p>
+              <p class="case-label">KEY DATA / 关键数据</p>
               <ul class="case-inline-list case-inline-list--evidence">
                 <li v-for="item in project.evidence" :key="item">{{ item }}</li>
               </ul>
             </section>
 
             <section class="case-card__block case-card__boundary">
-              <p class="case-label">BOUNDARY / 能力边界</p>
+              <p class="case-label">BOUNDARY / 边界说明</p>
               <p>{{ project.boundary }}</p>
             </section>
           </div>
@@ -93,7 +100,7 @@ defineProps<{
       </div>
 
       <footer class="case-card__resume">
-        <span>ENGINEERING VALUE / 简历价值</span>
+        <span>RESUME VALUE / 简历价值</span>
         <p>{{ project.resumeValue }}</p>
       </footer>
     </div>
