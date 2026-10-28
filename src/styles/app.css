@@ -1939,6 +1939,32 @@
   gap: 18px;
 }
 
+.project-showcase__archive-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: var(--color-navy);
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.project-showcase__archive-link span {
+  color: var(--color-ember);
+  transition: transform 180ms ease;
+}
+
+.project-showcase__archive-link:hover span,
+.project-showcase__archive-link:focus-visible span {
+  transform: translateX(4px);
+}
+
+.project-showcase__archive-link:focus-visible {
+  border-radius: 6px;
+  outline: 2px solid var(--color-ember);
+  outline-offset: 4px;
+}
+
 .project-card {
   position: relative;
   z-index: 1;

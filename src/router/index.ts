@@ -15,6 +15,11 @@ const router = createRouter({
       component: () => import('../views/ProjectsView.vue'),
     },
     {
+      path: '/projects/gitea-quality-lab',
+      name: 'gitea-quality-lab-detail',
+      component: () => import('../views/GiteaQualityDetailView.vue'),
+    },
+    {
       path: '/projects/devflow',
       name: 'devflow-detail',
       component: () => import('../views/DevFlowDetailView.vue'),

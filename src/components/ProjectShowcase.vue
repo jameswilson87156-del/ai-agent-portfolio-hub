@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import type { ProjectItem } from '../data/portfolio'
 import ProjectCard from './ProjectCard.vue'
 
@@ -12,15 +13,20 @@ defineProps<{
     <div class="section-heading">
       <p class="section-kicker">CORE PROJECTS</p>
       <div>
-        <h2 id="home-projects-title">五个 AI 应用开发项目，一眼看定位，点进去看证据。</h2>
+        <h2 id="home-projects-title">两个测试开发主项目，先看目标、再看运行证据。</h2>
         <p>
-          每个项目都保留 GitHub、真实截图、关键数据和能力边界，适合 HR 快速筛选，也适合技术面试官继续追问。
+          一个测试真实开源系统，一个验证 Agent 行为与本地业务 API；测试数、失败数和负载边界均对应源仓库报告。
         </p>
       </div>
     </div>
 
-    <div class="project-grid">
+    <div class="project-showcase__grid">
       <ProjectCard v-for="project in projects" :key="project.title" :project="project" />
     </div>
+
+    <RouterLink class="project-showcase__archive-link" to="/projects">
+      查看完整项目档案与工程背景
+      <span aria-hidden="true">→</span>
+    </RouterLink>
   </section>
 </template>

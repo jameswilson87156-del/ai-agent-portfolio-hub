@@ -15,7 +15,7 @@ const externalLinks = computed(() =>
 <template>
   <section class="mountain-hero" id="capabilities" aria-labelledby="page-title">
     <div class="mountain-hero__copy">
-      <p class="hero-kicker">AI Application Developer Portfolio</p>
+      <p class="hero-kicker">TEST DEVELOPMENT / ENGINEERING EVIDENCE</p>
 
       <h1 class="hero-title" id="page-title">
         {{ profile.title }}
@@ -60,7 +60,7 @@ const externalLinks = computed(() =>
     <div class="mountain-hero__visual" aria-label="大山 Hero 视觉资产，不是项目运行截图">
       <img
         src="/images/hero/ai-mountain-hero.png"
-        alt="深蓝黑数据山峰视觉，橙色和青色 Trace 光路穿过山体"
+        alt="深色山峰作品集视觉，橙色与青色路径象征测试执行和结果追踪；不是项目截图"
       />
       <span class="trace-line trace-line--one" aria-hidden="true" />
       <span class="trace-line trace-line--two" aria-hidden="true" />

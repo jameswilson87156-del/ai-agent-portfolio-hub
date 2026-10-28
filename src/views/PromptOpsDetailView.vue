@@ -7,13 +7,13 @@ import { promptOpsDetail } from '../data/projectDetails'
   <ProjectDetailTemplate
     :detail="promptOpsDetail"
     page-class="promptops-detail-page"
-    kicker="CASE STUDY 03 / PROMPT EVAL & REGRESSION"
-    dossier-stage="LOCAL DEMO / RULE-BASED EVAL"
-    dossier-description="证据来自源项目 README、architecture、acceptance checklist 与真实浏览器截图；当前使用 Mock Output 与 Rule-based Eval，不声明真实模型质量或生产审批能力。"
-    background-note="PromptOps Studio 对应 Prompt 评测与回归控制台，重点展示 Prompt Version、Dataset、Batch Evaluation、Output Compare、Trace、Failure Cases 与 Human Review。"
-    architecture-title="Prompt Regression Chain"
-    architecture-description="技术方案围绕 Prompt 版本、测试集、Mock Output、Rule-based Eval、失败样本归因和人工复核建立可复现回归链路。"
-    :architecture-stages="['DATASET + VERSION', 'MOCK + RULE EVAL', 'TRACE + REVIEW']"
-    screenshot-intro="以下均为 PromptOps Studio 本地运行页面真实浏览器截图副本，来源于 ai-agent-eval-promptops/docs/images；未使用 docs/design_refs，也不是生产环境截图。"
+    kicker="CASE STUDY 02 / AGENT & BUSINESS API TESTING"
+    dossier-stage="MOCK AGENT / LOCAL ORDER-REFUND SIMULATOR"
+    dossier-description="证据来自固定合成 Agent 用例、确定性 Mock 运行、订单/退款模拟 API 的本地负载与监控报告，以及真实浏览器截图。本轮未调用外部模型。"
+    background-note="PromptOps Studio 把 Agent 评测、失败 Trace、订单/退款 API 规则测试、稳定性采样和告警演练放在同一项目中；两类测试目标的边界分别说明。"
+    architecture-title="Agent & Business API Test Chain"
+    architecture-description="固定数据集先验证 Agent 执行器和逐条断言；独立模拟业务 API 再覆盖状态流转、重复执行、监控与受限负载采样。"
+    :architecture-stages="['DATASET + MOCK AGENT', 'ASSERTIONS + TRACE', 'BUSINESS API + CI']"
+    screenshot-intro="以下是 2026-10-28 PromptOps Agent Eval 页面真实浏览器截图，来自源项目本地 Mock 验收。页面里的运行与失败数对应保存记录；Mock 结果不是模型基准。"
   />
 </template>

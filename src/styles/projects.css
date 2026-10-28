@@ -150,6 +150,10 @@
   animation: projectsReveal 720ms 150ms ease-out both;
 }
 
+.engineering-background {
+  margin-top: clamp(84px, 10vw, 150px);
+}
+
 .case-index__heading {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);

@@ -1,4 +1,4 @@
-export type ProjectCode = 'DF' | 'RAG' | 'EVAL' | 'MCP' | 'OFF'
+export type ProjectCode = 'QA' | 'EVAL' | 'DF' | 'RAG' | 'MCP' | 'OFF'
 
 export type CaseStudyProject = {
   index: string
@@ -43,14 +43,90 @@ export type EvidenceGroup = {
 }
 
 export const projectLabels: Record<ProjectCode, string> = {
+  QA: 'Gitea QA',
+  EVAL: 'PromptOps',
   DF: 'DevFlow',
   RAG: 'Ticket RAG',
-  EVAL: 'PromptOps',
   MCP: 'MCP Gateway',
   OFF: 'OfferFlow',
 }
 
 export const caseStudyProjects: CaseStudyProject[] = [
+  {
+    index: '01',
+    code: 'QA',
+    slug: 'gitea-quality-lab',
+    detailPath: '/projects/gitea-quality-lab',
+    githubUrl: 'https://github.com/jameswilson87156-del/gitea-quality-lab',
+    title: 'Gitea Quality Lab',
+    position: '开源协作系统的 API、浏览器与持久化自动化',
+    problem:
+      '在没有企业测试环境的前提下，针对固定版本的真实开源 Gitea 产品搭建本地测试目标，验证认证、权限、仓库与 Issue 生命周期、浏览器操作和重启持久化。',
+    workflow: [
+      'Docker Compose / Gitea 28.2.0',
+      'HTTP API / AuthN + AuthZ',
+      'Repository + Issue lifecycle',
+      'Chromium browser workflow',
+      'Restart / persistence assertion',
+      'JSON + JUnit + HTML + CI artifact',
+    ],
+    stack: ['Python 3.12', 'pytest', 'HTTPX', 'Playwright', 'Docker Compose', 'SQLite'],
+    evidence: [
+      '24 harness unit tests',
+      '16 local API / browser / persistence cases',
+      'GitHub Actions run #40710451708 passed',
+      'JSON / JUnit / HTML reports + screenshot',
+    ],
+    boundary:
+      '目标是本地 Docker Compose 中的 Gitea 28.2.0。托管 CI 运行的是一次性本地服务；不代表企业生产系统、真实用户流量或生产容量。',
+    resumeValue:
+      '展示黑盒测试设计、权限负向用例、API 与 UI 自动化、容器状态管理、数据持久化验证和报告交付。',
+    preview: {
+      src: '/images/projects/gitea-quality-lab/browser-workflow-20261028.png',
+      alt: 'Gitea Quality Lab 本地 Chromium 自动化验收的 Gitea Issue 工作流截图',
+      caption: 'Accepted local browser workflow / Gitea 28.2.0',
+      source: 'gitea-quality-lab · reports/runs/20261028T144605Z-9971cee7/artifacts/20261028T144605Z-9971cee7-UI-001.png',
+    },
+    tone: 'green',
+  },
+  {
+    index: '02',
+    code: 'EVAL',
+    slug: 'promptops',
+    detailPath: '/projects/promptops',
+    githubUrl: 'https://github.com/jameswilson87156-del/ai-agent-eval-promptops',
+    title: 'PromptOps Studio',
+    position: 'AI Agent 评测、业务 API 测试与本地稳定性实验',
+    problem:
+      '为 AI Agent 设计可重复行为断言和失败归因，并将订单/退款模拟 API 的业务规则、可观测性、回归和有界负载采样纳入一套可复查工程。',
+    workflow: [
+      '26 固定合成 Agent cases',
+      'Deterministic Mock / rule assertions',
+      'Run + case result + trace',
+      'Order / refund simulator API',
+      'k6 / soak / metrics / alert drill',
+      'JSON report + quality gate',
+    ],
+    stack: ['Vue 3', 'Spring Boot', 'Java 17', 'H2', 'k6', 'Prometheus', 'Alertmanager'],
+    evidence: [
+      '26 cases: 24 behavior pass / 2 retained failures',
+      '8,103 local workflows / 40,515 HTTP requests',
+      '0 workflow failures / 0 dropped iterations in recorded load run',
+      'Active VU peak 1; not a production capacity result',
+      '30-minute local soak and alert drill evidence',
+    ],
+    boundary:
+      'Agent 默认使用确定性 Mock；可选 Provider 未在该轮外部调用。订单/退款只写本地模拟数据。k6 记录为单活跃 VU 的分阶段本机采样，不支持生产容量声明。',
+    resumeValue:
+      '体现测试集与确定性断言、Agent 失败归因、业务 API 状态机、可观测性、稳定性采样和测试质量门禁。',
+    preview: {
+      src: '/images/projects/promptops/eval-overview-20261028.png',
+      alt: 'PromptOps Studio 26 条 Agent 合成测试用例的真实本地运行总览',
+      caption: 'Recorded deterministic Mock Agent evaluation / local run',
+      source: 'ai-agent-eval-promptops · docs/images/agent-eval-overview-rc-final-20261028.png',
+    },
+    tone: 'orange',
+  },
   {
     index: '01',
     code: 'DF',
@@ -127,52 +203,6 @@ export const caseStudyProjects: CaseStudyProject[] = [
       source: 'enterprise-ai-ticket-copilot · docs/images/large/trace-evidence.png',
     },
     tone: 'green',
-  },
-  {
-    index: '03',
-    code: 'EVAL',
-    slug: 'promptops',
-    detailPath: '/projects/promptops',
-    title: 'PromptOps Studio',
-    position: 'AI Agent Eval / Prompt Regression Console',
-    problem:
-      '把 Prompt 版本、Dataset、批量评测、输出对比、Trace、失败归因与人工复核组织成可复现的本地回归分析闭环。',
-    workflow: [
-      'Dataset',
-      'Prompt Version',
-      'Mock Output',
-      'Rule-based Eval',
-      'Failure Case',
-      'Human Review',
-    ],
-    stack: [
-      'Vue 3',
-      'TypeScript',
-      'Vite',
-      'Java 17',
-      'Spring Boot 3.3',
-      'MyBatis-Plus',
-      'H2 Demo Profile',
-      'Playwright',
-    ],
-    evidence: [
-      '真实浏览器截图',
-      '13 backend tests 验收记录',
-      'Batch Evaluation',
-      'Trace + Failure Cases',
-      'System Boundary',
-    ],
-    boundary:
-      'Local Demo：使用确定性 Mock Output 与 Rule-based Eval，无需 API Key；未启用 LLM-as-Judge，不声明真实模型质量或生产审批记录。',
-    resumeValue:
-      '体现 Prompt 版本治理、可复现评测、回归对比、失败归因与 AI 应用质量工程的前后端表达能力。',
-    preview: {
-      src: '/images/projects/promptops/eval-dashboard.png',
-      alt: 'PromptOps Studio 本地评测总览真实浏览器截图',
-      caption: 'Prompt evaluation and regression console / local demo',
-      source: 'ai-agent-eval-promptops · docs/images/eval-dashboard.png',
-    },
-    tone: 'orange',
   },
   {
     index: '04',
@@ -267,140 +297,107 @@ export const caseStudyProjects: CaseStudyProject[] = [
 ]
 
 export const capabilityMatrix: CapabilityItem[] = [
-  { label: 'Java Backend', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
-  { label: 'Spring Boot', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
-  { label: 'Vue 3 + TypeScript', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
-  { label: 'AI Application', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
-  { label: 'Agent Workflow', projects: ['DF', 'MCP'] },
-  { label: 'Prompt Evaluation', projects: ['EVAL'] },
-  { label: 'Rule-based Eval', projects: ['EVAL'] },
-  { label: 'RAG', projects: ['RAG'] },
-  { label: 'MCP-style Tooling', projects: ['MCP'] },
-  { label: 'Trace Evidence', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
-  { label: 'Human Review', projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'] },
-  { label: 'Audit Log', projects: ['MCP', 'OFF'] },
-  { label: 'RBAC demo', projects: ['MCP'] },
-  { label: 'Provider SPI', projects: ['OFF'] },
-  { label: 'Copy Permission', projects: ['OFF'] },
-  { label: 'CI / Docker / OpenAPI', projects: ['MCP', 'OFF'] },
+  { label: 'Python / pytest', projects: ['QA'] },
+  { label: 'HTTPX / API assertions', projects: ['QA'] },
+  { label: 'Playwright / Chromium', projects: ['QA', 'EVAL'] },
+  { label: 'Authentication / authorization', projects: ['QA'] },
+  { label: 'Stateful workflow / persistence', projects: ['QA', 'EVAL'] },
+  { label: 'JSON / JUnit / HTML reports', projects: ['QA', 'EVAL'] },
+  { label: 'GitHub Actions / Docker Compose', projects: ['QA', 'EVAL', 'MCP', 'OFF'] },
+  { label: 'Fixed dataset / deterministic assertions', projects: ['EVAL'] },
+  { label: 'Agent trace / failure attribution', projects: ['EVAL'] },
+  { label: 'k6 / local load sampling', projects: ['EVAL'] },
+  { label: 'Prometheus / Alertmanager demo', projects: ['EVAL'] },
+  { label: 'Java / Spring Boot', projects: ['EVAL', 'DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'Vue 3 / TypeScript', projects: ['EVAL', 'DF', 'RAG', 'MCP', 'OFF'] },
+  { label: 'RAG / MCP-style tooling', projects: ['RAG', 'MCP'] },
 ]
 
 export const evidenceGroups: EvidenceGroup[] = [
   {
     index: 'G01',
-    title: 'Documentation',
-    description: '说明如何运行，也说明能力做到哪里。',
+    title: 'System Test Automation',
+    description: '本地真实产品目标与可重复接口、浏览器和数据验证。',
     items: [
       {
         index: 'E01',
-        label: 'README',
-        detail: '范围、运行方式与工程边界说明',
-        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
+        label: 'API + AuthZ matrix',
+        detail: 'Gitea 登录身份、管理权限、公开/私有仓库与负向访问断言',
+        projects: ['QA'],
       },
       {
         index: 'E02',
-        label: 'Boundary notes',
-        detail: '明确项目范围、协议兼容与生产能力边界',
-        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
+        label: 'Browser workflow',
+        detail: 'Chromium 登录、建仓、Issue、评论与关闭流程及截图',
+        projects: ['QA'],
+      },
+      {
+        index: 'E03',
+        label: 'Persistence after restart',
+        detail: '容器重启后重新查询仓库和 Issue，验证 SQLite 数据状态',
+        projects: ['QA'],
       },
     ],
   },
   {
     index: 'G02',
-    title: 'Runtime Evidence',
-    description: '由可运行页面和可重复命令留下验证材料。',
+    title: 'Runs, Reports & CI',
+    description: '保留逐次运行、报告完整性和 CI 可复核证据。',
     items: [
       {
-        index: 'E03',
-        label: '真实浏览器截图',
-        detail: '来自五个本地项目的实际页面，不使用概念图冒充',
-        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
-      },
-      {
         index: 'E04',
-        label: 'Playwright screenshots',
-        detail: '固定视口的可重复页面验收',
-        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
+        label: 'Stable run IDs',
+        detail: '固定 case IDs、唯一 run ID、逐条结果、失败原因和耗时',
+        projects: ['QA', 'EVAL'],
       },
       {
         index: 'E05',
-        label: 'Build passed',
-        detail: '以可复现构建结果作为交付证据',
-        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
+        label: 'Cross-checked reports',
+        detail: 'JSON 与 JUnit 总数相互校验，生成 HTML 和浏览器证据',
+        projects: ['QA'],
       },
       {
         index: 'E06',
-        label: 'Trace Evidence',
-        detail: '保留请求、调用与结果之间的解释链',
-        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
+        label: 'GitHub Actions',
+        detail: '在托管 runner 上启动一次性本地系统并上传运行报告',
+        projects: ['QA', 'EVAL', 'MCP', 'OFF'],
+      },
+      {
+        index: 'E07',
+        label: 'Known Agent failures retained',
+        detail: 'Agent Mock 用例 agent-014 / agent-015 保持失败，质量门禁据此失败',
+        projects: ['EVAL'],
       },
     ],
   },
   {
     index: 'G03',
-    title: 'Backend Evidence',
-    description: '通过测试、契约和交付路径证明后端工程工作。',
+    title: 'Agent & Business API Evaluation',
+    description: '把固定 Agent 行为、订单规则、负载采样和观测边界放在一起审查。',
     items: [
       {
-        index: 'E07',
-        label: 'Backend tests',
-        detail: '源项目验收记录：PromptOps 13 项、MCP Tool Gateway 60 项后端测试',
-        projects: ['EVAL', 'MCP'],
-      },
-      {
         index: 'E08',
-        label: 'CI',
-        detail: 'GitHub Actions 自动化校验路径',
-        projects: ['MCP', 'OFF'],
+        label: 'Agent test matrix',
+        detail: '26 个原创合成用例；该次 Mock 运行有 24 条 Agent 行为通过、2 条失败',
+        projects: ['EVAL'],
       },
       {
         index: 'E09',
-        label: 'OpenAPI',
-        detail: '后端接口契约与联调入口',
-        projects: ['MCP'],
+        label: 'Local business load report',
+        detail: '8,103 工作流、40,515 HTTP 请求；记录为本地模拟系统和单活跃 VU 采样',
+        projects: ['EVAL'],
       },
       {
         index: 'E10',
-        label: 'Docker',
-        detail: '可重复的本地容器运行方式',
-        projects: ['MCP'],
+        label: 'Monitoring / alert rehearsal',
+        detail: 'Prometheus 抓取本机服务指标，告警路由到本地证据 sink',
+        projects: ['EVAL'],
       },
-    ],
-  },
-  {
-    index: 'G04',
-    title: 'AI Governance',
-    description: '把回退、审核、权限与审计放进 Agent 链路。',
-    items: [
       {
         index: 'E11',
-        label: 'Human Review',
-        detail: '高风险输出保留人工确认边界',
-        projects: ['DF', 'RAG', 'EVAL', 'MCP', 'OFF'],
-      },
-      {
-        index: 'E12',
-        label: 'Provider fallback',
-        detail: '演示 Provider 不可用时的明确回退路径',
-        projects: ['DF', 'RAG', 'OFF'],
-      },
-      {
-        index: 'E13',
-        label: 'Audit Log',
-        detail: '展示工具调用与策略检查的审计意识',
-        projects: ['MCP'],
-      },
-      {
-        index: 'E14',
-        label: 'RBAC demo',
-        detail: '只表达演示权限边界，不冒充生产鉴权',
-        projects: ['MCP'],
-      },
-      {
-        index: 'E15',
-        label: 'Copy Permission',
-        detail: '复制前需要 Human Review confirmed 与 Copy Permission Contract 通过',
-        projects: ['OFF'],
+        label: 'Engineering background',
+        detail: '其余 AI 应用、RAG、Tool Gateway 和 Java 全栈项目作为测试开发补充背景保留',
+        projects: ['DF', 'RAG', 'MCP', 'OFF'],
       },
     ],
   },
@@ -408,13 +405,13 @@ export const evidenceGroups: EvidenceGroup[] = [
 
 export const projectBoundary = {
   summary:
-    '这些项目是个人作品集和实习求职展示项目，不虚构生产级能力、真实企业客户、真实线上流量或商业数据。',
+    '这是面向测试开发实习的个人工程作品集。Gitea 是本地开源目标，PromptOps 使用 Mock Agent 与本地业务模拟；没有企业生产系统访问权限。',
   focus:
-    '重点展示系统拆解能力、AI Agent 流程理解、Java 后端工程能力、前端产品表达和工程证据意识。',
+    '重点展示测试设计、API / UI 自动化、权限与数据边界、确定性 Agent 断言、运行报告、CI 与本地性能采样。',
   commitments: [
-    '项目范围与边界明确标注',
-    '概念协议不冒充完整实现',
-    '本地样例不冒充生产数据',
-    '真实截图只来自可运行页面',
+    '通过数、失败数和并发数据都链接到具体运行证据',
+    '把执行器成功与 Agent 行为通过分开统计',
+    '本地开源目标和模拟业务不写成生产经历',
+    '保留失败样例、失败报告与负向用例',
   ],
 }
