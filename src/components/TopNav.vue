@@ -24,9 +24,9 @@ const isNavActive = (href: string) => {
 
 <template>
   <header class="top-nav" aria-label="主导航">
-    <RouterLink class="brand-mark" to="/" aria-label="AI 应用开发作品集首页">
+    <RouterLink class="brand-mark" to="/" aria-label="测试开发作品集首页">
       <span>WZL</span>
-      <strong>AI Portfolio</strong>
+      <strong>Test Dev</strong>
     </RouterLink>
 
     <nav class="nav-links" aria-label="页面导航">

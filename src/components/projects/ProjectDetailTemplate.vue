@@ -154,7 +154,7 @@ const modules = computed(() =>
             <h2 id="modules-title">核心页面与模块</h2>
           </div>
           <p>
-            模块不是普通 CRUD 列表，而是围绕 AI 应用开发中的 Prompt、RAG、Trace、Eval、Tool、Review 或 Copy Gate 组织。
+            模块按目标系统的关键链路组织，展示测试输入、执行动作、断言方式、状态变化和可复查的失败证据。
           </p>
         </header>
 
@@ -173,7 +173,7 @@ const modules = computed(() =>
         :groups="detail.engineeringEvidenceGroups"
         kicker="06 / DIFFICULTIES & IMPLEMENTATION"
         title="技术难点与我的实现"
-        description="这里集中说明我实际做了哪些前后端实现、测试、Trace / Review / Eval / Permission 边界，以及哪些能力只作为本地 demo 或下一阶段规划。"
+        description="这里集中说明测试范围、自动化实现、运行与报告证据，以及哪些能力仍然只在本地演练或尚未覆盖。"
       />
 
       <BoundaryPanel :sections="detail.trustPanel" />

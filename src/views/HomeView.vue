@@ -4,6 +4,8 @@ import ProjectShowcase from '../components/ProjectShowcase.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import TopNav from '../components/TopNav.vue'
 import { matchHighlights, navItems, portfolioBoundary, projects } from '../data/portfolio'
+
+const primaryProjects = projects.slice(0, 2)
 </script>
 
 <template>
@@ -18,10 +20,9 @@ import { matchHighlights, navItems, portfolioBoundary, projects } from '../data/
         <div class="section-heading">
           <p class="section-kicker">WHY IT MATCHES</p>
           <div>
-            <h2 id="fit-title">主投 AI 应用开发，不是纯后端，也不是算法包装。</h2>
+            <h2 id="fit-title">面向测试开发岗位，给出可以点开复查的工程证据。</h2>
             <p>
-              作品集重点是把 Java 后端、Vue 前端、AI Workflow、RAG、PromptOps、Trace 与 Human Review
-              做成能运行、能截图、能解释的工程项目。
+              两个主项目分别验证真实开源协作系统和本地 AI Agent / 业务 API。其余项目保留为编码与系统实现背景，不作为主投方向。
             </p>
           </div>
         </div>
@@ -37,7 +38,7 @@ import { matchHighlights, navItems, portfolioBoundary, projects } from '../data/
         </div>
       </section>
 
-      <ProjectShowcase :projects="projects" />
+      <ProjectShowcase :projects="primaryProjects" />
 
       <section class="home-boundary" aria-labelledby="home-boundary-title">
         <p class="section-kicker">BOUNDARY</p>

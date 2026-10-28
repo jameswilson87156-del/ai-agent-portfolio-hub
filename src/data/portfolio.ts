@@ -57,22 +57,20 @@ export type MatchHighlight = {
 
 export const profile = {
   name: '王震龙',
-  role: '软件工程本科 2027 届',
-  title: 'AI 应用开发作品集',
-  subtitle: 'Java + AI 全栈 / RAG / PromptOps / Agent Workflow',
+  role: '软件工程本科 2027 届 · 测试开发方向',
+  title: '测试开发',
+  subtitle: '测试自动化 / API & UI / AI Agent 评测',
   summary:
-    '聚焦 Java + Vue + AI Workflow 工程落地，项目覆盖 Prompt、Provider、RAG、Trace、Human Review、Eval 指标、截图验收与 GitHub 证据链。',
+    '围绕真实开源系统和本地 AI 业务模拟搭建可重复的测试链路：API 权限、浏览器工作流、持久化、Agent 行为断言、运行报告与 CI。',
   directions: [
-    'AI 应用开发实习',
-    'Java + AI 全栈开发',
-    'AI 工具开发',
-    'RAG / PromptOps / Agent 工具平台',
+    '测试开发实习',
+    'Python / pytest / HTTPX',
+    'Playwright / API 自动化',
+    'AI Agent 评测与回归',
   ],
   email: '467113957@qq.com',
   github: 'https://github.com/jameswilson87156-del',
   portfolio: 'https://ai-agent-portfolio-hub.vercel.app/',
-  resume: '/resume/wangzhenlong-ai-application-resume.pdf',
-  portfolioPdf: '/portfolio/wangzhenlong-ai-project-portfolio.pdf',
 }
 
 export const navItems: NavItem[] = [
@@ -82,40 +80,58 @@ export const navItems: NavItem[] = [
 ]
 
 export const contactLinks: ContactLink[] = [
-  { label: '查看核心项目', href: '/projects', kind: 'primary' },
+  { label: '查看测试项目', href: '/projects', kind: 'primary' },
   {
     label: '查看 GitHub',
     href: profile.github,
     kind: 'secondary',
     external: true,
   },
-  {
-    label: '下载简历',
-    href: profile.resume,
-    kind: 'secondary',
-    download: true,
-    downloadName: 'wangzhenlong-ai-application-resume.pdf',
-  },
-  {
-    label: '下载项目作品集',
-    href: profile.portfolioPdf,
-    kind: 'secondary',
-    download: true,
-    downloadName: 'wangzhenlong-ai-project-portfolio.pdf',
-  },
 ]
 
 export const heroSignals: HeroSignal[] = [
-  { label: 'Prompt', caption: 'versioned input', x: '58%', y: '18%', tone: 'cyan' },
-  { label: 'Provider', caption: 'fallback trace', x: '74%', y: '31%', tone: 'amber' },
-  { label: 'RAG', caption: 'citation path', x: '63%', y: '57%', tone: 'cyan' },
-  { label: 'Human Review', caption: 'decision gate', x: '82%', y: '67%', tone: 'amber' },
-  { label: 'Eval', caption: 'regression loop', x: '69%', y: '79%', tone: 'cyan' },
+  { label: 'API', caption: 'contract checks', x: '58%', y: '18%', tone: 'cyan' },
+  { label: 'AuthZ', caption: 'negative cases', x: '74%', y: '31%', tone: 'amber' },
+  { label: 'Browser', caption: 'workflow trace', x: '63%', y: '57%', tone: 'cyan' },
+  { label: 'Agent Eval', caption: 'stable assertions', x: '82%', y: '67%', tone: 'amber' },
+  { label: 'CI', caption: 'run evidence', x: '69%', y: '79%', tone: 'cyan' },
 ]
 
 export const projects: ProjectItem[] = [
   {
     index: '01',
+    href: '/projects/gitea-quality-lab',
+    githubUrl: 'https://github.com/jameswilson87156-del/gitea-quality-lab',
+    title: 'Gitea Quality Lab',
+    subtitle: 'Open-source Product QA',
+    position: '真实开源产品的 API / 浏览器 / 持久化测试',
+    problem:
+      '针对本地 Gitea 28.2.0 构建可重复黑盒回归，验证身份权限、仓库与 Issue 工作流、浏览器操作和容器重启后的数据状态。',
+    stack: ['Python 3.12', 'pytest', 'HTTPX', 'Playwright', 'Docker Compose'],
+    metrics: ['24 个测试框架单测', '16 条本地 Gitea 集成用例', 'JSON / JUnit / HTML 报告', 'GitHub Actions 验证'],
+    boundary:
+      '测试对象是本地自建的开源 Gitea 28.2.0，不代表企业生产系统、线上流量或生产容量。',
+    tags: ['API', 'AuthZ', 'Browser', 'Persistence'],
+    tone: 'cyan',
+  },
+  {
+    index: '02',
+    href: '/projects/promptops',
+    githubUrl: 'https://github.com/jameswilson87156-del/ai-agent-eval-promptops',
+    title: 'PromptOps Studio',
+    subtitle: 'Agent Evaluation & Test Lab',
+    position: 'Agent 行为评测 + 本地订单退款模拟测试',
+    problem:
+      '将固定 Agent 测试集、逐条行为断言、Trace、失败归因，以及订单/退款 API 的重复执行、稳定性与本地负载采样放进一套可复查工程。',
+    stack: ['Vue 3', 'Spring Boot', 'Java 17', 'pytest', 'k6', 'Prometheus'],
+    metrics: ['26 条合成 Agent 用例', '24 通过 / 2 保留失败', '8,103 条本地业务工作流', '本轮活跃 VU 峰值 1'],
+    boundary:
+      'Agent 评测默认使用确定性 Mock；订单/退款只写本地模拟系统。k6 数据是本地采样，不是生产容量结论。',
+    tags: ['Agent Eval', 'API', 'k6', 'Monitoring'],
+    tone: 'blue',
+  },
+  {
+    index: '03',
     href: '/projects/devflow',
     githubUrl: 'https://github.com/jameswilson87156-del/devflow-copilot',
     title: 'DevFlow Copilot',
@@ -130,7 +146,7 @@ export const projects: ProjectItem[] = [
     tone: 'cyan',
   },
   {
-    index: '02',
+    index: '04',
     href: '/projects/ticket-rag',
     githubUrl: 'https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot',
     title: 'Enterprise Ticket RAG Copilot',
@@ -145,22 +161,7 @@ export const projects: ProjectItem[] = [
     tone: 'blue',
   },
   {
-    index: '03',
-    href: '/projects/promptops',
-    githubUrl: 'https://github.com/jameswilson87156-del/ai-agent-eval-promptops',
-    title: 'PromptOps Studio',
-    subtitle: 'Prompt Evaluation Console',
-    position: 'Prompt 评测与回归控制台',
-    problem:
-      '管理 Prompt 版本、Dataset、Eval Run、Case Result、Output Compare、Trace 与 Failure Cases，形成可复盘的本地回归闭环。',
-    stack: ['Vue 3', 'TypeScript', 'Vite', 'Java 17', 'Spring Boot 3.3', 'Rule-based Eval'],
-    metrics: ['8 个 Showcase 页面', '13 个后端测试', 'Rule-based Eval', 'Output Compare'],
-    boundary: 'Local Demo / Mock Output / Rule-based Eval；规则评分只用于本地回归演示。',
-    tags: ['Prompt Version', 'Dataset', 'Eval Run', 'Failure Cases'],
-    tone: 'cyan',
-  },
-  {
-    index: '04',
+    index: '05',
     href: '/projects/offerflow',
     githubUrl: 'https://github.com/jameswilson87156-del/offerflow-copilot',
     title: 'OfferFlow Copilot',
@@ -175,7 +176,7 @@ export const projects: ProjectItem[] = [
     tone: 'blue',
   },
   {
-    index: '05',
+    index: '06',
     href: '/projects/mcp-gateway',
     githubUrl: 'https://github.com/jameswilson87156-del/mcp-tool-gateway',
     title: 'MCP Tool Gateway',
@@ -193,32 +194,39 @@ export const projects: ProjectItem[] = [
 
 export const matchHighlights: MatchHighlight[] = [
   {
-    title: 'Java 后端基础',
+    title: 'API 测试与服务端验证',
     detail:
-      '用 Spring Boot、API、测试、持久化、Trace / Audit 数据链路承载 AI workflow，而不是只做静态展示页。',
-    tags: ['Spring Boot', 'Java 17', 'API', 'Tests'],
+      '用 HTTPX / pytest 检查身份、权限、输入校验和状态流转，并通过容器重启验证持久化结果。',
+    tags: ['HTTPX', 'pytest', 'AuthZ', 'SQLite'],
   },
   {
-    title: 'Vue / TypeScript 产品表达',
+    title: '浏览器自动化与端到端流程',
     detail:
-      '把 Prompt、RAG、Eval、Tool、Review 等抽象流程做成可演示、可截图、可面试讲清楚的前端控制台。',
-    tags: ['Vue 3', 'TypeScript', 'Vite', 'Playwright'],
+      '使用 Playwright 覆盖登录、仓库创建、Issue 评论与关闭；保留截图和失败 Trace 作为定位证据。',
+    tags: ['Playwright', 'Chromium', 'Trace', 'Screenshots'],
   },
   {
-    title: 'AI Workflow 工程边界',
+    title: 'Agent 评测与回归判断',
     detail:
-      '重点展示 Prompt、Provider、RAG、Trace、Human Review、Rule-based Eval 与 Copy Permission 的工程闭环。',
-    tags: ['RAG', 'PromptOps', 'Agent Workflow', 'Human Review'],
+      '对固定合成集执行确定性行为断言，区分执行器成功与 Agent 行为通过，并保留两条可重复失败。',
+    tags: ['26 Cases', 'Mock Agent', 'Failure Attribution', 'Regression'],
+  },
+  {
+    title: 'CI、报告与边界清晰',
+    detail:
+      '通过 GitHub Actions 运行本地开源目标测试并上传报告；性能采样只报告本机测量和实际活跃并发。',
+    tags: ['GitHub Actions', 'JSON / JUnit', 'k6', 'Local only'],
   },
 ]
 
 export const portfolioBoundary = {
-  title: '作品集边界',
+  title: '测试证据与能力边界',
   summary:
-    '这些项目用于求职投递和面试讲解，重点展示 AI 应用开发的工程拆解、前后端实现、截图验收和 GitHub 证据链。',
+    '两个主项目分别测试开源业务系统与 AI Agent 工作流，所有数字都对应仓库中的测试记录或运行报告。它们是个人本地实验，不是企业生产经历。',
   items: [
-    '项目数据来自对应 README、测试记录、指标脚本或真实浏览器截图。',
-    'mock、local-rule fallback、synthetic cases、rule-based eval、manual dry-run 都按边界标签展示。',
-    'Hero mountain image is a visual portfolio asset, not runtime project evidence.',
+    'Gitea 用例运行在本地 Docker Compose；CI 使用托管 runner 启动一次性本地 Gitea。',
+    'PromptOps 的 26 条 Agent 用例使用确定性 Mock；其中 2 条预期保留的 Agent 行为失败没有被隐藏。',
+    '本地订单/退款负载采样活跃 VU 峰值为 1，不能据此推算生产并发或生产容量。',
+    '山峰图是作品集视觉素材；项目证据来自源仓库、运行报告和真实浏览器截图。',
   ],
 }

@@ -1,6 +1,6 @@
-# 王震龙｜AI 应用开发作品集
+# 王震龙｜测试开发作品集
 
-用于求职投递的 AI 应用开发作品集官网，配合简历、Boss 直聘、智联校园、GitHub Profile 和技术面试沟通使用。
+面向测试开发实习的个人项目档案。主线展示真实开源系统自动化与 AI Agent / 本地业务 API 评测；原有 AI 应用项目继续作为工程背景。
 
 Live Portfolio: [https://ai-agent-portfolio-hub.vercel.app/](https://ai-agent-portfolio-hub.vercel.app/)
 
@@ -10,114 +10,82 @@ Contact: 467113957@qq.com
 
 ## Positioning
 
-- 身份：王震龙｜软件工程本科 2027 届
-- 主投方向：AI 应用开发实习 / Java + AI 全栈开发 / AI 工具开发 / RAG / PromptOps / Agent 工具平台
-- 技术主线：Java + Vue + AI Workflow 工程落地
-- 证据链：GitHub、真实项目截图、测试记录、评测样本、截图验收与项目边界说明
+- 身份：王震龙｜软件工程本科 2027 届｜测试开发方向
+- 主投方向：测试开发实习 / 测试自动化 / AI Agent 评测
+- 技术主线：Python、pytest、HTTPX、Playwright、Docker Compose、GitHub Actions；补充 Java / Spring Boot、k6 与本地可观测性
+- 证据链：源代码、固定测试集、运行报告、CI run、真实浏览器截图和明确的测试边界
 
 ## Current Pages
 
-- `/` — 大山 Hero 首页与核心项目入口
-- `/projects` — 核心项目证据索引
-- `/projects/devflow` — DevFlow Copilot case study
-- `/projects/ticket-rag` — Enterprise Ticket RAG Copilot case study
-- `/projects/promptops` — PromptOps Studio case study
-- `/projects/offerflow` — OfferFlow Copilot case study
-- `/projects/mcp-gateway` — MCP Tool Gateway case study
+- `/` — 测试开发方向首页与两个主项目
+- `/projects` — 主项目、能力映射与工程背景索引
+- `/projects/gitea-quality-lab` — 本地 Gitea API / 浏览器 / 持久化测试
+- `/projects/promptops` — Agent 评测、本地订单退款模拟 API、稳定性与监控演练
+- `/projects/devflow` — DevFlow Copilot engineering background
+- `/projects/ticket-rag` — Enterprise Ticket RAG engineering background
+- `/projects/offerflow` — OfferFlow Copilot engineering background
+- `/projects/mcp-gateway` — MCP Tool Gateway engineering background
 
-## Downloads
+## Resume status
 
-- Resume PDF: `/resume/wangzhenlong-ai-application-resume.pdf`
-- Project Portfolio PDF: `/portfolio/wangzhenlong-ai-project-portfolio.pdf`
+当前网页不提供旧的 AI 应用开发方向简历下载。测试开发版简历应基于本人核实的实习职责、时间、技术与结果后发布；不从作品集项目推断工作经历。
 
-Both public paths use ASCII filenames to avoid deployment/download issues.
+## Main Projects
 
-## Core Projects
-
-| Order | Project | Focus | Source |
+| Order | Project | Verified focus | Source |
 |---:|---|---|---|
-| 01 | DevFlow Copilot | AI Coding Workbench / Prompt → Provider → Trace → Tool Call → Human Review | [GitHub](https://github.com/jameswilson87156-del/devflow-copilot) |
-| 02 | Enterprise Ticket RAG Copilot | Ticket Workbench / keyword retrieval / Citation Evidence / Trace Timeline / Human Review | [GitHub](https://github.com/jameswilson87156-del/enterprise-ai-ticket-copilot) |
-| 03 | PromptOps Studio | Prompt Version / Dataset / Batch Evaluation / Output Compare / Failure Cases | [GitHub](https://github.com/jameswilson87156-del/ai-agent-eval-promptops) |
-| 04 | OfferFlow Copilot | JD Intake / Resume Evidence / Provider Trace / Human Review / Copy Permission | [GitHub](https://github.com/jameswilson87156-del/offerflow-copilot) |
-| 05 | MCP Tool Gateway | Tool Registry / Policy Check / Trace Evidence / Audit Log / MCP-style JSON-RPC adapter demo | [GitHub](https://github.com/jameswilson87156-del/mcp-tool-gateway) |
+| 01 | Gitea Quality Lab | Gitea 28.2.0 local target / API AuthN + AuthZ / Playwright / SQLite restart persistence / JSON-JUnit-HTML | [GitHub](https://github.com/jameswilson87156-del/gitea-quality-lab) |
+| 02 | PromptOps Studio | Fixed Agent cases / deterministic Mock / failure Trace / order-refund simulator / k6 / monitoring rehearsal | [GitHub](https://github.com/jameswilson87156-del/ai-agent-eval-promptops) |
 
-## Hero Visual Asset Boundary
+DevFlow Copilot, Enterprise Ticket RAG Copilot, OfferFlow Copilot, and MCP Tool Gateway remain available as supporting engineering background projects.
 
-`public/images/hero/ai-mountain-hero.png` is the homepage brand visual.
+## Evidence Boundary
 
-Hero mountain image is a visual portfolio asset, not runtime project evidence.
-
-Project evidence must continue to come from source project README files, metrics docs, tests, acceptance docs, or real browser screenshots under `public/images/projects/`.
+- Gitea evidence comes from a local Docker Compose target. GitHub Actions starts an ephemeral local Gitea instance on the hosted runner; neither path tests a company production system.
+- The recorded Gitea evidence includes 24 harness unit tests and 16 API / browser / persistence integration cases. The 16/16 outcome applies to the authored cases, not every Gitea feature.
+- PromptOps Agent results use a deterministic Mock Agent and 26 synthetic cases. The recorded run has 24 Agent behavior passes and 2 retained behavior failures; the executor completed all 26.
+- PromptOps' local order/refund simulator recorded 8,103 workflows and 40,515 HTTP requests with zero workflow failures and dropped iterations. The run's peak active VU was 1, so this is not a production capacity result.
+- The latest public PromptOps acceptance did not send external model requests. Optional provider configuration is not a claim of model quality validation.
+- `public/images/hero/ai-mountain-hero.png` is a visual portfolio asset, not runtime evidence. Project screenshots come from source project runs.
+- The site does not claim company experience, production monitoring, production-scale traffic, model quality, adoption, or business outcomes.
 
 ## Screenshot Evidence
 
-`docs/images/` contains real browser screenshots generated from this portfolio app with `npm run screenshots`:
+`docs/images/` contains browser screenshots generated from this portfolio using `npm run screenshots`:
 
 - `docs/images/home.png`
-- `docs/images/portfolio-home.png`
 - `docs/images/projects-overview.png`
-- `docs/images/devflow-detail.png`
-- `docs/images/ticket-rag-detail.png`
+- `docs/images/gitea-quality-detail.png`
 - `docs/images/promptops-detail.png`
 - `docs/images/offerflow-detail.png`
 - `docs/images/mcp-gateway-detail.png`
 
-`docs/images/large/` contains larger desktop captures, including `docs/images/large/home.png`.
+`docs/images/mobile/` and `docs/images/review/` contain additional responsive captures from the same script.
 
-`docs/images/mobile/` contains 390px mobile captures.
-
-`docs/images/review/` contains additional homepage review captures such as 430px, 768px, and 1366px widths.
-
-## Source Screenshot Directories
-
-- `public/images/projects/devflow/`
-- `public/images/projects/ticket-rag/`
-- `public/images/projects/promptops/`
-- `public/images/projects/offerflow/`
-- `public/images/projects/mcp/`
-
-Design or hero images are not project runtime evidence.
+Source project evidence is copied to `public/images/projects/` with its repository path and local-run provenance shown on the case-study page.
 
 ## Tech Stack
 
-- Vue 3
-- Vue Router
-- TypeScript
-- Vite
-- Native CSS
-- Playwright screenshots
+- Vue 3, Vue Router, TypeScript, Vite, native CSS
+- Playwright screenshot and route checks
 - Vercel static deployment
-
-## Boundaries
-
-- This repository is a static portfolio frontend.
-- Case-study claims must be traceable to each source project README, docs, tests, metrics, or real screenshots.
-- DevFlow keeps its local-rule default and documents Provider configuration separately.
-- Ticket RAG metrics are from a labeled synthetic dataset and keyword retrieval baseline.
-- PromptOps Studio uses Mock Output and Rule-based Eval for local regression demonstration.
-- OfferFlow external Provider flow is disabled by default and described only as a manual dry-run path.
-- MCP Tool Gateway is described as MCP-style adapter demo.
-- The site avoids unsupported claims about adoption, traffic, business outcomes, model quality, or unverified platform capability.
 
 ## Quick Start
 
-```bash
-npm install
+```powershell
+npm ci
 npm run dev
 npm run build
 npm run screenshots
 ```
 
-`npm run screenshots` starts a local Vite server, verifies 390 / 430 / 768 / 1366px widths for horizontal overflow, checks that the homepage includes the mountain hero, and captures the portfolio routes.
+The screenshot workflow checks 390 / 430 / 768 / 1366px widths for horizontal overflow and captures the homepage and case-study routes.
 
-## Final Checks
+## Local Verification
 
-```bash
+```powershell
 npm run build
 npm run screenshots
 git diff --check
 git status --short
 ```
-
-Deployment notes are tracked in [docs/deployment.md](docs/deployment.md).

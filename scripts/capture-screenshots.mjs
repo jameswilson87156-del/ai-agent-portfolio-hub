@@ -14,6 +14,7 @@ const reviewImageDir = path.join(imageDir, 'review')
 const routes = [
   '/',
   '/projects',
+  '/projects/gitea-quality-lab',
   '/projects/devflow',
   '/projects/ticket-rag',
   '/projects/promptops',
@@ -76,6 +77,20 @@ const captures = [
   {
     route: '/projects',
     path: path.join(largeImageDir, 'projects-overview.png'),
+    width: 1920,
+    height: 1080,
+    fullPage: true,
+  },
+  {
+    route: '/projects/gitea-quality-lab',
+    path: path.join(imageDir, 'gitea-quality-detail.png'),
+    width: 1440,
+    height: 900,
+    fullPage: true,
+  },
+  {
+    route: '/projects/gitea-quality-lab',
+    path: path.join(largeImageDir, 'gitea-quality-detail.png'),
     width: 1920,
     height: 1080,
     fullPage: true,
@@ -165,6 +180,13 @@ const captures = [
     fullPage: true,
   },
   {
+    route: '/projects/gitea-quality-lab',
+    path: path.join(mobileImageDir, 'gitea-quality-detail-390.png'),
+    width: 390,
+    height: 844,
+    fullPage: true,
+  },
+  {
     route: '/projects/devflow',
     path: path.join(mobileImageDir, 'devflow-detail-390.png'),
     width: 390,
@@ -236,6 +258,57 @@ async function waitForPageReady(page) {
   await page.waitForTimeout(900)
 }
 
+async function checkPrimaryNavigation(browser, url) {
+  const page = await browser.newPage({
+    viewport: { width: 1366, height: 900 },
+    deviceScaleFactor: 1,
+  })
+  const pageErrors = []
+  page.on('pageerror', (error) => pageErrors.push(error.message))
+
+  try {
+    await page.goto(new URL('/', url).toString(), { waitUntil: 'networkidle' })
+    await page.getByRole('link', { name: /查看测试项目/ }).click()
+    await page.waitForURL('**/projects')
+    await page.locator('#gitea-quality-lab').waitFor()
+
+    await page
+      .locator('#gitea-quality-lab .case-card__details--available')
+      .filter({ hasText: 'Case Study' })
+      .click()
+    await page.waitForURL('**/projects/gitea-quality-lab')
+    await page.getByRole('heading', { name: 'Gitea Quality Lab', level: 1 }).waitFor()
+
+    const giteaImages = await page.locator('.screenshot-item img').evaluateAll((images) =>
+      images.filter((image) => !image.complete || image.naturalWidth === 0).length,
+    )
+    if (giteaImages > 0) {
+      throw new Error(`Gitea detail has ${giteaImages} broken screenshot image(s)`)
+    }
+
+    await page.goto(new URL('/projects', url).toString(), { waitUntil: 'networkidle' })
+    await page
+      .locator('#promptops .case-card__details--available')
+      .filter({ hasText: 'Case Study' })
+      .click()
+    await page.waitForURL('**/projects/promptops')
+    await page.getByRole('heading', { name: 'PromptOps Studio', level: 1 }).waitFor()
+
+    const promptOpsImages = await page.locator('.screenshot-item img').evaluateAll((images) =>
+      images.filter((image) => !image.complete || image.naturalWidth === 0).length,
+    )
+    if (promptOpsImages > 0) {
+      throw new Error(`PromptOps detail has ${promptOpsImages} broken screenshot image(s)`)
+    }
+
+    if (pageErrors.length > 0) {
+      throw new Error(`Browser page errors: ${pageErrors.join('; ')}`)
+    }
+  } finally {
+    await page.close()
+  }
+}
+
 await mkdir(imageDir, { recursive: true })
 await mkdir(largeImageDir, { recursive: true })
 await mkdir(mobileImageDir, { recursive: true })
@@ -291,6 +364,8 @@ try {
     await page.close()
   }
 
+  await checkPrimaryNavigation(browser, url)
+
   for (const capture of captures) {
     const page = await browser.newPage({
       viewport: {
@@ -309,7 +384,7 @@ try {
   }
 
   console.log(
-    `Checked ${viewportChecks.length} route/viewports and captured ${captures.length} screenshots from ${url}`,
+    `Checked ${viewportChecks.length} route/viewports, two primary navigation flows, screenshot assets, and captured ${captures.length} screenshots from ${url}`,
   )
 } finally {
   await browser?.close()

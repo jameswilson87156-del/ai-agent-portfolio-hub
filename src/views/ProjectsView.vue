@@ -14,7 +14,14 @@ import {
   projectBoundary,
 } from '../data/projects'
 
-const projectOrder = ['devflow', 'ticket-rag', 'promptops', 'offerflow', 'mcp-gateway'] as const
+const projectOrder = [
+  'gitea-quality-lab',
+  'promptops',
+  'devflow',
+  'ticket-rag',
+  'offerflow',
+  'mcp-gateway',
+] as const
 
 const orderedCaseStudyProjects = computed(() =>
   projectOrder
@@ -33,6 +40,9 @@ const orderedCaseStudyProjects = computed(() =>
         : []
     }),
 )
+
+const primaryProjects = computed(() => orderedCaseStudyProjects.value.slice(0, 2))
+const engineeringBackgroundProjects = computed(() => orderedCaseStudyProjects.value.slice(2))
 </script>
 
 <template>
@@ -43,35 +53,47 @@ const orderedCaseStudyProjects = computed(() =>
     <main class="projects-main">
       <header class="projects-intro" aria-labelledby="projects-title">
         <div class="projects-intro__copy">
-          <p class="projects-intro__kicker">CORE AI APPLICATION PROJECTS</p>
-          <h1 id="projects-title">项目证据</h1>
+          <p class="projects-intro__kicker">TEST DEVELOPMENT / PROJECT EVIDENCE</p>
+          <h1 id="projects-title">测试开发</h1>
           <p class="projects-intro__lead">
-            五个 AI 应用开发项目，覆盖 AI Coding、企业工单 RAG、PromptOps、求职 AI workflow 和 Agent Tool Gateway。
-            每个项目都保留 GitHub、真实截图、关键数据和边界说明。
+            两个主项目分别覆盖真实开源系统测试与 AI Agent / 本地业务 API 评测。每个项目都能从页面跳到源代码、运行报告和边界说明。
           </p>
           <p class="projects-intro__audience">
-            面向 AI 应用开发实习 / Java + AI 全栈开发 / AI 工具开发 / RAG / PromptOps / Agent 工具平台方向。
+            主投测试开发实习：API、权限、浏览器自动化、持久化、固定数据集、Trace、CI 与本地稳定性验证。
           </p>
         </div>
 
-        <aside class="projects-intro__rail" aria-label="五个项目定位">
-          <span>01 · AI Coding Workflow</span>
-          <span>02 · Explainable Ticket RAG</span>
-          <span>03 · Prompt Eval & Regression</span>
-          <span>04 · Evidence-first Job Workflow</span>
-          <span>05 · Tool Gateway Governance</span>
+        <aside class="projects-intro__rail" aria-label="项目档案结构">
+          <span>01 · Open-source API / UI QA</span>
+          <span>02 · Agent Eval / Business API</span>
+          <span>03–07 · Engineering background</span>
         </aside>
       </header>
 
       <section class="case-index" aria-labelledby="case-index-title">
         <header class="case-index__heading">
-          <p class="section-kicker">01 / CORE PROJECTS</p>
-          <h2 id="case-index-title">五个项目，分别对应 AI 应用开发的五类工程问题。</h2>
+          <p class="section-kicker">01 / TEST DEVELOPMENT</p>
+          <h2 id="case-index-title">两条主线：测试真实产品行为，评测 Agent 与业务 API。</h2>
         </header>
 
         <div class="case-index__list">
           <ProjectCaseCard
-            v-for="project in orderedCaseStudyProjects"
+            v-for="project in primaryProjects"
+            :key="project.slug"
+            :project="project"
+          />
+        </div>
+      </section>
+
+      <section class="case-index engineering-background" aria-labelledby="engineering-background-title">
+        <header class="case-index__heading">
+          <p class="section-kicker">02 / SUPPORTING ENGINEERING</p>
+          <h2 id="engineering-background-title">其余项目保留为编码、系统拆解和 AI 工作流工程背景。</h2>
+        </header>
+
+        <div class="case-index__list">
+          <ProjectCaseCard
+            v-for="project in engineeringBackgroundProjects"
             :key="project.slug"
             :project="project"
           />
