@@ -258,6 +258,28 @@ async function waitForPageReady(page) {
   await page.waitForTimeout(900)
 }
 
+function parseRgb(value) {
+  const match = value.match(/^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/)
+  if (!match) throw new Error(`Unsupported homepage heading color: ${value}`)
+  return match.slice(1).map(Number)
+}
+
+function relativeLuminance([red, green, blue]) {
+  const linear = [red, green, blue].map((channel) => {
+    const normalized = channel / 255
+    return normalized <= 0.04045
+      ? normalized / 12.92
+      : ((normalized + 0.055) / 1.055) ** 2.4
+  })
+  return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722
+}
+
+function contrastRatio(foreground, background) {
+  const values = [relativeLuminance(foreground), relativeLuminance(background)]
+  const [light, dark] = values.sort((first, second) => second - first)
+  return (light + 0.05) / (dark + 0.05)
+}
+
 async function checkPrimaryNavigation(browser, url) {
   const page = await browser.newPage({
     viewport: { width: 1366, height: 900 },
@@ -349,6 +371,12 @@ try {
       innerWidth: window.innerWidth,
       hasMountainHero: Boolean(document.querySelector('.mountain-hero')),
       hasMountainImage: Boolean(document.querySelector('img[src="/images/hero/ai-mountain-hero.png"]')),
+      homepageCanvas: document.querySelector('.portfolio-home')
+        ? getComputedStyle(document.querySelector('.portfolio-home')).backgroundImage
+        : '',
+      fitHeadingColor: document.querySelector('#fit-title')
+        ? getComputedStyle(document.querySelector('#fit-title')).color
+        : '',
     }))
 
     if (metrics.scrollWidth > metrics.innerWidth + 1) {
@@ -359,6 +387,23 @@ try {
 
     if (check.route === '/' && (!metrics.hasMountainHero || !metrics.hasMountainImage)) {
       throw new Error(`Mountain hero was not found on homepage at ${check.width}px`)
+    }
+
+    if (check.route === '/') {
+      const foreground = parseRgb(metrics.fitHeadingColor)
+      const backgroundStops = [...metrics.homepageCanvas.matchAll(/rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)/g)]
+        .map(([color]) => parseRgb(color))
+
+      if (backgroundStops.length < 2) {
+        throw new Error(`Homepage canvas gradient is missing color stops at ${check.width}px`)
+      }
+
+      const lowestContrast = Math.min(...backgroundStops.map((background) => contrastRatio(foreground, background)))
+      if (lowestContrast < 4.5) {
+        throw new Error(
+          `Homepage fit heading contrast is ${lowestContrast.toFixed(2)}:1 at ${check.width}px; expected at least 4.5:1`,
+        )
+      }
     }
 
     await page.close()

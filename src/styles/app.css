@@ -2825,8 +2825,9 @@
 
 /* PDF-aligned cinematic correction: keep the mountain, remove the oversized poster feel. */
 .portfolio-home {
-  background:
-    linear-gradient(180deg, #06090f 0%, #07101a 40%, #eef5f8 40%, #f7fbfd 100%);
+  /* Keep text-led sections on a stable light canvas; percentage stops on this
+     full-page background made heading contrast depend on document height. */
+  background: linear-gradient(180deg, #f4f8fb 0%, #f7fbfd 100%);
 }
 
 .portfolio-home .top-nav {
