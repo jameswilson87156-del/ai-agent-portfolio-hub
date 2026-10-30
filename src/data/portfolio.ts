@@ -47,6 +47,11 @@ export type ProjectItem = {
   boundary: string
   tags: string[]
   tone: 'cyan' | 'blue'
+  evidence?: {
+    src: string
+    alt: string
+    caption: string
+  }
 }
 
 export type MatchHighlight = {
@@ -108,11 +113,16 @@ export const projects: ProjectItem[] = [
     problem:
       '针对本地 Gitea 28.2.0 构建可重复黑盒回归，验证身份权限、仓库与 Issue 工作流、浏览器操作和容器重启后的数据状态。',
     stack: ['Python 3.12', 'pytest', 'HTTPX', 'Playwright', 'Docker Compose'],
-    metrics: ['24 个测试框架单测', '16 条本地 Gitea 集成用例', 'JSON / JUnit / HTML 报告', 'GitHub Actions 验证'],
+    metrics: ['27 个测试框架单测', '18 条本地 Gitea 集成用例', 'JSON / JUnit / HTML 报告', 'GitHub Actions 验证'],
     boundary:
       '测试对象是本地自建的开源 Gitea 28.2.0，不代表企业生产系统、线上流量或生产容量。',
     tags: ['API', 'AuthZ', 'Browser', 'Persistence'],
     tone: 'cyan',
+    evidence: {
+      src: '/images/projects/gitea-quality-lab/browser-workflow-20261028.png',
+      alt: '本地 Gitea 浏览器自动化完成创建 Issue、评论并关闭的实际页面',
+      caption: 'Playwright 浏览器工作流 · Gitea 28.2.0 本地实例',
+    },
   },
   {
     index: '02',
@@ -124,11 +134,16 @@ export const projects: ProjectItem[] = [
     problem:
       '将固定 Agent 测试集、逐条行为断言、Trace、失败归因，以及订单/退款 API 的重复执行、稳定性与本地负载采样放进一套可复查工程。',
     stack: ['Vue 3', 'Spring Boot', 'Java 17', 'pytest', 'k6', 'Prometheus'],
-    metrics: ['26 条合成 Agent 用例', '24 通过 / 2 保留失败', '8,103 条本地业务工作流', '本轮活跃 VU 峰值 1'],
+    metrics: ['38 条 Mock Agent 用例', '36 通过 / 2 保留失败', '4,112 条本地完整业务工作流', '闭环阶梯峰值 50 VU'],
     boundary:
       'Agent 评测默认使用确定性 Mock；订单/退款只写本地模拟系统。k6 数据是本地采样，不是生产容量结论。',
     tags: ['Agent Eval', 'API', 'k6', 'Monitoring'],
     tone: 'blue',
+    evidence: {
+      src: '/images/projects/promptops/failure-trace-20261028.png',
+      alt: 'PromptOps Studio 中一条 Agent 用例失败详情，展示实际输出、断言失败原因和逐步 Trace',
+      caption: '失败归因与 Trace · Mock 行为评测',
+    },
   },
   {
     index: '03',
@@ -209,7 +224,7 @@ export const matchHighlights: MatchHighlight[] = [
     title: 'Agent 评测与回归判断',
     detail:
       '对固定合成集执行确定性行为断言，区分执行器成功与 Agent 行为通过，并保留两条可重复失败。',
-    tags: ['26 Cases', 'Mock Agent', 'Failure Attribution', 'Regression'],
+    tags: ['38 Cases', 'Mock Agent', 'Failure Attribution', 'Regression'],
   },
   {
     title: 'CI、报告与边界清晰',
@@ -225,8 +240,8 @@ export const portfolioBoundary = {
     '两个主项目分别测试开源业务系统与 AI Agent 工作流，所有数字都对应仓库中的测试记录或运行报告。它们是个人本地实验，不是企业生产经历。',
   items: [
     'Gitea 用例运行在本地 Docker Compose；CI 使用托管 runner 启动一次性本地 Gitea。',
-    'PromptOps 的 26 条 Agent 用例使用确定性 Mock；其中 2 条预期保留的 Agent 行为失败没有被隐藏。',
-    '本地订单/退款负载采样活跃 VU 峰值为 1，不能据此推算生产并发或生产容量。',
-    '山峰图是作品集视觉素材；项目证据来自源仓库、运行报告和真实浏览器截图。',
+    'PromptOps 的 Agent 行为用例使用确定性 Mock；最新 v1.1.0 运行 38 条，其中 2 条预期保留失败。',
+    '本地订单/退款闭环阶梯场景实测峰值 50 active VU；旧 arrival-rate 场景峰值 1 VU。两者均不是生产容量证据。',
+    '另有 40 条独立模型评测草案，人工审核 0/40；两条 DeepSeek 路由探索记录不代表准确率或排名。',
   ],
 }

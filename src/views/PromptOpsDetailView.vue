@@ -14,6 +14,6 @@ import { promptOpsDetail } from '../data/projectDetails'
     architecture-title="Agent & Business API Test Chain"
     architecture-description="固定数据集先验证 Agent 执行器和逐条断言；独立模拟业务 API 再覆盖状态流转、重复执行、监控与受限负载采样。"
     :architecture-stages="['DATASET + MOCK AGENT', 'ASSERTIONS + TRACE', 'BUSINESS API + CI']"
-    screenshot-intro="以下是 2026-10-28 PromptOps Agent Eval 页面真实浏览器截图，来自源项目本地 Mock 验收。页面里的运行与失败数对应保存记录；Mock 结果不是模型基准。"
+    screenshot-intro="以下为 2026-10-28 PromptOps 页面真实浏览器截图，记录的是当时 26-case Mock 界面快照；当前固定集已升至 v1.1.0 / 38 条。Mock 结果不是模型基准。"
   />
 </template>

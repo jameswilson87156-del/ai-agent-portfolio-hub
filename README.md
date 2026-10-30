@@ -42,10 +42,9 @@ DevFlow Copilot, Enterprise Ticket RAG Copilot, OfferFlow Copilot, and MCP Tool 
 ## Evidence Boundary
 
 - Gitea evidence comes from a local Docker Compose target. GitHub Actions starts an ephemeral local Gitea instance on the hosted runner; neither path tests a company production system.
-- The recorded Gitea evidence includes 24 harness unit tests and 16 API / browser / persistence integration cases. The 16/16 outcome applies to the authored cases, not every Gitea feature.
-- PromptOps Agent results use a deterministic Mock Agent and 26 synthetic cases. The recorded run has 24 Agent behavior passes and 2 retained behavior failures; the executor completed all 26.
-- PromptOps' local order/refund simulator recorded 8,103 workflows and 40,515 HTTP requests with zero workflow failures and dropped iterations. The run's peak active VU was 1, so this is not a production capacity result.
-- The latest public PromptOps acceptance did not send external model requests. Optional provider configuration is not a claim of model quality validation.
+- The latest recorded Gitea evidence includes 27 harness unit tests and 18 API / browser / persistence integration cases (18/18 passed against local Gitea 28.2.0). The 18/18 outcome applies to the authored cases, not every Gitea feature.
+- PromptOps' current deterministic Mock dataset is v1.1.0 with 38 synthetic cases. Its recorded run completed all 38: 36 Agent behavior passes and 2 retained failures. A separate 2026-10-30 closed-loop k6 ramp reached 50 active VUs and completed 4,112 workflows / 20,560 HTTP requests with zero workflow failures or dropped iterations; HTTP p95 was 2.60 ms. This is a local Docker/H2 observation, not production capacity evidence. The older constant-arrival run remains separate at 8,103 workflows / 40,515 requests with a peak of 1 active VU.
+- A separate XEM CLI exploration ran 24 synthetic development cases against two DeepSeek routes: 43 matched and 5 missed current draft assertions across 48 unique combinations; the dataset has 0/40 human-approved gold cases and `benchmark_eligible=false`. These are not model accuracy or ranking claims. The public browser UI/CI Mock acceptance does not send real-model requests.
 - `public/images/hero/ai-mountain-hero.png` is a visual portfolio asset, not runtime evidence. Project screenshots come from source project runs.
 - The site does not claim company experience, production monitoring, production-scale traffic, model quality, adoption, or business outcomes.
 
