@@ -72,8 +72,8 @@ export const caseStudyProjects: CaseStudyProject[] = [
     ],
     stack: ['Python 3.12', 'pytest', 'HTTPX', 'Playwright', 'Docker Compose', 'SQLite'],
     evidence: [
-      '24 harness unit tests',
-      '16 local API / browser / persistence cases',
+      '27 harness unit tests',
+      '18 local API / browser / persistence cases',
       'GitHub Actions run #40710451708 passed',
       'JSON / JUnit / HTML reports + screenshot',
     ],
@@ -100,7 +100,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
     problem:
       '为 AI Agent 设计可重复行为断言和失败归因，并将订单/退款模拟 API 的业务规则、可观测性、回归和有界负载采样纳入一套可复查工程。',
     workflow: [
-      '26 固定合成 Agent cases',
+      '38 固定合成 Agent cases',
       'Deterministic Mock / rule assertions',
       'Run + case result + trace',
       'Order / refund simulator API',
@@ -109,19 +109,20 @@ export const caseStudyProjects: CaseStudyProject[] = [
     ],
     stack: ['Vue 3', 'Spring Boot', 'Java 17', 'H2', 'k6', 'Prometheus', 'Alertmanager'],
     evidence: [
-      '26 cases: 24 behavior pass / 2 retained failures',
-      '8,103 local workflows / 40,515 HTTP requests',
-      '0 workflow failures / 0 dropped iterations in recorded load run',
-      'Active VU peak 1; not a production capacity result',
+      '38 Mock cases: 36 behavior pass / 2 retained failures',
+      '4,112 local workflows / 20,560 HTTP requests',
+      '50 active VU peak in a separate closed-loop ramp; 0 workflow failures / 0 dropped',
+      'Local Docker/H2 only; not production capacity evidence',
+      '40 model-eval drafts; 0/40 human-approved; not a benchmark',
       '30-minute local soak and alert drill evidence',
     ],
     boundary:
-      'Agent 默认使用确定性 Mock；可选 Provider 未在该轮外部调用。订单/退款只写本地模拟数据。k6 记录为单活跃 VU 的分阶段本机采样，不支持生产容量声明。',
+      'Agent 主链路使用确定性 Mock；另有 XEM CLI 探索性模型调用，但 40 条草案均未获人工审批，不能报告模型准确率。订单/退款只写本地 H2 模拟数据；50 VU 数据来自单独闭环阶梯，不代表生产容量。',
     resumeValue:
       '体现测试集与确定性断言、Agent 失败归因、业务 API 状态机、可观测性、稳定性采样和测试质量门禁。',
     preview: {
       src: '/images/projects/promptops/eval-overview-20261028.png',
-      alt: 'PromptOps Studio 26 条 Agent 合成测试用例的真实本地运行总览',
+      alt: 'PromptOps Studio Agent 合成测试用例的真实本地运行总览；截图是 2026-10-28 的 26-case 历史界面快照',
       caption: 'Recorded deterministic Mock Agent evaluation / local run',
       source: 'ai-agent-eval-promptops · docs/images/agent-eval-overview-rc-final-20261028.png',
     },
@@ -378,13 +379,13 @@ export const evidenceGroups: EvidenceGroup[] = [
       {
         index: 'E08',
         label: 'Agent test matrix',
-        detail: '26 个原创合成用例；该次 Mock 运行有 24 条 Agent 行为通过、2 条失败',
+        detail: 'Mock 数据集 1.1.0 有 38 个原创合成用例；最新验收 36 条行为通过、2 条失败',
         projects: ['EVAL'],
       },
       {
         index: 'E09',
         label: 'Local business load report',
-        detail: '8,103 工作流、40,515 HTTP 请求；记录为本地模拟系统和单活跃 VU 采样',
+        detail: '闭环阶梯 4,112 工作流 / 20,560 HTTP 请求 / peak 50 VUs；另保留旧 arrival-rate 历史结果。均为本地 H2 模拟。',
         projects: ['EVAL'],
       },
       {

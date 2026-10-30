@@ -774,17 +774,17 @@ export const promptOpsDetail = {
     },
     {
       label: 'Evidence',
-      value: '26 Agent cases / 8,103 local workflows / CI reports',
+      value: '38 Mock cases / 4,112 local workflows / 50 VU local ramp',
       tone: 'orange',
     },
     {
       label: 'Boundary',
-      value: 'Deterministic Mock / local simulator / active VU peak 1',
+      value: 'Mock + draft model exploration / local Docker-H2 only',
       tone: 'green',
     },
   ] satisfies ProjectSummaryItem[],
   problem:
-    'Agent 质量不能只看一次人工演示。固定的 26 条合成用例把输入、预期行为和断言绑定到可保存运行、逐条结果、Trace 与失败归因；独立订单/退款模拟系统则用 HTTP 请求覆盖状态迁移、幂等和异常规则，并通过本地指标、告警与有界负载采样复核运行行为。',
+    'Agent 质量不能只看一次人工演示。固定的 38 条合成用例把输入、预期行为和断言绑定到可保存运行、逐条结果、Trace 与失败归因；独立订单/退款模拟系统则用 HTTP 请求覆盖状态迁移、幂等和异常规则，并通过本地指标、告警与有界负载采样复核运行行为。另有一套独立的真实模型探索数据，但人工 Gold 审核尚未完成。',
   problemSignals: [
     {
       label: 'AGENT EVAL',
@@ -796,14 +796,14 @@ export const promptOpsDetail = {
     },
     {
       label: 'BOUNDARY',
-      value: 'Mock 不等同于真实模型；本地 H2 模拟和单活跃 VU 采样不代表生产流量。',
+      value: 'Mock 不等同于真实模型；50 VU 是本地 H2 合成 API 观察，不代表生产流量。',
     },
   ],
   architecture: [
     {
       index: '01',
       title: 'Fixed Dataset / Cases',
-      detail: '26 条原创合成 Agent 用例覆盖输入、工具、安全、完成状态和 Trace 规则。',
+      detail: 'Mock 数据集 1.1.0 有 38 条原创合成 Agent 用例，覆盖输入、工具、安全、完成状态和 Trace 规则。',
       layer: 'entry',
     },
     {
@@ -839,7 +839,7 @@ export const promptOpsDetail = {
     {
       index: '07',
       title: 'CI Evidence',
-      detail: 'GitHub Actions 校验本地 Mock API 与报告；未发送外部模型请求。',
+      detail: 'GitHub Actions 校验本地 Mock API 与报告；浏览器 UI/CI 不会调用真实模型。',
       layer: 'evidence',
     },
   ] satisfies ArchitectureNode[],
@@ -889,9 +889,9 @@ export const promptOpsDetail = {
     {
       index: 'S01',
       title: 'Agent Eval Overview',
-      description: '显示已保存 Mock 运行、累计用例、行为失败和当前质量门禁状态。',
+      description: '2026-10-28 的真实浏览器快照；当时显示 26-case Mock 运行与行为失败。',
       src: '/images/projects/promptops/eval-overview-20261028.png',
-      alt: 'PromptOps Studio Agent 评测总览真实浏览器截图，显示 Mock 模式和本地运行统计',
+      alt: 'PromptOps Studio 2026-10-28 Agent 评测总览真实浏览器截图；显示当时的 26-case Mock 模式',
       source: 'ai-agent-eval-promptops · docs/images/agent-eval-overview-rc-final-20261028.png',
       featured: true,
     },
@@ -947,13 +947,13 @@ export const promptOpsDetail = {
         {
           index: 'E01',
           title: 'Dataset + Case IDs',
-          detail: '数据集 1.0.2 包含 26 个唯一 case ID、输入、预期行为、类别与可执行断言。',
+          detail: 'Mock 数据集 1.1.0 包含 38 个唯一 case ID、输入、预期行为、类别与可执行断言。',
           scope: 'Synthetic test data',
         },
         {
           index: 'E02',
           title: 'Mock / Provider boundary',
-          detail: '默认确定性 Mock Agent；可选兼容 Provider 要求通过环境变量配置，本轮未发送外部请求。',
+          detail: 'Agent 主链路默认确定性 Mock；另有独立 XEM CLI 模型探索，40 条草案金标人工批准 0 条。',
           scope: 'Mock by default',
         },
         {
@@ -1021,7 +1021,7 @@ export const promptOpsDetail = {
         {
           index: 'E11',
           title: 'Acceptance Evidence',
-          detail: '最新记录包含 26 条 Agent 用例、8,103 条本地业务工作流与固定视口的真实浏览器证据。',
+          detail: '最新 Mock 验收为 38 条；2026-10-30 单独 k6 闭环阶梯运行完成 4,112 个本地工作流，峰值 50 active VU。总览截图是 2026-10-28 的 26-case 历史快照。',
           scope: 'Local evidence',
         },
       ],
@@ -1044,10 +1044,10 @@ export const promptOpsDetail = {
       description: '明确不做的生产声明',
       items: [
         '不包含真实用户数据、线上用户、商业落地、生产流量、收益或 SLA。',
-        '最新验收未发起外部模型请求；不声明真实模型质量、准确率、成本或 latency。',
-        '未启用 LLM-as-Judge、多模型对比、RAG、异步队列或生产监控。',
+        '另有 XEM CLI exploratory run，Gold 人工批准 0/40、benchmark_eligible=false；不声明真实模型准确率、排名或成本。',
+        '尚未通过人工审核金标完成正式多模型比较；未启用 LLM-as-Judge、RAG、异步队列或生产监控。',
         'Human Review 结论不持久化，不代表生产审批记录或权限系统。',
-        'k6 记录是本机分阶段采样，活跃 VU 峰值为 1，不作为生产容量结论。',
+        'k6 有两个分开的本地场景：旧 arrival-rate active VU peak=1；新闭环 ramp active VU peak=50。均不作为生产容量结论。',
       ],
       tone: 'negative',
     },
@@ -1078,15 +1078,15 @@ export const promptOpsDetail = {
     },
     {
       index: 'Q03',
-      question: '8,103 条工作流能说明系统能承载大规模流量吗？',
+      question: '4,112 条工作流和 50 个 VU 能说明系统能承载生产级流量吗？',
       answer:
-        '不能。它们来自本地订单/退款模拟 API 的分阶段 k6 采样，报告里的活跃 VU 峰值为 1。该数字只能说明指定条件下完成了这些工作流，不能推算生产并发或容量。',
+        '不能。它们来自本地订单/退款模拟 API 的闭环 k6 阶梯；这次 active VU 峰值 50，只能说明本机 Docker/H2 条件下完成了这些工作流。还没有生产环境、分布式压测机、生产级依赖与目标 SLO 验证，不能推算线上容量。',
     },
     {
       index: 'Q04',
       question: '真实模型评测是否已经验收？',
       answer:
-        '还没有。项目支持可选 OpenAI-compatible Provider，但当前公开验收使用本地 Mock；未将任何真实模型质量或成本指标写入结果。',
+        '只有探索性观察，不能称为模型验收。两条 DeepSeek 路由对 24 条 development 草案各运行一次，48 组合中 43 匹配未审核草案断言、5 个未匹配；人工审核 0/40、成本字段未返回，benchmark_eligible=false。先审核 Gold，再做重复运行和正式比较。',
     },
   ] satisfies InterviewQA[],
 }
@@ -1101,7 +1101,7 @@ export const giteaQualityDetail = {
   summary: [
     { label: 'Role', value: 'Test Development / Open-source QA', tone: 'orange' },
     { label: 'Target', value: 'Gitea 28.2.0 / local Docker Compose', tone: 'green' },
-    { label: 'CI evidence', value: '24 harness unit + 16 API / UI / persistence cases', tone: 'orange' },
+    { label: 'CI evidence', value: '27 harness unit + 18 API / UI / persistence cases', tone: 'orange' },
     { label: 'Boundary', value: 'Local open-source target / no production traffic', tone: 'green' },
   ] satisfies ProjectSummaryItem[],
   problem:
@@ -1176,7 +1176,7 @@ export const giteaQualityDetail = {
       description: '仓库中可复核的验证内容',
       items: [
         '目标为固定版本 Gitea 28.2.0 和 SQLite，本地 Docker Compose 与 GitHub Actions 都能启动隔离实例。',
-        '本地记录包含 24 个测试框架单测、16 个 API/浏览器/持久化集成用例和 JSON/JUnit/HTML 证据。',
+        '最新本地记录包含 27 个测试框架单测、18 个 API/浏览器/持久化集成用例和 JSON/JUnit/HTML 证据。',
         '失败 Trace 的安全诊断独立记录，故意失败不计入通过套件。',
       ],
       tone: 'positive',

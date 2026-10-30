@@ -251,11 +251,29 @@ async function launchBrowser() {
 }
 
 async function waitForPageReady(page) {
-  await page.evaluate(async () => {
-    await document.fonts.ready
-    await Promise.all(Array.from(document.images, (image) => image.decode().catch(() => undefined)))
-  })
-  await page.waitForTimeout(900)
+  await Promise.race([
+    page.evaluate(async () => {
+      await document.fonts.ready
+      await Promise.all(Array.from(document.images, (image) => image.decode().catch(() => undefined)))
+    }),
+    page.waitForTimeout(5000),
+  ])
+  await page.waitForTimeout(250)
+}
+
+async function loadLazyImages(page) {
+  const images = page.locator('img')
+  for (let index = 0; index < await images.count(); index += 1) {
+    const image = images.nth(index)
+    await image.scrollIntoViewIfNeeded()
+    await page.waitForFunction(
+      (element) => element.complete && element.naturalWidth > 0,
+      await image.elementHandle(),
+      { timeout: 10000 },
+    )
+  }
+  await page.evaluate(() => window.scrollTo(0, 0))
+  await waitForPageReady(page)
 }
 
 function parseRgb(value) {
@@ -285,11 +303,13 @@ async function checkPrimaryNavigation(browser, url) {
     viewport: { width: 1366, height: 900 },
     deviceScaleFactor: 1,
   })
+  page.setDefaultTimeout(10000)
+  page.setDefaultNavigationTimeout(15000)
   const pageErrors = []
   page.on('pageerror', (error) => pageErrors.push(error.message))
 
   try {
-    await page.goto(new URL('/', url).toString(), { waitUntil: 'networkidle' })
+    await page.goto(new URL('/', url).toString(), { waitUntil: 'domcontentloaded', timeout: 15000 })
     await page.getByRole('link', { name: /查看测试项目/ }).click()
     await page.waitForURL('**/projects')
     await page.locator('#gitea-quality-lab').waitFor()
@@ -308,7 +328,7 @@ async function checkPrimaryNavigation(browser, url) {
       throw new Error(`Gitea detail has ${giteaImages} broken screenshot image(s)`)
     }
 
-    await page.goto(new URL('/projects', url).toString(), { waitUntil: 'networkidle' })
+    await page.goto(new URL('/projects', url).toString(), { waitUntil: 'domcontentloaded', timeout: 15000 })
     await page
       .locator('#promptops .case-card__details--available')
       .filter({ hasText: 'Case Study' })
@@ -354,6 +374,7 @@ try {
   browser = await launchBrowser()
 
   for (const check of viewportChecks) {
+    console.log(`Checking ${check.route} at ${check.width}px`)
     const page = await browser.newPage({
       viewport: {
         width: check.width,
@@ -363,19 +384,26 @@ try {
     })
 
     const checkUrl = new URL(check.route, url).toString()
-    await page.goto(checkUrl, { waitUntil: 'networkidle' })
+    page.setDefaultTimeout(10000)
+    page.setDefaultNavigationTimeout(15000)
+    await page.goto(checkUrl, { waitUntil: 'domcontentloaded', timeout: 15000 })
     await waitForPageReady(page)
 
     const metrics = await page.evaluate(() => ({
       scrollWidth: document.documentElement.scrollWidth,
       innerWidth: window.innerWidth,
-      hasMountainHero: Boolean(document.querySelector('.mountain-hero')),
-      hasMountainImage: Boolean(document.querySelector('img[src="/images/hero/ai-mountain-hero.png"]')),
-      homepageCanvas: document.querySelector('.portfolio-home')
-        ? getComputedStyle(document.querySelector('.portfolio-home')).backgroundImage
+      evidenceHero: Boolean(document.querySelector('[data-testid="portfolio-evidence-hero"]')),
+      evidenceHeroImageLoaded: (() => {
+        const image = document.querySelector('[data-testid="portfolio-evidence-hero"] img')
+        return Boolean(image && image.complete && image.naturalWidth > 0)
+      })(),
+      projectRows: document.querySelectorAll('[data-testid="home-project-row"]').length,
+      generatedMountain: Boolean(document.querySelector('img[src*="ai-mountain-hero"]')),
+      homepageBackground: document.querySelector('.portfolio-home')
+        ? getComputedStyle(document.querySelector('.portfolio-home')).backgroundColor
         : '',
-      fitHeadingColor: document.querySelector('#fit-title')
-        ? getComputedStyle(document.querySelector('#fit-title')).color
+      heroHeadingColor: document.querySelector('#page-title')
+        ? getComputedStyle(document.querySelector('#page-title')).color
         : '',
     }))
 
@@ -385,33 +413,50 @@ try {
       )
     }
 
-    if (check.route === '/' && (!metrics.hasMountainHero || !metrics.hasMountainImage)) {
-      throw new Error(`Mountain hero was not found on homepage at ${check.width}px`)
+    if (check.route === '/' && (!metrics.evidenceHero || !metrics.evidenceHeroImageLoaded || metrics.generatedMountain)) {
+      throw new Error(`Evidence-first hero is missing or still uses the generated mountain at ${check.width}px`)
     }
 
     if (check.route === '/') {
-      const foreground = parseRgb(metrics.fitHeadingColor)
-      const backgroundStops = [...metrics.homepageCanvas.matchAll(/rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)/g)]
-        .map(([color]) => parseRgb(color))
-
-      if (backgroundStops.length < 2) {
-        throw new Error(`Homepage canvas gradient is missing color stops at ${check.width}px`)
+      if (metrics.projectRows !== 2) {
+        throw new Error(`Expected two primary evidence rows at ${check.width}px; found ${metrics.projectRows}`)
       }
 
-      const lowestContrast = Math.min(...backgroundStops.map((background) => contrastRatio(foreground, background)))
-      if (lowestContrast < 4.5) {
-        throw new Error(
-          `Homepage fit heading contrast is ${lowestContrast.toFixed(2)}:1 at ${check.width}px; expected at least 4.5:1`,
+      const foreground = parseRgb(metrics.heroHeadingColor)
+      const background = parseRgb(metrics.homepageBackground)
+      const headingContrast = contrastRatio(foreground, background)
+      if (headingContrast < 4.5) {
+        throw new Error(`Homepage hero heading contrast is ${headingContrast.toFixed(2)}:1 at ${check.width}px; expected at least 4.5:1`)
+      }
+
+      const evidenceImages = page.locator('[data-testid="home-project-row"] img')
+      for (let index = 0; index < await evidenceImages.count(); index += 1) {
+        const image = evidenceImages.nth(index)
+        await image.scrollIntoViewIfNeeded()
+        await page.waitForFunction(
+          (element) => element.complete && element.naturalWidth > 0,
+          await image.elementHandle(),
+          { timeout: 10000 },
         )
+      }
+      const brokenEvidenceImages = await evidenceImages.evaluateAll((images) =>
+        images
+          .filter((image) => !image.complete || image.naturalWidth === 0)
+          .map((image) => image.currentSrc || image.src),
+      )
+      if (!metrics.evidenceHeroImageLoaded || brokenEvidenceImages.length > 0) {
+        throw new Error(`Homepage has ${brokenEvidenceImages.length + (metrics.evidenceHeroImageLoaded ? 0 : 1)} broken evidence screenshot(s) at ${check.width}px: ${brokenEvidenceImages.join(', ')}`)
       }
     }
 
     await page.close()
   }
 
+  console.log('Checking primary project navigation and detail screenshots')
   await checkPrimaryNavigation(browser, url)
 
   for (const capture of captures) {
+    console.log(`Capturing ${capture.route} at ${capture.width}px`)
     const page = await browser.newPage({
       viewport: {
         width: capture.width,
@@ -421,9 +466,12 @@ try {
     })
 
     const captureUrl = new URL(capture.route, url).toString()
+    page.setDefaultTimeout(10000)
+    page.setDefaultNavigationTimeout(15000)
 
-    await page.goto(captureUrl, { waitUntil: 'networkidle' })
+    await page.goto(captureUrl, { waitUntil: 'domcontentloaded', timeout: 15000 })
     await waitForPageReady(page)
+    await loadLazyImages(page)
     await page.screenshot({ path: capture.path, fullPage: capture.fullPage ?? false })
     await page.close()
   }
